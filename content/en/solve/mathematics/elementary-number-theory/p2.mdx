@@ -1,0 +1,52 @@
+---
+title: "Fermat's Little Theorem"
+description: "Prove Fermat's Little Theorem: if p is prime and a is not divisible by p, then aᵖ⁻¹ ≡ 1 (mod p)."
+problemNumber: 2
+difficulty: "medium"
+points: 25
+subject: "mathematics"
+field: "elementary-number-theory"
+topics: ["fermats-little-theorem", "modular-arithmetic", "prime-numbers"]
+prerequisites: ["modular-arithmetic", "congruences", "group-theory-basics"]
+estimatedTime: "25-30 minutes"
+hints:
+  - "Consider the set {a, 2a, 3a, ..., (p-1)a} modulo p."
+  - "Show these are all distinct modulo p."
+  - "Therefore, they're a permutation of {1, 2, 3, ..., p-1}."
+  - "Multiply all elements together and use properties of congruences."
+---
+
+# Problem 2: Fermat's Little Theorem
+
+## Problem Statement
+
+Prove **Fermat's Little Theorem**:
+
+If $p$ is a prime number and $a$ is an integer not divisible by $p$, then:
+$$a^{p-1} \equiv 1 \pmod{p}$$
+
+## Required Topics
+
+- Prime numbers
+- Modular arithmetic
+- Congruences
+- Multiplicative properties
+- Permutations
+
+## Definitions
+
+**Congruence modulo p**: $a \equiv b \pmod{p}$ means $p \mid (a-b)$.
+
+**Relatively prime**: $\gcd(a,p) = 1$ (which is automatic when $p$ is prime and $p \nmid a$).
+
+## Strategy
+
+1. Consider the set $S = \{a, 2a, 3a, \ldots, (p-1)a\}$
+2. Show all elements of $S$ are distinct modulo $p$
+3. Therefore, $S \equiv \{1, 2, 3, \ldots, p-1\} \pmod{p}$ (as sets)
+4. Take the product of all elements
+5. Simplify to get the result
+
+## Corollary
+
+For any integer $a$ and prime $p$: $a^p \equiv a \pmod{p}$

@@ -1,0 +1,44 @@
+---
+title: "First Isomorphism Theorem"
+description: "Apply the First Isomorphism Theorem to prove that the quotient group G/ker(φ) is isomorphic to the image of φ."
+problemNumber: 4
+difficulty: "hard"
+points: 35
+subject: "mathematics"
+field: "abstract-algebra"
+topics: ["isomorphism-theorems", "quotient-groups", "homomorphisms"]
+prerequisites: ["group-homomorphisms", "normal-subgroups", "quotient-groups"]
+estimatedTime: "30-40 minutes"
+hints:
+  - "Define the induced map φ̄: G/ker(φ) → Im(φ) by φ̄(g·ker(φ)) = φ(g)."
+  - "Show that φ̄ is well-defined (independent of coset representative)."
+  - "Prove φ̄ is a homomorphism using properties of φ."
+  - "Show injectivity using the kernel, and surjectivity by definition of image."
+---
+
+# Problem 4: First Isomorphism Theorem
+
+## Problem Statement
+
+Let $\phi: G \to H$ be a group homomorphism.
+
+Prove the **First Isomorphism Theorem**: 
+$$G/\ker(\phi) \cong \text{Im}(\phi)$$
+
+where $\ker(\phi) = \{g \in G : \phi(g) = e_H\}$ is the kernel and $\text{Im}(\phi) = \{\phi(g) : g \in G\}$ is the image.
+
+## Required Topics
+
+- Group homomorphisms
+- Kernels and images
+- Normal subgroups
+- Quotient groups
+- Isomorphisms
+
+## What to Prove
+
+1. $\ker(\phi)$ is a normal subgroup of $G$
+2. Define an isomorphism $\bar{\phi}: G/\ker(\phi) \to \text{Im}(\phi)$
+3. Show $\bar{\phi}$ is well-defined
+4. Prove $\bar{\phi}$ is a homomorphism
+5. Prove $\bar{\phi}$ is bijective (injective and surjective)

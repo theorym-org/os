@@ -1,0 +1,45 @@
+---
+title: "Continuity and Uniform Continuity"
+description: "Prove that f(x) = x² is continuous on ℝ but not uniformly continuous on ℝ."
+problemNumber: 2
+difficulty: "medium"
+points: 25
+subject: "mathematics"
+field: "real-analysis"
+topics: ["continuity", "uniform-continuity", "functions"]
+prerequisites: ["epsilon-delta-definition", "function-properties"]
+estimatedTime: "25-30 minutes"
+hints:
+  - "For continuity at a point, δ can depend on both ε and the point."
+  - "For uniform continuity, δ must work for all points simultaneously."
+  - "To show not uniformly continuous, find sequences xₙ, yₙ with |xₙ - yₙ| → 0 but |f(xₙ) - f(yₙ)| ≥ ε."
+  - "Try xₙ = n and yₙ = n + 1/n for large n."
+---
+
+# Problem 2: Continuity and Uniform Continuity
+
+## Problem Statement
+
+Consider the function $f: \mathbb{R} \to \mathbb{R}$ defined by $f(x) = x^2$.
+
+Prove that:
+1. $f$ is continuous on $\mathbb{R}$
+2. $f$ is **not** uniformly continuous on $\mathbb{R}$
+
+## Required Topics
+
+- Epsilon-delta definition of continuity
+- Uniform continuity
+- Sequential characterization of continuity
+- Counterexample construction
+
+## Definitions
+
+**Continuity at a point**: $f$ is continuous at $c$ if for every $\varepsilon > 0$, there exists $\delta > 0$ such that $|x - c| < \delta$ implies $|f(x) - f(c)| < \varepsilon$.
+
+**Uniform Continuity**: $f$ is uniformly continuous on $A$ if for every $\varepsilon > 0$, there exists $\delta > 0$ such that for all $x, y \in A$, $|x - y| < \delta$ implies $|f(x) - f(y)| < \varepsilon$.
+
+## What to Prove
+
+1. Show continuity at an arbitrary point $c \in \mathbb{R}$
+2. Find sequences that violate uniform continuity

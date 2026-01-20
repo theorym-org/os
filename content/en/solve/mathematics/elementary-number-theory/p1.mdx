@@ -1,0 +1,47 @@
+---
+title: "Euclidean Algorithm and GCD"
+description: "Use the Euclidean algorithm to find gcd(1071, 462) and express it as a linear combination."
+problemNumber: 1
+difficulty: "easy"
+points: 15
+subject: "mathematics"
+field: "elementary-number-theory"
+topics: ["euclidean-algorithm", "gcd", "bezouts-identity"]
+prerequisites: ["division-algorithm", "basic-number-theory"]
+estimatedTime: "15-20 minutes"
+hints:
+  - "Apply the division algorithm repeatedly: a = bq + r where 0 ≤ r < b."
+  - "The GCD is the last non-zero remainder."
+  - "Work backwards to express the GCD as a linear combination."
+  - "Use the extended Euclidean algorithm for the linear combination."
+---
+
+# Problem 1: Euclidean Algorithm and GCD
+
+## Problem Statement
+
+Using the Euclidean algorithm:
+
+1. Find $\gcd(1071, 462)$
+2. Express the GCD as a linear combination: $\gcd(1071, 462) = 1071s + 462t$ for integers $s$ and $t$
+
+## Required Topics
+
+- Division algorithm
+- Euclidean algorithm
+- Greatest common divisor (GCD)
+- Bézout's identity
+- Extended Euclidean algorithm
+
+## The Euclidean Algorithm
+
+For integers $a$ and $b$ with $a > b > 0$:
+1. Divide: $a = bq + r$ where $0 \leq r < b$
+2. If $r = 0$, then $\gcd(a,b) = b$
+3. Otherwise, replace $(a,b)$ with $(b,r)$ and repeat
+
+## What to Find
+
+1. Show all steps of the Euclidean algorithm
+2. Find the GCD
+3. Work backwards to find integers $s$ and $t$

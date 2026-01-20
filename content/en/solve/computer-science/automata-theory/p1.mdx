@@ -1,0 +1,68 @@
+---
+title: "DFA Construction"
+description: "Construct a deterministic finite automaton (DFA) that accepts all binary strings containing an even number of 1s."
+problemNumber: 1
+difficulty: "easy"
+points: 15
+subject: "computer-science"
+field: "automata-theory"
+topics: ["dfa", "finite-automata", "regular-languages"]
+prerequisites: ["automata-basics", "state-machines"]
+estimatedTime: "15-20 minutes"
+hints:
+  - "You need two states: one for even count of 1s, one for odd count."
+  - "The initial state should be the even state (zero 1s is even)."
+  - "On reading a 1, transition between states."
+  - "On reading a 0, stay in the current state."
+---
+
+# Problem 1: DFA Construction
+
+## Problem Statement
+
+Construct a **deterministic finite automaton (DFA)** that accepts the language:
+$$L = \{w \in \{0,1\}^* : w \text{ contains an even number of 1s}\}$$
+
+## Required Topics
+
+- Deterministic finite automata (DFA)
+- State machines
+- Transition functions
+- Regular languages
+- Accept/reject states
+
+## DFA Definition
+
+A DFA is a 5-tuple $(Q, \Sigma, \delta, q_0, F)$ where:
+- $Q$ = finite set of states
+- $\Sigma$ = input alphabet
+- $\delta: Q \times \Sigma \to Q$ = transition function
+- $q_0 \in Q$ = initial state
+- $F \subseteq Q$ = set of accept states
+
+## What to Provide
+
+1. **State set $Q$**: List all states needed
+2. **Alphabet $\Sigma$**: $\{0, 1\}$
+3. **Transition function $\delta$**: Give complete transition table
+4. **Initial state $q_0$**: Specify which state
+5. **Accept states $F$**: Which states are accepting?
+
+## Example Format
+
+**States**: $Q = \{q_0, q_1\}$
+
+**Transition Table**:
+
+| State | Input 0 | Input 1 |
+|-------|---------|---------|
+| $q_0$ | ?       | ?       |
+| $q_1$ | ?       | ?       |
+
+## Verification
+
+Test your DFA on:
+- $\varepsilon$ (empty string) → accept (0 ones is even)
+- $1$ → reject (1 one is odd)
+- $11$ → accept (2 ones is even)
+- $101$ → reject (2 ones... wait, that's even!)

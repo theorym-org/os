@@ -1,0 +1,49 @@
+---
+title: "Prove Binary Search Correctness"
+description: "Prove that binary search correctly finds an element in a sorted array using loop invariants."
+problemNumber: 6
+difficulty: "medium"
+points: 25
+subject: "computer-science"
+field: "algorithms"
+topics: ["binary-search", "loop-invariants", "algorithm-correctness"]
+prerequisites: ["basic-algorithms", "mathematical-induction"]
+estimatedTime: "20-30 minutes"
+hints:
+  - "Define a loop invariant that describes what is true at the start of each iteration."
+  - "A good invariant: If the target exists in the array, it is in arr[low..high]."
+  - "Prove initialization, maintenance, and termination."
+  - "Show that the algorithm terminates because high - low decreases each iteration."
+---
+
+# Problem 6: Prove Binary Search Correctness
+
+## Problem Statement
+
+Consider the following binary search algorithm:
+
+```python
+def binary_search(arr, target):
+    low, high = 0, len(arr) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1
+```
+
+Prove the correctness of this algorithm using the loop invariant technique. Your proof should include:
+
+1. **Initialization**: The invariant holds before the first iteration.
+2. **Maintenance**: If the invariant holds before an iteration, it holds after.
+3. **Termination**: The loop terminates and the invariant implies correctness.
+
+## Required Topics
+
+- Loop invariants
+- Algorithm correctness proofs
+- Binary search properties

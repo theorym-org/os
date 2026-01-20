@@ -1,0 +1,178 @@
+---
+# Basic Information
+title: "Abstract Algebra: Group Theory Fundamentals"
+description: "This is an example page demonstrating extended frontmatter capabilities"
+
+# Course Structure
+subject: "mathematics"
+field: "abstract-algebra"
+chapter: 1
+difficulty: "beginner"
+estimatedReadingTime: "15 min"
+
+# Learning Framework
+prerequisites: ["linear-algebra", "basic-proofs", "set-theory"]
+objectives: [
+  "Understand the fundamental concepts of group theory",
+  "Apply group axioms to verify algebraic structures", 
+  "Develop rigorous mathematical reasoning skills",
+  "Connect abstract theory with concrete examples"
+]
+tags: ["group-theory", "fundamentals"]
+
+---
+
+import { PendulumSimulator } from "@/components/simulators/physics/Pendulum"
+import { Brachistochrone } from "@/components/simulators/physics/Brachistochrone"
+import { GasProperties } from "@/components/simulators/physics/GasProperties"
+import { ParticlesInABox } from "@/components/simulators/physics/ParticlesInABox"
+import { WaveInterference } from "@/components/simulators/physics/WaveInterference"
+
+import { EquationCard } from "@/components/simulators/EquationCard"
+import { EquationCalculatorCard } from "@/components/simulators/EquationCalculatorCard"
+import { GraphCard } from "@/components/simulators/GraphCard"
+import { QuizCard } from "@/components/simulators/QuizCard"
+
+# Abstract Algebra: Group Theory Fundamentals
+
+This chapter introduces the fundamental concepts of group theory, one of the most important algebraic structures in mathematics. We'll explore the definition of groups, examine key properties, and work through concrete examples.
+
+## What is a Group?
+
+A **group** is a set $G$ together with a binary operation $\star$ that satisfies four key properties:
+
+1. **Closure**: For all $a, b \in G$, we have $a \star b \in G$
+2. **Associativity**: For all $a, b, c \in G$, we have $(a \star b) \star c = a \star (b \star c)$
+3. **Identity Element**: There exists an element $e \in G$ such that $e \star a = a \star e = a$ for all $a \in G$
+4. **Inverse Elements**: For each $a \in G$, there exists an element $a^{-1} \in G$ such that $a \star a^{-1} = a^{-1} \star a = e$
+
+## Examples of Groups
+
+### The Integers under Addition
+The set $\mathbb{Z}$ with the operation of addition forms a group:
+- **Closure**: The sum of any two integers is an integer
+- **Associativity**: $(a + b) + c = a + (b + c)$ for all integers $a, b, c$
+- **Identity**: $0$ is the additive identity
+- **Inverses**: For any integer $a$, its additive inverse is $-a$
+
+### Symmetric Groups
+The set of all permutations of $n$ elements forms the symmetric group $S_n$ under function composition.
+
+## Interactive Learning Tools
+
+### 1. Equation
+
+<EquationCard
+  title="Group Axioms"
+  description="The four group axioms"
+  equation="G = (G, \star)"
+  equationUnit="G = (G, \star)"
+/>
+
+
+### 2. Group Order Calculator
+
+<EquationCalculatorCard
+  title="Newton's Gravitational Force"
+  description="Calculate the gravitational force between two masses using Newton's law of universal gravitation"
+  equation="F = G \frac{m_1 m_2}{r^2}"
+  equationUnit="N = \frac{kg \cdot m}{s^2}"
+     equationLegend={[
+    { symbol: 'F', name: 'Force', description: 'Force', unit: 'N' },
+    { symbol: 'G', name: 'Gravitational Constant', description: 'Universal gravitational constant', unit: 'N \\cdot m^2 \\cdot kg^{-2}' },
+    { symbol: 'm_1', name: 'Mass 1', description: 'First mass', unit: 'kg' },
+    { symbol: 'm_2', name: 'Mass 2', description: 'Second mass', unit: 'kg' },
+    { symbol: 'r', name: 'Distance', description: 'Distance between centers of masses', unit: 'm' }
+  ]}
+  variables={[
+    { symbol: 'm_1', name: 'Mass 1', description: 'First mass', unit: 'kg' },
+    { symbol: 'm_2', name: 'Mass 2', description: 'Second mass', unit: 'kg' },
+    { symbol: 'r', name: 'Distance', description: 'Distance between centers of masses', unit: 'm' },
+  ]}
+  calculateFunction="newton-gravity"
+  resultUnit="N"
+/>
+
+### 3. Group Operation Visualization
+
+<GraphCard
+  title="Group Operation Graph"
+  description="Visualize group operations and their properties"
+  width={600}
+  height={400}
+  xAxisLabel="Group Elements"
+  yAxisLabel="Operation Results"
+  showGrid={true}
+  showLegend={true}
+  autoScale={true}
+  xMin={-5}
+  xMax={5}
+  yMin={-5}
+  yMax={5}
+/>
+
+### 4. Group Theory Quiz
+
+<QuizCard
+  title="Group Theory Fundamentals Quiz"
+  description="Test your understanding of group theory basics"
+  questions={[
+    {
+      id: "q1",
+      title: "Group Axioms",
+      text: "Which of the following is NOT one of the four group axioms?",
+      type: "single",
+      answers: [
+        { id: "a1", text: "Closure", isCorrect: false },
+        { id: "a2", text: "Associativity", isCorrect: false },
+        { id: "a3", text: "Commutativity", isCorrect: true },
+        { id: "a4", text: "Identity Element", isCorrect: false }
+      ],
+      explanation: "Commutativity is not required for a group. While some groups are commutative (called abelian groups), it's not one of the four fundamental axioms."
+    },
+    {
+      id: "q2",
+      title: "Group Examples",
+      text: "Which of the following sets with their operations form groups?",
+      type: "multiple",
+      answers: [
+        { id: "b1", text: "Integers under addition", isCorrect: true },
+        { id: "b2", text: "Real numbers under multiplication", isCorrect: false },
+        { id: "b3", text: "Non-zero real numbers under multiplication", isCorrect: true },
+        { id: "b4", text: "Natural numbers under addition", isCorrect: false }
+      ],
+      explanation: "Integers under addition form a group. Non-zero real numbers under multiplication form a group. Real numbers under multiplication fail because 0 has no multiplicative inverse. Natural numbers under addition fail because they lack additive inverses."
+    },
+    {
+      id: "q3",
+      title: "Group Properties",
+      text: "What is the identity element in the group of integers under addition?",
+      type: "single",
+      answers: [
+        { id: "c1", text: "1", isCorrect: false },
+        { id: "c2", text: "0", isCorrect: true },
+        { id: "c3", text: "A", isCorrect: false },
+        { id: "c4", text: "There is no identity element", isCorrect: false }
+      ],
+      explanation: "0 is the additive identity because for any integer a, we have 0 + a = a + 0 = a."
+    }
+  ]}
+/>
+
+## Key Takeaways
+
+Understanding groups is fundamental to:
+- Abstract algebra and ring theory
+- Galois theory and field extensions  
+- Geometry and symmetry analysis
+- Cryptography and coding theory
+
+This foundation will prepare you for more advanced topics in modern algebra. 
+
+## Physics Simulators
+
+<PendulumSimulator />
+<Brachistochrone />
+<GasProperties />
+<ParticlesInABox />
+<WaveInterference />

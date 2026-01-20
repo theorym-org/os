@@ -1,0 +1,62 @@
+---
+title: "Pumping Lemma for Regular Languages"
+description: "Use the pumping lemma to prove that L = {0ⁿ1ⁿ : n ≥ 0} is not a regular language."
+problemNumber: 2
+difficulty: "medium"
+points: 25
+subject: "computer-science"
+field: "automata-theory"
+topics: ["pumping-lemma", "regular-languages", "proof-by-contradiction"]
+prerequisites: ["regular-languages", "dfa", "proof-techniques"]
+estimatedTime: "25-30 minutes"
+hints:
+  - "Assume for contradiction that L is regular."
+  - "Let p be the pumping length from the pumping lemma."
+  - "Choose string s = 0ᵖ1ᵖ (which is in L and |s| ≥ p)."
+  - "The pumping lemma says s = xyz where |xy| ≤ p, so xy consists only of 0s."
+---
+
+# Problem 2: Pumping Lemma for Regular Languages
+
+## Problem Statement
+
+Use the **Pumping Lemma for Regular Languages** to prove that the language:
+$$L = \{0^n1^n : n \geq 0\}$$
+is **not regular**.
+
+## Required Topics
+
+- Pumping lemma
+- Regular languages
+- Proof by contradiction
+- String decomposition
+- DFA limitations
+
+## The Pumping Lemma
+
+If $L$ is a regular language, then there exists a pumping length $p \geq 1$ such that:
+
+For every string $s \in L$ with $|s| \geq p$, there exists a decomposition $s = xyz$ satisfying:
+1. $|y| > 0$ (y is non-empty)
+2. $|xy| \leq p$ (xy occurs within first p symbols)
+3. For all $i \geq 0$: $xy^iz \in L$ (can pump y any number of times)
+
+## Proof Strategy
+
+1. **Assume** (for contradiction) that $L$ is regular
+2. **Apply** the pumping lemma: there exists pumping length $p$
+3. **Choose** a specific string $s \in L$ with $|s| \geq p$
+4. **Consider** all possible decompositions $s = xyz$ satisfying conditions 1 and 2
+5. **Find** some $i$ such that $xy^iz \notin L$
+6. **Conclude** contradiction, so $L$ is not regular
+
+## Suggested String
+
+Choose $s = 0^p 1^p$ (clearly in $L$ and $|s| = 2p \geq p$).
+
+## What to Show
+
+1. Explain where $y$ must be located (hint: in the first $p$ symbols)
+2. What does $y$ consist of? (only 0s, only 1s, or mixed?)
+3. Find an $i$ such that $xy^iz$ has unequal numbers of 0s and 1s
+4. Conclude $xy^iz \notin L$, contradicting the pumping lemma

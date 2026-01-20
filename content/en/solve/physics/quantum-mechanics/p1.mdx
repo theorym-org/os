@@ -1,0 +1,54 @@
+---
+title: "Particle in a Box"
+description: "Solve the Schrödinger equation for a particle confined in a one-dimensional infinite potential well."
+problemNumber: 1
+difficulty: "medium"
+points: 25
+subject: "physics"
+field: "quantum-mechanics"
+topics: ["schrodinger-equation", "infinite-potential-well", "wave-functions"]
+prerequisites: ["differential-equations", "boundary-conditions", "quantum-basics"]
+estimatedTime: "25-30 minutes"
+hints:
+  - "Inside the box (0 < x < L), the potential is V = 0."
+  - "The time-independent Schrödinger equation becomes: -ℏ²/(2m) d²ψ/dx² = Eψ."
+  - "General solution: ψ(x) = A sin(kx) + B cos(kx)."
+  - "Apply boundary conditions: ψ(0) = 0 and ψ(L) = 0."
+---
+
+# Problem 1: Particle in a Box
+
+## Problem Statement
+
+A particle of mass $m$ is confined to a one-dimensional box (infinite potential well) of length $L$:
+
+$$V(x) = \begin{cases} 0 & \text{if } 0 < x < L \\ \infty & \text{otherwise} \end{cases}$$
+
+1. Solve the time-independent Schrödinger equation inside the box
+2. Find the allowed energy levels $E_n$
+3. Find the normalized wave functions $\psi_n(x)$
+
+## Required Topics
+
+- Time-independent Schrödinger equation
+- Boundary conditions
+- Wave function normalization
+- Energy quantization
+- Second-order differential equations
+
+## The Schrödinger Equation
+
+Inside the box where $V = 0$:
+$$-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} = E\psi$$
+
+## Boundary Conditions
+
+- $\psi(0) = 0$ (wave function vanishes at walls)
+- $\psi(L) = 0$ (wave function vanishes at walls)
+- $\int_0^L |\psi(x)|^2 dx = 1$ (normalization)
+
+## What to Find
+
+1. Allowed energy eigenvalues: $E_n$ (quantized energies)
+2. Corresponding eigenfunctions: $\psi_n(x)$ for $n = 1, 2, 3, \ldots$
+3. Show that energies are proportional to $n^2$

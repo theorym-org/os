@@ -1,0 +1,41 @@
+---
+title: "Normal Subgroup Characterization"
+description: "Prove that H is a normal subgroup of G if and only if gHg⁻¹ = H for all g in G."
+problemNumber: 2
+difficulty: "medium"
+points: 25
+subject: "mathematics"
+field: "abstract-algebra"
+topics: ["normal-subgroups", "conjugation", "group-theory"]
+prerequisites: ["subgroups", "cosets"]
+estimatedTime: "25-30 minutes"
+hints:
+  - "For the forward direction (⇒), assume H ⊴ G and use the definition."
+  - "For the backward direction (⇐), show that left and right cosets coincide."
+  - "Remember that gHg⁻¹ = {ghg⁻¹ : h ∈ H}."
+  - "Normal subgroups are exactly those where conjugation preserves the subgroup."
+---
+
+# Problem 2: Normal Subgroup Characterization
+
+## Problem Statement
+
+Let $G$ be a group and $H$ be a subgroup of $G$.
+
+Prove that $H$ is a normal subgroup of $G$ (denoted $H \trianglelefteq G$) if and only if 
+$$gHg^{-1} = H \quad \text{for all } g \in G$$
+
+where $gHg^{-1} = \{ghg^{-1} : h \in H\}$ is the conjugate of $H$ by $g$.
+
+## Required Topics
+
+- Subgroups and cosets
+- Normal subgroups
+- Conjugation in groups
+- Set equality proofs
+
+## Key Definitions
+
+**Normal Subgroup**: $H \trianglelefteq G$ if $gH = Hg$ for all $g \in G$ (left and right cosets are equal).
+
+**Conjugation**: The conjugate of $h$ by $g$ is $ghg^{-1}$.

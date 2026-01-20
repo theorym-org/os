@@ -1,0 +1,50 @@
+---
+title: "Central Force Motion"
+description: "Prove that angular momentum is conserved for a particle moving under a central force."
+problemNumber: 2
+difficulty: "medium"
+points: 25
+subject: "physics"
+field: "classical-mechanics"
+topics: ["central-forces", "angular-momentum", "conservation-laws"]
+prerequisites: ["newton-laws", "vector-calculus", "cross-products"]
+estimatedTime: "20-25 minutes"
+hints:
+  - "Angular momentum is L = r × p = r × mv."
+  - "Take the time derivative: dL/dt = d(r × p)/dt."
+  - "Use the product rule for cross products."
+  - "A central force has the form F = f(r)r̂, where r̂ is the unit radial vector."
+---
+
+# Problem 2: Central Force Motion
+
+## Problem Statement
+
+A particle of mass $m$ moves under the influence of a central force $\mathbf{F} = f(r)\hat{\mathbf{r}}$, where $f(r)$ is some function of the distance $r = |\mathbf{r}|$ from the origin, and $\hat{\mathbf{r}} = \mathbf{r}/r$ is the unit radial vector.
+
+Prove that the angular momentum $\mathbf{L} = \mathbf{r} \times \mathbf{p}$ is conserved (constant in time).
+
+## Required Topics
+
+- Newton's second law
+- Central forces
+- Angular momentum
+- Vector cross products
+- Time derivatives of vector quantities
+- Conservation laws
+
+## Definitions
+
+**Central Force**: A force directed along the line connecting the particle to the origin:
+$$\mathbf{F} = f(r)\hat{\mathbf{r}}$$
+
+**Angular Momentum**: 
+$$\mathbf{L} = \mathbf{r} \times \mathbf{p} = \mathbf{r} \times m\mathbf{v}$$
+
+## What to Prove
+
+Show that $\frac{d\mathbf{L}}{dt} = \mathbf{0}$, which means angular momentum is conserved.
+
+## Key Identity
+
+Product rule for cross products: $\frac{d}{dt}(\mathbf{A} \times \mathbf{B}) = \frac{d\mathbf{A}}{dt} \times \mathbf{B} + \mathbf{A} \times \frac{d\mathbf{B}}{dt}$

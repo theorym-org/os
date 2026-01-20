@@ -1,0 +1,46 @@
+---
+title: "Bolzano-Weierstrass Theorem"
+description: "Use the Bolzano-Weierstrass Theorem to prove that every bounded sequence has a convergent subsequence."
+problemNumber: 3
+difficulty: "hard"
+points: 30
+subject: "mathematics"
+field: "real-analysis"
+topics: ["sequences", "subsequences", "compactness", "bolzano-weierstrass"]
+prerequisites: ["sequences", "boundedness", "convergence"]
+estimatedTime: "30-40 minutes"
+hints:
+  - "Use the bisection method to construct nested intervals."
+  - "Each interval should contain infinitely many terms of the sequence."
+  - "The intersection of nested closed intervals is non-empty."
+  - "Show that the subsequence converges to a point in this intersection."
+---
+
+# Problem 3: Bolzano-Weierstrass Theorem
+
+## Problem Statement
+
+Prove the **Bolzano-Weierstrass Theorem**:
+
+Every bounded sequence in $\mathbb{R}$ has a convergent subsequence.
+
+## Required Topics
+
+- Bounded sequences
+- Subsequences
+- Nested interval property
+- Monotone subsequences
+- Completeness of real numbers
+
+## Definitions
+
+**Bounded Sequence**: A sequence $\{a_n\}$ is bounded if there exists $M > 0$ such that $|a_n| \leq M$ for all $n$.
+
+**Subsequence**: A sequence $\{a_{n_k}\}$ where $n_1 < n_2 < n_3 < \cdots$ are indices from $\mathbb{N}$.
+
+## Strategy
+
+Given a bounded sequence $\{a_n\}$:
+1. Show that $\{a_n\}$ is contained in some closed interval $[a, b]$
+2. Use bisection to construct nested intervals containing infinitely many terms
+3. Extract a convergent subsequence using the nested intervals

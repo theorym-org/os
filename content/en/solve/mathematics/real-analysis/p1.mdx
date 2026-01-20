@@ -1,0 +1,43 @@
+---
+title: "Prove Convergence of a Sequence"
+description: "Show that the sequence aₙ = 1/n converges to 0 using the epsilon-delta definition."
+problemNumber: 1
+difficulty: "easy"
+points: 10
+subject: "mathematics"
+field: "real-analysis"
+topics: ["sequences", "limits", "epsilon-delta"]
+prerequisites: ["basic-calculus"]
+estimatedTime: "10-15 minutes"
+hints:
+  - "Use the epsilon-delta definition of a limit."
+  - "For any ε > 0, you need to find N such that n > N implies |1/n - 0| < ε."
+  - "Try N = ⌈1/ε⌉ (ceiling of 1/ε)."
+  - "Remember that for n > N, we have 1/n < 1/N < ε."
+---
+
+# Problem 1: Prove Convergence of a Sequence
+
+## Problem Statement
+
+Prove that the sequence $\{a_n\}$ defined by $a_n = \frac{1}{n}$ converges to $0$ as $n \to \infty$.
+
+Use the $\varepsilon$-$\delta$ definition of sequence convergence to construct a rigorous proof.
+
+## Required Topics
+
+- Definition of sequence convergence
+- Epsilon-delta proofs
+- Archimedean property of real numbers
+- Inequality manipulation
+
+## Definition of Convergence
+
+A sequence $\{a_n\}$ converges to $L$ if:
+
+For every $\varepsilon > 0$, there exists $N \in \mathbb{N}$ such that for all $n > N$:
+$$|a_n - L| < \varepsilon$$
+
+## What to Prove
+
+Show that $\lim_{n \to \infty} \frac{1}{n} = 0$ by finding an explicit $N$ in terms of $\varepsilon$.

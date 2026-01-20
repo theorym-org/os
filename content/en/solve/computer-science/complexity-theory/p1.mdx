@@ -1,0 +1,63 @@
+---
+title: "NP-Completeness Proof"
+description: "Prove that the 3-SAT problem is NP-complete using reduction from SAT."
+problemNumber: 1
+difficulty: "hard"
+points: 35
+subject: "computer-science"
+field: "complexity-theory"
+topics: ["np-completeness", "reductions", "3-sat", "satisfiability"]
+prerequisites: ["complexity-classes", "boolean-logic", "reductions"]
+estimatedTime: "35-45 minutes"
+hints:
+  - "First show 3-SAT is in NP (easy: guess assignment and verify)."
+  - "Then reduce SAT to 3-SAT (harder)."
+  - "For clauses with k > 3 literals, introduce new variables."
+  - "A clause (x₁ ∨ x₂ ∨ x₃ ∨ x₄) can be split using auxiliary variable y."
+---
+
+# Problem 1: NP-Completeness of 3-SAT
+
+## Problem Statement
+
+Prove that **3-SAT** is NP-complete.
+
+**3-SAT**: Given a boolean formula in conjunctive normal form (CNF) where each clause has exactly 3 literals, determine if there exists a satisfying assignment.
+
+## Required Topics
+
+- NP-completeness
+- Polynomial-time reductions
+- Boolean satisfiability
+- CNF (Conjunctive Normal Form)
+- Cook-Levin theorem (SAT is NP-complete)
+
+## What to Prove
+
+To show 3-SAT is NP-complete, you must prove two things:
+
+1. **3-SAT ∈ NP**: Show that a solution can be verified in polynomial time
+2. **3-SAT is NP-hard**: Show that SAT ≤ₚ 3-SAT (reduce SAT to 3-SAT in polynomial time)
+
+## Definitions
+
+**SAT**: Given a boolean formula in CNF (clauses can have any number of literals), is it satisfiable?
+
+**3-SAT**: Given a boolean formula in CNF where each clause has exactly 3 literals, is it satisfiable?
+
+**Reduction**: $A \leq_p B$ means we can transform any instance of problem $A$ into an instance of problem $B$ in polynomial time.
+
+## Strategy for Reduction (SAT → 3-SAT)
+
+Given a SAT formula with clauses of varying sizes:
+
+- **1 literal**: $(x_1)$ → convert to $(x_1 \vee x_1 \vee x_1)$
+- **2 literals**: $(x_1 \vee x_2)$ → convert to $(x_1 \vee x_2 \vee x_2)$
+- **3 literals**: $(x_1 \vee x_2 \vee x_3)$ → keep as is
+- **k > 3 literals**: Split using auxiliary variables
+
+For a clause with $k > 3$ literals $(x_1 \vee x_2 \vee \cdots \vee x_k)$:
+- Introduce new variables $y_1, y_2, \ldots, y_{k-3}$
+- Replace with: $(x_1 \vee x_2 \vee y_1) \wedge (\neg y_1 \vee x_3 \vee y_2) \wedge \cdots$
+
+Show that the original formula is satisfiable ⟺ the new 3-SAT formula is satisfiable.

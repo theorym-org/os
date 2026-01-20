@@ -1,0 +1,53 @@
+---
+title: "Heisenberg Uncertainty Principle"
+description: "Derive the Heisenberg uncertainty relation ΔxΔp ≥ ℏ/2 using commutator algebra."
+problemNumber: 2
+difficulty: "hard"
+points: 35
+subject: "physics"
+field: "quantum-mechanics"
+topics: ["uncertainty-principle", "commutators", "operators"]
+prerequisites: ["quantum-operators", "expectation-values", "linear-algebra"]
+estimatedTime: "35-45 minutes"
+hints:
+  - "Use the Cauchy-Schwarz inequality: ⟨φ|φ⟩⟨ψ|ψ⟩ ≥ |⟨φ|ψ⟩|²."
+  - "Define operators: Δx̂ = x̂ - ⟨x̂⟩ and Δp̂ = p̂ - ⟨p̂⟩."
+  - "Use the commutator: [x̂, p̂] = iℏ."
+  - "For any operators A and B: [A,B] = AB - BA."
+---
+
+# Problem 2: Heisenberg Uncertainty Principle
+
+## Problem Statement
+
+Derive the **Heisenberg Uncertainty Principle** for position and momentum:
+$$\Delta x \cdot \Delta p \geq \frac{\hbar}{2}$$
+
+where $\Delta x$ and $\Delta p$ are the standard deviations of position and momentum measurements.
+
+## Required Topics
+
+- Quantum operators
+- Commutation relations
+- Expectation values and standard deviations
+- Cauchy-Schwarz inequality
+- Operator algebra
+
+## Key Definitions
+
+**Standard deviation**: 
+$$\Delta A = \sqrt{\langle A^2 \rangle - \langle A \rangle^2}$$
+
+**Commutator of position and momentum**:
+$$[\hat{x}, \hat{p}] = \hat{x}\hat{p} - \hat{p}\hat{x} = i\hbar$$
+
+**Cauchy-Schwarz inequality**: For any states $|\phi\rangle$ and $|\psi\rangle$:
+$$\langle\phi|\phi\rangle \langle\psi|\psi\rangle \geq |\langle\phi|\psi\rangle|^2$$
+
+## What to Prove
+
+1. Express $(\Delta x)^2$ and $(\Delta p)^2$ in terms of expectation values
+2. Define $\Delta\hat{x} = \hat{x} - \langle\hat{x}\rangle$ and $\Delta\hat{p} = \hat{p} - \langle\hat{p}\rangle$
+3. Show that $[\Delta\hat{x}, \Delta\hat{p}] = i\hbar$
+4. Apply Cauchy-Schwarz to states $\Delta\hat{x}|\psi\rangle$ and $\Delta\hat{p}|\psi\rangle$
+5. Derive the uncertainty relation

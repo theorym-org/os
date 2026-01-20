@@ -1,0 +1,60 @@
+---
+title: "Quantum Harmonic Oscillator"
+description: "Find the ground state energy and wave function of the quantum harmonic oscillator."
+problemNumber: 3
+difficulty: "medium"
+points: 30
+subject: "physics"
+field: "quantum-mechanics"
+topics: ["harmonic-oscillator", "ladder-operators", "ground-state"]
+prerequisites: ["schrodinger-equation", "gaussian-integrals", "hermite-polynomials"]
+estimatedTime: "30-35 minutes"
+hints:
+  - "The potential is V(x) = ½mω²x²."
+  - "Try a Gaussian ansatz: ψ₀(x) = Ae^(-αx²)."
+  - "Substitute into the Schrödinger equation and solve for α and E₀."
+  - "The ground state energy is E₀ = ½ℏω."
+---
+
+# Problem 3: Quantum Harmonic Oscillator
+
+## Problem Statement
+
+A quantum harmonic oscillator has potential energy:
+$$V(x) = \frac{1}{2}m\omega^2 x^2$$
+
+Find:
+1. The ground state energy $E_0$
+2. The normalized ground state wave function $\psi_0(x)$
+
+## Required Topics
+
+- Time-independent Schrödinger equation
+- Gaussian wave functions
+- Normalization integrals
+- Quantum harmonic oscillator
+- Zero-point energy
+
+## The Schrödinger Equation
+
+$$-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + \frac{1}{2}m\omega^2x^2\psi = E\psi$$
+
+## Strategy
+
+1. Try a Gaussian form: $\psi_0(x) = Ae^{-\alpha x^2}$
+2. Compute the first and second derivatives
+3. Substitute into the Schrödinger equation
+4. Match coefficients to find $\alpha$ and $E_0$
+5. Normalize to find $A$
+
+## Useful Integral
+
+$$\int_{-\infty}^{\infty} e^{-ax^2} dx = \sqrt{\frac{\pi}{a}}$$
+
+$$\int_{-\infty}^{\infty} x^2 e^{-ax^2} dx = \frac{1}{2}\sqrt{\frac{\pi}{a^3}}$$
+
+## What to Find
+
+1. Ground state energy: $E_0$ in terms of $\hbar$ and $\omega$
+2. Wave function: $\psi_0(x)$ (properly normalized)
+3. Show that $\alpha = \frac{m\omega}{2\hbar}$

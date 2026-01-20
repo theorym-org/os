@@ -1,0 +1,57 @@
+---
+title: "Lagrangian Mechanics - Double Pendulum"
+description: "Derive the equations of motion for a double pendulum using the Lagrangian formalism."
+problemNumber: 3
+difficulty: "hard"
+points: 35
+subject: "physics"
+field: "classical-mechanics"
+topics: ["lagrangian-mechanics", "pendulum", "generalized-coordinates"]
+prerequisites: ["calculus", "trigonometry", "analytical-mechanics"]
+estimatedTime: "35-45 minutes"
+hints:
+  - "Choose angles θ₁ and θ₂ as generalized coordinates."
+  - "Express positions in Cartesian coordinates: x₁ = L₁sin(θ₁), y₁ = -L₁cos(θ₁), etc."
+  - "Find kinetic energy T = ½m₁v₁² + ½m₂v₂² where v includes both masses."
+  - "Find potential energy U = m₁gy₁ + m₂gy₂."
+  - "Use Euler-Lagrange equations: d/dt(∂L/∂θ̇ᵢ) - ∂L/∂θᵢ = 0."
+---
+
+# Problem 3: Lagrangian Mechanics - Double Pendulum
+
+## Problem Statement
+
+Consider a double pendulum consisting of:
+- First pendulum: mass $m_1$, length $L_1$, angle $\theta_1$ from vertical
+- Second pendulum: mass $m_2$, length $L_2$, angle $\theta_2$ from vertical (attached to $m_1$)
+
+Derive the equations of motion using the Lagrangian formalism.
+
+## Required Topics
+
+- Lagrangian mechanics
+- Euler-Lagrange equations
+- Generalized coordinates
+- Kinetic and potential energy
+- Coupled differential equations
+- Trigonometry
+
+## Setup
+
+**Generalized coordinates**: $\theta_1$ and $\theta_2$
+
+**Positions**:
+- Mass 1: $x_1 = L_1\sin\theta_1$, $y_1 = -L_1\cos\theta_1$
+- Mass 2: $x_2 = L_1\sin\theta_1 + L_2\sin\theta_2$, $y_2 = -L_1\cos\theta_1 - L_2\cos\theta_2$
+
+**Lagrangian**: $L = T - U$ (kinetic minus potential energy)
+
+## What to Derive
+
+1. Express $T$ (kinetic energy) in terms of $\theta_1$, $\theta_2$, $\dot{\theta}_1$, $\dot{\theta}_2$
+2. Express $U$ (potential energy) in terms of $\theta_1$ and $\theta_2$
+3. Form the Lagrangian $L = T - U$
+4. Apply Euler-Lagrange equations for both coordinates:
+   - $\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{\theta}_1}\right) - \frac{\partial L}{\partial \theta_1} = 0$
+   - $\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{\theta}_2}\right) - \frac{\partial L}{\partial \theta_2} = 0$
+5. Write out the two coupled differential equations
