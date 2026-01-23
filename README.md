@@ -38,25 +38,12 @@ Content is written in MDX (Markdown with JSX) and includes frontmatter with meta
 ---
 title: Introduction to Abstract Algebra
 description: Fundamental concepts of abstract algebra including groups, rings, and fields
-date: 2023-09-15
-lastModified: 2023-12-10
+
 subject: mathematics
 field: abstract-algebra
 chapter: 1
-difficulty: intermediate
-estimatedReadingTime: 15 minutes
-prerequisites: ["Linear Algebra", "Discrete Mathematics"]
-objectives: ["Understand group theory basics", "Learn about rings and fields"]
+
 tags: ["algebra", "groups", "rings", "fields"]
-contributors: [
-  {
-    "id": "1",
-    "username": "jsmith",
-    "displayName": "John Smith",
-    "contributions": 12,
-    "contributionType": "author"
-  }
-]
 ---
 
 # Introduction to Abstract Algebra

@@ -35,12 +35,8 @@ date: "YYYY-MM-DD"                   # Date of creation
 lastModified: "YYYY-MM-DD"           # Date of last modification
 chapter: 1                           # Chapter number (if applicable)
 section: "Section name"              # Section name (if applicable)
-difficulty: "beginner|intermediate|advanced"  # Content difficulty level
-estimatedReadingTime: "15 minutes"   # Estimated reading time
-prerequisites: ["Prerequisite 1", "Prerequisite 2"]  # Required knowledge
-objectives: ["Objective 1", "Objective 2"]          # Learning objectives
 tags: ["tag1", "tag2"]               # Content tags for categorization
-contributors:                        # List of contributors
+references:                        # List of contributors
   - id: "1"
     username: "username"
     displayName: "Display Name"
