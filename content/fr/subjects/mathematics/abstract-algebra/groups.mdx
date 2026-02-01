@@ -1,0 +1,415 @@
+---
+title: "Groupes"
+description: "Une introduction rigoureuse à la théorie des groupes, la structure algébrique fondamentale sous-jacente aux mathématiques modernes"
+
+subject: "Mathématiques"
+field: "Algèbre Abstraite"
+topic: "Théorie des Groupes"
+chapter: 1
+section: 1
+
+tags: ["Groupes", "Groupes Abéliens", "Sous-groupes", "Opérations Binaires", "Homomorphismes", "Isomorphismes", "Groupes Cycliques", "Permutations", "Groupes Symétriques"]
+---
+
+# Chapitre 1 : Groupes
+
+Le concept de *groupe* constitue l'une des idées les plus profondes et les plus influentes de toutes les mathématiques. Née de l'étude des équations polynomiales au début du XIXe siècle—grâce aux travaux révolutionnaires d'Évariste Galois—la théorie des groupes a depuis imprégné pratiquement toutes les branches des mathématiques et de la physique. Des symétries des figures géométriques à la structure des particules fondamentales, des protocoles cryptographiques à la classification des surfaces, les groupes fournissent le langage par lequel nous comprenons la symétrie et la structure.
+
+Ce chapitre développe la théorie des groupes à partir des premiers principes. Nous commençons par les axiomes qui définissent un groupe, nous établissons ensuite les propriétés fondamentales que tous les groupes partagent, puis nous explorons le riche paysage d'exemples qui motivent et éclairent la théorie abstraite.
+
+## 1.1 Opérations Binaires
+
+Avant de pouvoir définir un groupe, nous devons d'abord préciser ce que nous entendons par une *opération* sur un ensemble. Les opérations familières d'addition et de multiplication sur les nombres servent de prototypes, mais la notion abstraite est bien plus générale.
+
+<Definition number="1.1.1" name="Opération Binaire">
+Soit $S$ un ensemble non vide. Une **opération binaire** sur $S$ est une fonction
+$$\star : S \times S \to S$$
+qui associe à chaque couple ordonné $(a, b)$ d'éléments de $S$ un unique élément $a \star b$ de $S$.
+</Definition>
+
+L'exigence que $a \star b \in S$ pour tous $a, b \in S$ s'appelle la **fermeture**. Ce n'est pas un axiome supplémentaire mais plutôt une partie de ce que signifie être une opération binaire sur $S$. Lorsque nous écrivons $\star : S \times S \to S$, nous affirmons que l'opération prend deux éléments quelconques de $S$ et produit un élément de $S$.
+
+<Example number="1.1.2" name="Opérations Standard">
+Les suivantes sont des opérations binaires :
+1. Addition sur $\mathbb{Z}$ : pour tous $a, b \in \mathbb{Z}$, nous avons $a + b \in \mathbb{Z}$
+2. Multiplication sur $\mathbb{R}$ : pour tous $a, b \in \mathbb{R}$, nous avons $a \cdot b \in \mathbb{R}$
+3. Composition de fonctions : si $f, g : X \to X$, alors $f \circ g : X \to X$
+</Example>
+
+<Example number="1.1.3" name="Contre-exemples">
+Les suivantes ne sont pas des opérations binaires :
+1. Division sur $\mathbb{R}$ : $a / b$ n'est pas définie quand $b = 0$
+2. Soustraction sur $\mathbb{N}$ : $2 - 5 = -3 \notin \mathbb{N}$ (la fermeture échoue)
+</Example>
+
+<Definition number="1.1.4" name="Propriétés des Opérations Binaires">
+Soit $\star$ une opération binaire sur un ensemble $S$. Nous disons que $\star$ est :
+
+1. **Associative** si $(a \star b) \star c = a \star (b \star c)$ pour tous $a, b, c \in S$
+2. **Commutative** si $a \star b = b \star a$ pour tous $a, b \in S$
+</Definition>
+
+<Remark>
+L'associativité nous permet d'écrire $a \star b \star c$ sans ambiguïté. La commutativité, bien qu'étant une propriété agréable, n'est *pas* requise pour la plupart de notre théorie—et en fait, certains des groupes les plus importants sont non commutatifs.
+</Remark>
+
+## 1.2 La Définition d'un Groupe
+
+Nous arrivons maintenant à la définition centrale de ce chapitre. Un groupe est un ensemble muni d'une opération binaire satisfaisant trois axiomes fondamentaux.
+
+<Definition number="1.2.1" name="Groupe">
+Un **groupe** est un couple ordonné $(G, \star)$ où $G$ est un ensemble non vide et $\star$ est une opération binaire sur $G$ satisfaisant les axiomes suivants :
+
+**(G1) Associativité.** Pour tous $a, b, c \in G$ :
+$$(a \star b) \star c = a \star (b \star c)$$
+
+**(G2) Élément neutre.** Il existe un élément $e \in G$ tel que pour tout $a \in G$ :
+$$e \star a = a \star e = a$$
+
+**(G3) Inverses.** Pour chaque $a \in G$, il existe un élément $a^{-1} \in G$ tel que :
+$$a \star a^{-1} = a^{-1} \star a = e$$
+</Definition>
+
+<Remark>
+Plusieurs observations s'imposent :
+
+1. Les axiomes sont listés par ordre de généralité décroissante. De nombreuses structures algébriques satisfont seulement (G1) (semi-groupes) ou (G1) et (G2) (monoïdes). Les groupes requièrent les trois.
+
+2. La fermeture est implicite dans l'énoncé que $\star$ est une opération binaire sur $G$.
+
+3. L'axiome de l'élément neutre exige que $e$ soit un élément neutre *bilatère* : il doit fonctionner à la fois à gauche et à droite. De même, l'axiome des inverses exige des inverses *bilatères*.
+</Remark>
+
+<Definition number="1.2.2" name="Groupe Abélien">
+Un groupe $(G, \star)$ est dit **abélien** (ou **commutatif**) si pour tous $a, b \in G$ :
+$$a \star b = b \star a$$
+Le terme honore Niels Henrik Abel (1802–1829), qui a apporté des contributions fondamentales à la théorie des équations.
+</Definition>
+
+<Definition number="1.2.3" name="Ordre d'un Groupe">
+L'**ordre** d'un groupe $G$, noté $|G|$, est le cardinal de l'ensemble sous-jacent. Si $|G|$ est fini, nous disons que $G$ est un **groupe fini** ; sinon, $G$ est un **groupe infini**.
+</Definition>
+
+## 1.3 Propriétés Fondamentales
+
+Les axiomes d'un groupe, bien que minimaux, ont des conséquences puissantes. Nous établissons maintenant plusieurs propriétés fondamentales qui sont vraies dans *tout* groupe.
+
+<Theorem number="1.3.1" name="Unicité de l'Élément Neutre">
+Dans tout groupe $(G, \star)$, l'élément neutre est unique.
+</Theorem>
+
+<Proof>
+Supposons que $e$ et $e'$ soient tous deux des éléments neutres dans $G$. Nous allons montrer que $e = e'$.
+
+Puisque $e$ est un élément neutre, nous avons $e \star e' = e'$.
+
+Puisque $e'$ est un élément neutre, nous avons $e \star e' = e$.
+
+Par conséquent $e = e \star e' = e'$, comme requis.
+</Proof>
+
+<Theorem number="1.3.2" name="Unicité des Inverses">
+Dans tout groupe $(G, \star)$, chaque élément a un unique inverse.
+</Theorem>
+
+<Proof>
+Soit $a \in G$ et supposons que $b$ et $c$ soient tous deux des inverses de $a$. Alors :
+$$b = b \star e = b \star (a \star c) = (b \star a) \star c = e \star c = c$$
+où nous avons utilisé l'associativité et la propriété définissant les inverses.
+</Proof>
+
+L'unicité des inverses justifie notre notation $a^{-1}$ pour *l'*inverse de $a$.
+
+<Theorem number="1.3.3" name="Lois de Simplification">
+Soit $(G, \star)$ un groupe et soient $a, b, c \in G$. Alors :
+1. **Simplification à gauche :** Si $a \star b = a \star c$, alors $b = c$
+2. **Simplification à droite :** Si $b \star a = c \star a$, alors $b = c$
+</Theorem>
+
+<Proof>
+Nous prouvons la simplification à gauche ; la simplification à droite est similaire.
+
+Supposons $a \star b = a \star c$. En multipliant les deux côtés à gauche par $a^{-1}$ :
+$$a^{-1} \star (a \star b) = a^{-1} \star (a \star c)$$
+Par associativité :
+$$(a^{-1} \star a) \star b = (a^{-1} \star a) \star c$$
+Puisque $a^{-1} \star a = e$ :
+$$e \star b = e \star c$$
+Par conséquent $b = c$.
+</Proof>
+
+<Theorem number="1.3.4" name="Inverse d'un Produit">
+Soit $(G, \star)$ un groupe et soient $a, b \in G$. Alors :
+$$(a \star b)^{-1} = b^{-1} \star a^{-1}$$
+</Theorem>
+
+<Proof>
+Nous vérifions que $b^{-1} \star a^{-1}$ satisfait la propriété définissant l'inverse de $a \star b$ :
+$$(a \star b) \star (b^{-1} \star a^{-1}) = a \star (b \star b^{-1}) \star a^{-1} = a \star e \star a^{-1} = a \star a^{-1} = e$$
+De même, $(b^{-1} \star a^{-1}) \star (a \star b) = e$. Par unicité des inverses, $(a \star b)^{-1} = b^{-1} \star a^{-1}$.
+</Proof>
+
+<Remark>
+La formule $(ab)^{-1} = b^{-1}a^{-1}$ est parfois appelée la règle des « chaussettes et chaussures » : pour défaire l'action de mettre des chaussettes puis des chaussures, vous devez d'abord enlever les chaussures, puis les chaussettes. L'ordre s'inverse.
+</Remark>
+
+<Corollary number="1.3.5">
+Pour tout élément $a$ dans un groupe $G$ : $(a^{-1})^{-1} = a$.
+</Corollary>
+
+<Proof>
+L'élément $a$ satisfait $a^{-1} \star a = a \star a^{-1} = e$, ce qui est précisément la condition pour que $a$ soit l'inverse de $a^{-1}$.
+</Proof>
+
+## 1.4 Exemples de Groupes
+
+La définition abstraite d'un groupe englobe une énorme variété de structures mathématiques. Nous passons maintenant en revue les exemples les plus importants, qui serviront de références tout au long de notre étude.
+
+### Groupes Additifs de Nombres
+
+<Example number="1.4.1" name="Les Entiers">
+L'ensemble $\mathbb{Z}$ des entiers forme un groupe sous l'addition, noté $(\mathbb{Z}, +)$ :
+- **Fermeture :** La somme de deux entiers est un entier
+- **Associativité :** $(a + b) + c = a + (b + c)$ pour tous $a, b, c \in \mathbb{Z}$
+- **Élément neutre :** L'entier $0$ satisfait $0 + a = a + 0 = a$
+- **Inverses :** Pour chaque $a \in \mathbb{Z}$, l'entier $-a$ satisfait $a + (-a) = 0$
+
+Ce groupe est abélien et infini.
+</Example>
+
+<Example number="1.4.2" name="Nombres Rationnels, Réels et Complexes">
+De même, $(\mathbb{Q}, +)$, $(\mathbb{R}, +)$ et $(\mathbb{C}, +)$ sont tous des groupes abéliens sous l'addition.
+</Example>
+
+### Groupes Multiplicatifs
+
+<Example number="1.4.3" name="Rationnels Non Nuls">
+L'ensemble $\mathbb{Q}^* = \mathbb{Q} \setminus \{0\}$ forme un groupe sous la multiplication :
+- **Élément neutre :** Le nombre $1$ satisfait $1 \cdot a = a \cdot 1 = a$
+- **Inverses :** Pour chaque $a \in \mathbb{Q}^*$, le nombre $1/a$ satisfait $a \cdot (1/a) = 1$
+
+Notez que nous devons exclure $0$ car il n'a pas d'inverse multiplicatif.
+</Example>
+
+<Example number="1.4.4" name="Réels Positifs">
+L'ensemble $\mathbb{R}^+ = \{x \in \mathbb{R} : x > 0\}$ forme un groupe abélien sous la multiplication.
+</Example>
+
+### Arithmétique Modulaire
+
+<Example number="1.4.5" name="Entiers Modulo n">
+Pour tout entier positif $n$, l'ensemble $\mathbb{Z}/n\mathbb{Z} = \{0, 1, 2, \ldots, n-1\}$ forme un groupe sous l'addition modulo $n$ :
+- **Élément neutre :** $0$
+- **Inverse de $a$ :** $n - a$ (quand $a \neq 0$)
+
+C'est un groupe abélien fini d'ordre $n$.
+</Example>
+
+<Example number="1.4.6" name="Unités Modulo n">
+L'ensemble $(\mathbb{Z}/n\mathbb{Z})^* = \{a \in \mathbb{Z}/n\mathbb{Z} : \gcd(a, n) = 1\}$ forme un groupe sous la multiplication modulo $n$. L'ordre de ce groupe est $\phi(n)$, la fonction indicatrice d'Euler.
+</Example>
+
+### Groupes de Matrices
+
+<Example number="1.4.7" name="Groupe Linéaire Général">
+Le **groupe linéaire général** $\text{GL}_n(\mathbb{R})$ est constitué de toutes les matrices $n \times n$ inversibles à coefficients réels, sous la multiplication matricielle :
+$$\text{GL}_n(\mathbb{R}) = \{A \in M_n(\mathbb{R}) : \det(A) \neq 0\}$$
+C'est un groupe non abélien pour $n \geq 2$.
+</Example>
+
+<Example number="1.4.8" name="Groupe Linéaire Spécial">
+Le **groupe linéaire spécial** $\text{SL}_n(\mathbb{R}) = \{A \in \text{GL}_n(\mathbb{R}) : \det(A) = 1\}$ est un sous-groupe de $\text{GL}_n(\mathbb{R})$.
+</Example>
+
+### Groupes de Symétrie
+
+<Example number="1.4.9" name="Groupe Symétrique">
+Le **groupe symétrique** $S_n$ est constitué de toutes les bijections de $\{1, 2, \ldots, n\}$ vers lui-même, sous la composition de fonctions. Ces bijections sont appelées **permutations**.
+
+L'ordre de $S_n$ est $n!$ (factorielle). Pour $n \geq 3$, le groupe $S_n$ est non abélien.
+</Example>
+
+<Example number="1.4.10" name="Groupe Diédral">
+Le **groupe diédral** $D_n$ est le groupe des symétries d'un $n$-gone régulier, incluant à la fois les rotations et les réflexions. Il a pour ordre $2n$ et est non abélien pour $n \geq 3$.
+</Example>
+
+## 1.5 Sous-groupes
+
+Un *sous-groupe* est un sous-ensemble d'un groupe qui est lui-même un groupe sous l'opération héritée. Les sous-groupes sont fondamentaux pour comprendre la structure interne des groupes.
+
+<Definition number="1.5.1" name="Sous-groupe">
+Soit $(G, \star)$ un groupe. Un sous-ensemble $H \subseteq G$ est un **sous-groupe** de $G$, noté $H \leq G$, si $(H, \star)$ est lui-même un groupe sous la même opération.
+</Definition>
+
+<Theorem number="1.5.2" name="Critère de Sous-groupe">
+Soit $G$ un groupe et soit $H$ un sous-ensemble non vide de $G$. Alors $H$ est un sous-groupe de $G$ si et seulement si :
+1. Pour tous $a, b \in H$, nous avons $ab \in H$ (fermeture)
+2. Pour tout $a \in H$, nous avons $a^{-1} \in H$ (fermeture sous les inverses)
+</Theorem>
+
+<Proof>
+($\Rightarrow$) Si $H$ est un sous-groupe, alors c'est un groupe, donc il doit être fermé sous l'opération et sous la prise d'inverses.
+
+($\Leftarrow$) Supposons que $H$ satisfasse les conditions (1) et (2). Nous vérifions les axiomes de groupe :
+- **Associativité :** Héritée de $G$
+- **Élément neutre :** Puisque $H$ est non vide, il existe $a \in H$. Par (2), $a^{-1} \in H$. Par (1), $e = a \cdot a^{-1} \in H$.
+- **Inverses :** Donnés par la condition (2)
+- **Fermeture :** Donnée par la condition (1)
+</Proof>
+
+<Theorem number="1.5.3" name="Test de Sous-groupe en Une Étape">
+Soit $G$ un groupe et soit $H$ un sous-ensemble non vide de $G$. Alors $H \leq G$ si et seulement si pour tous $a, b \in H$, nous avons $ab^{-1} \in H$.
+</Theorem>
+
+<Example number="1.5.4" name="Sous-groupes Triviaux">
+Tout groupe $G$ a au moins deux sous-groupes :
+1. Le **sous-groupe trivial** $\{e\}$
+2. Le **sous-groupe impropre** $G$ lui-même
+
+Un sous-groupe $H$ avec $\{e\} \subsetneq H \subsetneq G$ est appelé un **sous-groupe propre non trivial**.
+</Example>
+
+<Example number="1.5.5" name="Sous-groupes des Entiers">
+Les sous-groupes de $(\mathbb{Z}, +)$ sont précisément les ensembles $n\mathbb{Z} = \{nk : k \in \mathbb{Z}\}$ pour $n \geq 0$. Ainsi :
+$$\{0\} \subsetneq \cdots \subsetneq 6\mathbb{Z} \subsetneq 3\mathbb{Z} \subsetneq \mathbb{Z}$$
+</Example>
+
+## 1.6 Homomorphismes de Groupes
+
+Un *homomorphisme* est une fonction entre groupes qui respecte la structure de groupe. Les homomorphismes sont les « applications préservant la structure » de la théorie des groupes.
+
+<Definition number="1.6.1" name="Homomorphisme de Groupes">
+Soient $(G, \star)$ et $(H, \cdot)$ des groupes. Une fonction $\phi : G \to H$ est un **homomorphisme** si pour tous $a, b \in G$ :
+$$\phi(a \star b) = \phi(a) \cdot \phi(b)$$
+</Definition>
+
+La condition dit que $\phi$ « respecte » ou « préserve » l'opération de groupe : combiner des éléments dans $G$ puis appliquer $\phi$ donne le même résultat qu'appliquer $\phi$ d'abord puis combiner dans $H$.
+
+<Theorem number="1.6.2" name="Propriétés des Homomorphismes">
+Soit $\phi : G \to H$ un homomorphisme de groupes. Alors :
+1. $\phi(e_G) = e_H$
+2. $\phi(a^{-1}) = \phi(a)^{-1}$ pour tout $a \in G$
+3. $\phi(a^n) = \phi(a)^n$ pour tout $a \in G$ et $n \in \mathbb{Z}$
+</Theorem>
+
+<Proof>
+(1) Nous avons $\phi(e_G) = \phi(e_G \cdot e_G) = \phi(e_G) \cdot \phi(e_G)$. En multipliant les deux côtés par $\phi(e_G)^{-1}$, nous obtenons $e_H = \phi(e_G)$.
+
+(2) Nous avons $\phi(a) \cdot \phi(a^{-1}) = \phi(a \cdot a^{-1}) = \phi(e_G) = e_H$. Ainsi $\phi(a^{-1})$ est l'inverse de $\phi(a)$.
+
+(3) Découle par récurrence en utilisant (1) et (2).
+</Proof>
+
+<Definition number="1.6.3" name="Noyau et Image">
+Soit $\phi : G \to H$ un homomorphisme.
+
+Le **noyau** de $\phi$ est :
+$$\ker(\phi) = \{a \in G : \phi(a) = e_H\}$$
+
+L'**image** de $\phi$ est :
+$$\text{im}(\phi) = \{\phi(a) : a \in G\} = \phi(G)$$
+</Definition>
+
+<Theorem number="1.6.4">
+Soit $\phi : G \to H$ un homomorphisme. Alors :
+1. $\ker(\phi)$ est un sous-groupe de $G$
+2. $\text{im}(\phi)$ est un sous-groupe de $H$
+</Theorem>
+
+<Definition number="1.6.5" name="Types d'Homomorphismes">
+Un homomorphisme $\phi : G \to H$ est appelé :
+- Un **monomorphisme** (ou **injection**) si $\phi$ est injectif
+- Un **épimorphisme** (ou **surjection**) si $\phi$ est surjectif
+- Un **isomorphisme** si $\phi$ est bijectif
+- Un **automorphisme** si $\phi : G \to G$ est un isomorphisme
+</Definition>
+
+<Theorem number="1.6.6">
+Un homomorphisme $\phi : G \to H$ est injectif si et seulement si $\ker(\phi) = \{e_G\}$.
+</Theorem>
+
+<Proof>
+($\Rightarrow$) Si $\phi$ est injectif et $\phi(a) = e_H$, alors $\phi(a) = \phi(e_G)$, donc $a = e_G$.
+
+($\Leftarrow$) Si $\ker(\phi) = \{e_G\}$ et $\phi(a) = \phi(b)$, alors $\phi(ab^{-1}) = \phi(a)\phi(b)^{-1} = e_H$, donc $ab^{-1} \in \ker(\phi) = \{e_G\}$, donnant $a = b$.
+</Proof>
+
+<Definition number="1.6.7" name="Groupes Isomorphes">
+Deux groupes $G$ et $H$ sont **isomorphes**, noté $G \cong H$, s'il existe un isomorphisme $\phi : G \to H$.
+</Definition>
+
+Les groupes isomorphes sont « essentiellement les mêmes » du point de vue algébrique—ils ont des propriétés de théorie des groupes identiques, ne différant que par les noms de leurs éléments.
+
+## 1.7 Groupes Cycliques
+
+Parmi tous les groupes, les groupes cycliques sont les plus simples et les mieux compris. Malgré leur simplicité, ils jouent un rôle central dans la théorie.
+
+<Definition number="1.7.1" name="Groupe Cyclique">
+Un groupe $G$ est **cyclique** s'il existe un élément $g \in G$ tel que tout élément de $G$ peut s'écrire comme une puissance de $g$ :
+$$G = \{g^n : n \in \mathbb{Z}\} = \langle g \rangle$$
+L'élément $g$ est appelé un **générateur** de $G$.
+</Definition>
+
+<Example number="1.7.2">
+Le groupe $(\mathbb{Z}, +)$ est cyclique avec générateur $1$ (ou $-1$). Tout entier est une « puissance » de $1$ sous l'addition : $n = 1 + 1 + \cdots + 1$ ($n$ fois).
+</Example>
+
+<Example number="1.7.3">
+Le groupe $\mathbb{Z}/n\mathbb{Z}$ est cyclique avec générateur $1$. C'est l'unique groupe cyclique d'ordre $n$, à isomorphisme près.
+</Example>
+
+<Theorem number="1.7.4" name="Classification des Groupes Cycliques">
+Tout groupe cyclique est isomorphe à $\mathbb{Z}$ (s'il est infini) ou à $\mathbb{Z}/n\mathbb{Z}$ pour un certain entier positif $n$ (s'il est fini d'ordre $n$).
+</Theorem>
+
+<Theorem number="1.7.5">
+Tout sous-groupe d'un groupe cyclique est cyclique.
+</Theorem>
+
+<Theorem number="1.7.6" name="Sous-groupes des Groupes Cycliques Finis">
+Soit $G = \langle g \rangle$ un groupe cyclique d'ordre $n$. Alors :
+1. Pour chaque diviseur $d$ de $n$, il existe exactement un sous-groupe d'ordre $d$
+2. Ce sous-groupe est $\langle g^{n/d} \rangle$
+</Theorem>
+
+## Exercices
+
+<Exercise number="1.1">
+Démontrez que dans tout groupe $G$, l'équation $ax = b$ a une unique solution pour tous $a, b \in G$.
+</Exercise>
+
+<Exercise number="1.2">
+Soit $G$ un groupe dans lequel $a^2 = e$ pour tout $a \in G$. Démontrez que $G$ est abélien.
+</Exercise>
+
+<Exercise number="1.3">
+Démontrez que $(\mathbb{Q}^*, \cdot)$ n'est pas cyclique.
+</Exercise>
+
+<Exercise number="1.4">
+Soit $\phi : G \to H$ un homomorphisme de groupes. Démontrez que si $G$ est abélien, alors $\text{im}(\phi)$ est abélien.
+</Exercise>
+
+<Exercise number="1.5">
+Déterminez tous les sous-groupes de $\mathbb{Z}/12\mathbb{Z}$ et dessinez le treillis des sous-groupes.
+</Exercise>
+
+## Résumé
+
+<Note>
+Ce chapitre a établi les fondements de la théorie des groupes :
+
+1. **Groupes** sont des ensembles munis d'une opération binaire associative, d'un élément neutre et d'inverses pour tous les éléments
+
+2. **Propriétés fondamentales** incluent l'unicité de l'élément neutre et des inverses, les lois de simplification, et la formule $(ab)^{-1} = b^{-1}a^{-1}$
+
+3. **Exemples** vont des systèmes de nombres sous l'addition ou la multiplication, aux groupes de matrices, aux groupes de symétrie d'objets géométriques
+
+4. **Sous-groupes** sont des sous-ensembles qui sont eux-mêmes des groupes sous l'opération héritée
+
+5. **Homomorphismes** sont des applications préservant la structure entre groupes ; les isomorphismes sont des homomorphismes bijectifs
+
+6. **Groupes cycliques** sont engendrés par un seul élément et sont complètement classifiés
+</Note>
+
+La théorie développée ici fournit la base pour tous les chapitres suivants. Au Chapitre 2, nous étudierons les *classes latérales* et le *théorème de Lagrange*, qui révèlent des connexions profondes entre un groupe et ses sous-groupes.
