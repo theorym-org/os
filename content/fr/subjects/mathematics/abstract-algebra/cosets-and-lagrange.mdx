@@ -1,0 +1,93 @@
+---
+title: "Classes Latérales et Théorème de Lagrange"
+description: "Un traitement rigoureux des classes latérales, du théorème de Lagrange et de ses conséquences fondamentales pour la structure des groupes finis"
+
+subject: "Mathématiques"
+field: "Algèbre Abstraite"
+topic: "Théorie des Groupes"
+chapter: 2
+section: 1
+
+tags: ["Classes Latérales", "Théorème de Lagrange", "Indice", "Groupes Finis", "Théorie des Groupes"]
+---
+
+# Classes Latérales et Théorème de Lagrange
+
+La théorie des classes latérales fournit la clé pour comprendre comment les sous-groupes se situent à l'intérieur des groupes. Lorsque nous partitionnons un groupe par un sous-groupe, nous obtenons une collection de "translations" appelées classes latérales, chacune ayant la même taille que le sous-groupe.
+
+## 2.1 Classes Latérales
+
+Soit $H$ un sous-groupe d'un groupe $G$. Nous voulons comprendre comment $H$ partitionne $G$ en morceaux disjoints.
+
+<Definition number="2.1.1" name="Classe Latérale Gauche">
+Soit $H$ un sous-groupe d'un groupe $G$ et soit $a \in G$. La **classe latérale gauche** de $H$ contenant $a$ est l'ensemble
+$$aH = \{ah : h \in H\}$$
+</Definition>
+
+<Definition number="2.1.2" name="Classe Latérale Droite">
+De même, la **classe latérale droite** de $H$ contenant $a$ est l'ensemble
+$$Ha = \{ha : h \in H\}$$
+</Definition>
+
+<Theorem number="2.1.5" name="Propriétés des Classes Latérales">
+Soit $H$ un sous-groupe d'un groupe $G$ et soient $a, b \in G$. Alors :
+1. $a \in aH$
+2. $aH = H$ si et seulement si $a \in H$
+3. $aH = bH$ si et seulement si $a^{-1}b \in H$
+4. $aH = bH$ ou $aH \cap bH = \emptyset$
+5. $|aH| = |H|$
+6. Les classes latérales gauches distinctes de $H$ partitionnent $G$
+</Theorem>
+
+<Definition number="2.1.7" name="Indice">
+L'**indice** de $H$ dans $G$, noté $[G:H]$, est le nombre de classes latérales gauches distinctes de $H$ dans $G$.
+</Definition>
+
+## 2.2 Théorème de Lagrange
+
+<Theorem number="2.2.1" name="Théorème de Lagrange">
+Soit $G$ un groupe fini et soit $H$ un sous-groupe de $G$. Alors $|H|$ divise $|G|$. Plus précisément :
+$$|G| = |H| \cdot [G:H]$$
+</Theorem>
+
+<Proof>
+Par le Théorème 2.1.5, les classes latérales gauches distinctes de $H$ partitionnent $G$. Soient ces classes $a_1H, a_2H, \ldots, a_kH$ où $k = [G:H]$. Comme les classes sont deux à deux disjointes et leur union est $G$ :
+$$|G| = |a_1H| + |a_2H| + \cdots + |a_kH| = k \cdot |H| = [G:H] \cdot |H|$$
+</Proof>
+
+## 2.3 Conséquences du Théorème de Lagrange
+
+<Corollary number="2.3.1" name="L'Ordre d'un Élément Divise l'Ordre du Groupe">
+Soit $G$ un groupe fini et soit $a \in G$. Alors l'ordre de $a$ divise $|G|$.
+</Corollary>
+
+<Corollary number="2.3.3" name="Groupes d'Ordre Premier">
+Soit $G$ un groupe d'ordre premier $p$. Alors $G$ est cyclique, et tout élément non identité est un générateur.
+</Corollary>
+
+<Corollary number="2.3.4" name="Petit Théorème de Fermat">
+Soit $p$ un nombre premier et soit $a$ un entier non divisible par $p$. Alors :
+$$a^{p-1} \equiv 1 \pmod{p}$$
+</Corollary>
+
+## Équations Clés
+
+<EquationCard
+  title="Théorème de Lagrange"
+  equation="|G| = |H| \cdot [G:H]"
+  variables={[
+    { symbol: "|G|", name: "Ordre de G", description: "Nombre d'éléments dans le groupe G" },
+    { symbol: "|H|", name: "Ordre de H", description: "Nombre d'éléments dans le sous-groupe H" },
+    { symbol: "[G:H]", name: "Indice", description: "Nombre de classes latérales distinctes de H dans G" }
+  ]}
+/>
+
+<EquationCard
+  title="Loi de la Tour"
+  equation="[G:K] = [G:H] \cdot [H:K]"
+  variables={[
+    { symbol: "[G:K]", name: "Indice de K dans G", description: "Nombre de classes latérales de K dans G" },
+    { symbol: "[G:H]", name: "Indice de H dans G", description: "Nombre de classes latérales de H dans G" },
+    { symbol: "[H:K]", name: "Indice de K dans H", description: "Nombre de classes latérales de K dans H" }
+  ]}
+/>

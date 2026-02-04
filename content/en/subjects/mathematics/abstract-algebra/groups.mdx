@@ -372,52 +372,21 @@ Let $G = \langle g \rangle$ be a cyclic group of order $n$. Then:
 2. This subgroup is $\langle g^{n/d} \rangle$
 </Theorem>
 
-## Exercises
-
-<Exercise number="1.1">
-Prove that in any group $G$, the equation $ax = b$ has a unique solution for any $a, b \in G$.
-</Exercise>
-
-<Exercise number="1.2">
-Let $G$ be a group in which $a^2 = e$ for all $a \in G$. Prove that $G$ is abelian.
-</Exercise>
-
-<Exercise number="1.3">
-Prove that $(\mathbb{Q}^*, \cdot)$ is not cyclic.
-</Exercise>
-
-<Exercise number="1.4">
-Let $\phi : G \to H$ be a group homomorphism. Prove that if $G$ is abelian, then $\text{im}(\phi)$ is abelian.
-</Exercise>
-
-<Exercise number="1.5">
-Determine all subgroups of $\mathbb{Z}/12\mathbb{Z}$ and draw the subgroup lattice.
-</Exercise>
-
 ## Practice Problems
 
-<ProblemLink
+<PracticeProblems
   subject="mathematics"
   field="abstract-algebra"
-  problemId="group-axioms-1"
-  title="Verify the group axioms for matrix groups"
-  difficulty="medium"
-/>
-
-<ProblemLink
-  subject="mathematics"
-  field="abstract-algebra"
-  problemId="homomorphism-1"
-  title="Determine the kernel and image of a homomorphism"
-  difficulty="medium"
-/>
-
-<ProblemLink
-  subject="mathematics"
-  field="abstract-algebra"
-  problemId="cyclic-1"
-  title="Find all generators of a cyclic group"
-  difficulty="easy"
+  problems={[
+    { id: "group-equation-1", title: "Prove that ax = b has a unique solution", difficulty: "easy" },
+    { id: "square-identity-abelian", title: "Prove groups with a² = e are abelian", difficulty: "easy" },
+    { id: "rationals-not-cyclic", title: "Prove (ℚ*, ·) is not cyclic", difficulty: "medium" },
+    { id: "homomorphism-abelian-image", title: "Prove image of abelian group is abelian", difficulty: "medium" },
+    { id: "subgroups-z12", title: "Determine all subgroups of ℤ/12ℤ", difficulty: "medium" },
+    { id: "group-axioms-1", title: "Verify the group axioms for matrix groups", difficulty: "medium" },
+    { id: "homomorphism-kernel-image", title: "Determine the kernel and image of a homomorphism", difficulty: "medium" },
+    { id: "cyclic-generators", title: "Find all generators of a cyclic group", difficulty: "easy" },
+  ]}
 />
 
 ## Open Problems
@@ -476,9 +445,71 @@ This problem, dating to the nineteenth century, connects group theory to field t
   ]}
 />
 
-## Summary
+## Chapter Review
 
-<Note>
+<ChapterQuiz
+  contentPath="mathematics/abstract-algebra/groups"
+  quizId="chapter-1-review"
+  questions={[
+    {
+      id: "q1",
+      question: "Which of the following is NOT a required axiom for a group?",
+      answers: [
+        { id: "a", text: "Associativity of the binary operation", isCorrect: false },
+        { id: "b", text: "Existence of an identity element", isCorrect: false },
+        { id: "c", text: "Commutativity of the binary operation", isCorrect: true },
+        { id: "d", text: "Existence of inverses for all elements", isCorrect: false }
+      ],
+      explanation: "Commutativity is not required for a group. Groups that are commutative are called abelian groups, but not all groups are abelian."
+    },
+    {
+      id: "q2",
+      question: "If G is a group and a, b ∈ G, what is (ab)⁻¹?",
+      answers: [
+        { id: "a", text: "a⁻¹b⁻¹", isCorrect: false },
+        { id: "b", text: "b⁻¹a⁻¹", isCorrect: true },
+        { id: "c", text: "(a⁻¹)(b⁻¹)", isCorrect: false },
+        { id: "d", text: "ab⁻¹", isCorrect: false }
+      ],
+      explanation: "The inverse of a product reverses the order: (ab)⁻¹ = b⁻¹a⁻¹. This is known as the 'socks and shoes' property."
+    },
+    {
+      id: "q3",
+      question: "What is the order of the element 3 in the group (ℤ/6ℤ, +)?",
+      answers: [
+        { id: "a", text: "2", isCorrect: true },
+        { id: "b", text: "3", isCorrect: false },
+        { id: "c", text: "6", isCorrect: false },
+        { id: "d", text: "1", isCorrect: false }
+      ],
+      explanation: "The order of 3 in ℤ/6ℤ is the smallest positive n such that 3n ≡ 0 (mod 6). Since 3·2 = 6 ≡ 0, the order is 2."
+    },
+    {
+      id: "q4",
+      question: "A homomorphism φ: G → H always maps the identity of G to:",
+      answers: [
+        { id: "a", text: "Any element of H", isCorrect: false },
+        { id: "b", text: "The identity of H", isCorrect: true },
+        { id: "c", text: "The inverse of some element in H", isCorrect: false },
+        { id: "d", text: "A generator of H", isCorrect: false }
+      ],
+      explanation: "Homomorphisms preserve the group structure, so they must map the identity to the identity: φ(eG) = eH."
+    },
+    {
+      id: "q5",
+      question: "Which of the following is a cyclic group?",
+      type: "single",
+      answers: [
+        { id: "a", text: "(ℤ, +)", isCorrect: true },
+        { id: "b", text: "(ℚ*, ·)", isCorrect: false },
+        { id: "c", text: "S₃", isCorrect: false },
+        { id: "d", text: "The Klein four-group V₄", isCorrect: false }
+      ],
+      explanation: "(ℤ, +) is cyclic, generated by 1 (or -1). The others are not cyclic: ℚ* has no element generating all rationals, S₃ is non-abelian, and V₄ has no element of order 4."
+    }
+  ]}
+>
+
 This chapter established the foundations of group theory:
 
 1. **Groups** are sets with an associative binary operation, an identity element, and inverses for all elements
@@ -492,6 +523,7 @@ This chapter established the foundations of group theory:
 5. **Homomorphisms** are structure-preserving maps between groups; isomorphisms are bijective homomorphisms
 
 6. **Cyclic groups** are generated by a single element and are completely classified
-</Note>
 
 The theory developed here provides the foundation for all subsequent chapters. In Chapter 2, we will study *cosets* and *Lagrange's theorem*, which reveal deep connections between a group and its subgroups.
+
+</ChapterQuiz>

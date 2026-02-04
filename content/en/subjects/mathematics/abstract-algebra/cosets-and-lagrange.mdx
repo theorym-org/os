@@ -1,0 +1,400 @@
+---
+title: "Cosets and Lagrange's Theorem"
+description: "A rigorous treatment of cosets, Lagrange's theorem, and their fundamental consequences for the structure of finite groups"
+
+subject: "Mathematics"
+field: "Abstract Algebra"
+topic: "Group Theory"
+chapter: 2
+section: 1
+
+tags: ["Cosets", "Lagrange's Theorem", "Index", "Finite Groups", "Group Theory"]
+---
+
+# Cosets and Lagrange's Theorem
+
+The theory of cosets provides the key to understanding how subgroups sit inside groups. When we partition a group by a subgroup, we obtain a collection of "translates" called cosets, each having the same size as the subgroup. This simple observation leads to one of the most important theorems in finite group theory: Lagrange's theorem, which asserts that the order of a subgroup must divide the order of the group.
+
+Lagrange's theorem, though elementary in its statement and proof, has profound consequences. It immediately implies that the order of any element divides the order of the group, provides necessary conditions for the existence of subgroups, and underlies much of the deeper structure theory of groups.
+
+## 2.1 Cosets
+
+Let $H$ be a subgroup of a group $G$. We wish to understand how $H$ partitions $G$ into disjoint pieces.
+
+<Definition number="2.1.1" name="Left Coset">
+Let $H$ be a subgroup of a group $G$ and let $a \in G$. The **left coset** of $H$ containing $a$ is the set
+$$aH = \{ah : h \in H\}$$
+The element $a$ is called a **representative** of the coset $aH$.
+</Definition>
+
+<Definition number="2.1.2" name="Right Coset">
+Similarly, the **right coset** of $H$ containing $a$ is the set
+$$Ha = \{ha : h \in H\}$$
+</Definition>
+
+<Remark>
+In general, left cosets and right cosets are different. However, when the group operation is written additively (as in abelian groups), we write $a + H = \{a + h : h \in H\}$, and left and right cosets coincide.
+</Remark>
+
+<Example number="2.1.3" name="Cosets in the Integers">
+Consider the subgroup $3\mathbb{Z} = \{\ldots, -6, -3, 0, 3, 6, \ldots\}$ of $(\mathbb{Z}, +)$. The cosets of $3\mathbb{Z}$ are:
+$$0 + 3\mathbb{Z} = 3\mathbb{Z} = \{\ldots, -6, -3, 0, 3, 6, \ldots\}$$
+$$1 + 3\mathbb{Z} = \{\ldots, -5, -2, 1, 4, 7, \ldots\}$$
+$$2 + 3\mathbb{Z} = \{\ldots, -4, -1, 2, 5, 8, \ldots\}$$
+These three cosets partition $\mathbb{Z}$, and each coset corresponds to a residue class modulo $3$.
+</Example>
+
+<Example number="2.1.4" name="Cosets in $S_3$">
+Let $G = S_3$ and let $H = \{e, (12)\}$, a subgroup of order $2$. The left cosets of $H$ are:
+$$eH = \{e, (12)\} = H$$
+$$(12)H = \{(12), e\} = H$$
+$$(13)H = \{(13), (132)\}$$
+$$(23)H = \{(23), (123)\}$$
+$$(123)H = \{(123), (23)\}$$
+$$(132)H = \{(132), (13)\}$$
+Thus there are exactly three distinct left cosets: $H$, $(13)H$, and $(23)H$.
+</Example>
+
+The following theorem establishes the fundamental properties of cosets.
+
+<Theorem number="2.1.5" name="Properties of Cosets">
+Let $H$ be a subgroup of a group $G$ and let $a, b \in G$. Then:
+1. $a \in aH$
+2. $aH = H$ if and only if $a \in H$
+3. $aH = bH$ if and only if $a^{-1}b \in H$
+4. $aH = bH$ or $aH \cap bH = \emptyset$
+5. $|aH| = |H|$
+6. The distinct left cosets of $H$ partition $G$
+</Theorem>
+
+<Proof>
+**(1)** Since $e \in H$, we have $a = ae \in aH$.
+
+**(2)** ($\Rightarrow$) If $aH = H$, then $a = ae \in aH = H$.
+
+($\Leftarrow$) If $a \in H$, then for any $h \in H$, we have $ah \in H$ (since $H$ is closed), so $aH \subseteq H$. Conversely, for any $h \in H$, we have $h = a(a^{-1}h)$ where $a^{-1}h \in H$ (since $a^{-1} \in H$), so $h \in aH$. Thus $H \subseteq aH$, giving $aH = H$.
+
+**(3)** ($\Rightarrow$) If $aH = bH$, then $b \in bH = aH$, so $b = ah$ for some $h \in H$. Thus $a^{-1}b = h \in H$.
+
+($\Leftarrow$) If $a^{-1}b \in H$, let $h_0 = a^{-1}b$. For any $ah \in aH$, we have $ah = b(h_0^{-1}h) \in bH$, so $aH \subseteq bH$. Similarly, $bH \subseteq aH$, so $aH = bH$.
+
+**(4)** Suppose $aH \cap bH \neq \emptyset$. Then there exists $c \in aH \cap bH$, so $c = ah_1 = bh_2$ for some $h_1, h_2 \in H$. Thus $a^{-1}b = h_1h_2^{-1} \in H$, and by (3), $aH = bH$.
+
+**(5)** The map $\phi : H \to aH$ defined by $\phi(h) = ah$ is a bijection. It is surjective by definition of $aH$. It is injective because if $ah_1 = ah_2$, then $h_1 = h_2$ by left cancellation.
+
+**(6)** By (1), every element of $G$ belongs to some coset. By (4), distinct cosets are disjoint. Thus the cosets partition $G$.
+</Proof>
+
+<Corollary number="2.1.6">
+Two left cosets $aH$ and $bH$ are equal if and only if $b^{-1}a \in H$.
+</Corollary>
+
+<Proof>
+We have $aH = bH$ if and only if $a^{-1}b \in H$ if and only if $(a^{-1}b)^{-1} = b^{-1}a \in H$.
+</Proof>
+
+<Definition number="2.1.7" name="Index">
+Let $H$ be a subgroup of a group $G$. The **index** of $H$ in $G$, denoted $[G:H]$, is the number of distinct left cosets of $H$ in $G$.
+</Definition>
+
+<Remark>
+The index $[G:H]$ may be finite or infinite. When $G$ is finite, the index is always finite. When $G$ is infinite, the index may be finite (as with $[\mathbb{Z} : n\mathbb{Z}] = n$) or infinite.
+</Remark>
+
+## 2.2 Lagrange's Theorem
+
+We now prove the fundamental theorem relating the orders of a group and its subgroups.
+
+<Theorem number="2.2.1" name="Lagrange's Theorem">
+Let $G$ be a finite group and let $H$ be a subgroup of $G$. Then $|H|$ divides $|G|$. More precisely:
+$$|G| = |H| \cdot [G:H]$$
+</Theorem>
+
+<Proof>
+By Theorem 2.1.5, the distinct left cosets of $H$ partition $G$. Let these cosets be $a_1H, a_2H, \ldots, a_kH$ where $k = [G:H]$. Since the cosets are pairwise disjoint and their union is $G$:
+$$|G| = |a_1H| + |a_2H| + \cdots + |a_kH|$$
+By Theorem 2.1.5(5), each coset has the same cardinality as $H$:
+$$|G| = |H| + |H| + \cdots + |H| = k \cdot |H| = [G:H] \cdot |H|$$
+</Proof>
+
+<Remark>
+The theorem is named after Joseph-Louis Lagrange (1736–1813), who proved a version of this result for permutation groups in 1770–1771, predating the abstract definition of a group by several decades.
+</Remark>
+
+<Example number="2.2.2">
+In $S_3$, we have $|S_3| = 6$. The possible orders of subgroups are the divisors of $6$: namely $1, 2, 3, 6$. Indeed:
+- Order $1$: the trivial subgroup $\{e\}$
+- Order $2$: $\{e, (12)\}$, $\{e, (13)\}$, $\{e, (23)\}$
+- Order $3$: $\{e, (123), (132)\} = A_3$
+- Order $6$: $S_3$ itself
+</Example>
+
+<Remark>
+The converse of Lagrange's theorem is false in general: if $d$ divides $|G|$, there need not exist a subgroup of order $d$. The smallest counterexample is the alternating group $A_4$ of order $12$, which has no subgroup of order $6$.
+</Remark>
+
+## 2.3 Consequences of Lagrange's Theorem
+
+Lagrange's theorem has numerous important corollaries.
+
+<Corollary number="2.3.1" name="Order of an Element Divides Group Order">
+Let $G$ be a finite group and let $a \in G$. Then the order of $a$ divides $|G|$.
+</Corollary>
+
+<Proof>
+The order of $a$ equals $|\langle a \rangle|$, the order of the cyclic subgroup generated by $a$. By Lagrange's theorem, $|\langle a \rangle|$ divides $|G|$.
+</Proof>
+
+<Corollary number="2.3.2">
+Let $G$ be a finite group and let $a \in G$. Then $a^{|G|} = e$.
+</Corollary>
+
+<Proof>
+Let $n = |a|$ be the order of $a$. By Corollary 2.3.1, $n$ divides $|G|$, so $|G| = nk$ for some positive integer $k$. Then:
+$$a^{|G|} = a^{nk} = (a^n)^k = e^k = e$$
+</Proof>
+
+<Corollary number="2.3.3" name="Groups of Prime Order">
+Let $G$ be a group of prime order $p$. Then $G$ is cyclic, and every non-identity element is a generator.
+</Corollary>
+
+<Proof>
+Let $a \in G$ with $a \neq e$. The subgroup $\langle a \rangle$ has order dividing $p$ by Lagrange's theorem. Since $p$ is prime and $|\langle a \rangle| > 1$ (as $a \neq e$), we must have $|\langle a \rangle| = p$. Thus $\langle a \rangle = G$, so $G$ is cyclic with generator $a$.
+</Proof>
+
+<Corollary number="2.3.4" name="Fermat's Little Theorem">
+Let $p$ be a prime and let $a$ be an integer not divisible by $p$. Then:
+$$a^{p-1} \equiv 1 \pmod{p}$$
+</Corollary>
+
+<Proof>
+The group $(\mathbb{Z}/p\mathbb{Z})^* = \{1, 2, \ldots, p-1\}$ under multiplication modulo $p$ has order $p - 1$. Since $\gcd(a, p) = 1$, the residue class $\bar{a}$ belongs to this group. By Corollary 2.3.2:
+$$\bar{a}^{p-1} = \bar{1}$$
+which means $a^{p-1} \equiv 1 \pmod{p}$.
+</Proof>
+
+<Corollary number="2.3.5" name="Euler's Theorem">
+Let $n$ be a positive integer and let $a$ be an integer with $\gcd(a, n) = 1$. Then:
+$$a^{\phi(n)} \equiv 1 \pmod{n}$$
+where $\phi(n)$ is Euler's totient function.
+</Corollary>
+
+<Proof>
+The group $(\mathbb{Z}/n\mathbb{Z})^*$ has order $\phi(n)$. Since $\gcd(a, n) = 1$, we have $\bar{a} \in (\mathbb{Z}/n\mathbb{Z})^*$. By Corollary 2.3.2, $\bar{a}^{\phi(n)} = \bar{1}$.
+</Proof>
+
+## 2.4 The Index and Subgroup Chains
+
+The index satisfies a multiplicative property for chains of subgroups.
+
+<Theorem number="2.4.1" name="Tower Law">
+Let $K \leq H \leq G$ be groups. Then:
+$$[G:K] = [G:H] \cdot [H:K]$$
+In particular, if any two of the three indices are finite, so is the third.
+</Theorem>
+
+<Proof>
+Let $\{a_i H : i \in I\}$ be the set of distinct left cosets of $H$ in $G$, and let $\{b_j K : j \in J\}$ be the set of distinct left cosets of $K$ in $H$. We claim that $\{a_i b_j K : i \in I, j \in J\}$ is the set of distinct left cosets of $K$ in $G$.
+
+First, every element $g \in G$ belongs to some coset $a_i H$, so $g = a_i h$ for some $h \in H$. This $h$ belongs to some coset $b_j K$, so $h = b_j k$ for some $k \in K$. Thus $g = a_i b_j k \in a_i b_j K$.
+
+Second, if $a_i b_j K = a_{i'} b_{j'} K$, then $a_i b_j = a_{i'} b_{j'} k$ for some $k \in K$. Thus $a_i^{-1} a_{i'} = b_j b_{j'}^{-1} k^{-1} \in H$ (since $b_j, b_{j'}, k \in H$). This means $a_i H = a_{i'} H$, so $i = i'$. Then $b_j K = b_{j'} K$, so $j = j'$.
+
+Therefore $[G:K] = |I| \cdot |J| = [G:H] \cdot [H:K]$.
+</Proof>
+
+<Corollary number="2.4.2">
+If $H$ and $K$ are subgroups of a finite group $G$ with $K \leq H$, then $[G:K]$ is divisible by both $[G:H]$ and $[H:K]$.
+</Corollary>
+
+## 2.5 Cosets and the Symmetric Group
+
+We apply coset theory to analyze the structure of symmetric groups.
+
+<Definition number="2.5.1" name="Alternating Group">
+A permutation $\sigma \in S_n$ is called **even** if it can be written as a product of an even number of transpositions, and **odd** if it can be written as a product of an odd number of transpositions. The **alternating group** $A_n$ is the set of all even permutations in $S_n$.
+</Definition>
+
+<Theorem number="2.5.2">
+The alternating group $A_n$ is a subgroup of $S_n$ of index $2$. Consequently:
+$$|A_n| = \frac{n!}{2}$$
+</Theorem>
+
+<Proof>
+One can show that the map $\text{sgn} : S_n \to \{1, -1\}$ defined by $\text{sgn}(\sigma) = 1$ if $\sigma$ is even and $\text{sgn}(\sigma) = -1$ if $\sigma$ is odd is a well-defined group homomorphism. The kernel of this homomorphism is precisely $A_n$, which is therefore a subgroup.
+
+Since $\text{sgn}$ is surjective (for $n \geq 2$), the image has order $2$. By the first isomorphism theorem (or by direct counting), $[S_n : A_n] = 2$, so $|A_n| = |S_n|/2 = n!/2$.
+</Proof>
+
+<Example number="2.5.3">
+In $S_3$:
+- Even permutations: $e$, $(123)$, $(132)$
+- Odd permutations: $(12)$, $(13)$, $(23)$
+
+Thus $A_3 = \{e, (123), (132)\}$ has order $3$.
+</Example>
+
+<Example number="2.5.4">
+The group $A_4$ has order $12$. Its elements are:
+- The identity $e$
+- The eight $3$-cycles: $(123), (132), (124), (142), (134), (143), (234), (243)$
+- The three products of disjoint transpositions: $(12)(34), (13)(24), (14)(23)$
+</Example>
+
+## Practice Problems
+
+<PracticeProblems
+  subject="mathematics"
+  field="abstract-algebra"
+  problems={[
+    { id: "cosets-s4-klein", title: "Find all cosets of Klein four-group in S₄", difficulty: "easy" },
+    { id: "order-2p-unique-subgroup", title: "Prove groups of order 2p have unique subgroup of order p", difficulty: "medium" },
+    { id: "hk-order-formula", title: "Prove |HK| = |H||K|/|H∩K|", difficulty: "medium" },
+    { id: "coprime-index-product", title: "Prove G = HK when indices are coprime", difficulty: "hard" },
+    { id: "smallest-prime-index-normal", title: "Prove subgroups of smallest prime index are normal", difficulty: "hard" },
+    { id: "coset-computation-dihedral", title: "Compute cosets in the dihedral group", difficulty: "easy" },
+    { id: "lagrange-subgroup-orders", title: "Apply Lagrange's theorem to determine possible subgroup orders", difficulty: "medium" },
+    { id: "index-tower-computation", title: "Use the tower law to compute indices", difficulty: "medium" },
+    { id: "fermat-group-theory-proof", title: "Prove Fermat's little theorem using group theory", difficulty: "hard" },
+  ]}
+/>
+
+## Related Topics
+
+<RelatedTopic
+  subject="mathematics"
+  field="abstract-algebra"
+  topic="Normal Subgroups"
+  relation="continuation"
+  description="Normal subgroups are those whose left and right cosets coincide"
+/>
+
+<RelatedTopic
+  subject="mathematics"
+  field="abstract-algebra"
+  topic="Quotient Groups"
+  relation="application"
+  description="Cosets of normal subgroups form a group under coset multiplication"
+/>
+
+<RelatedTopic
+  subject="mathematics"
+  field="elementary-number-theory"
+  topic="Modular Arithmetic"
+  relation="application"
+  description="Cosets of $n\mathbb{Z}$ in $\mathbb{Z}$ are precisely the residue classes modulo $n$"
+/>
+
+## Key Equations
+
+<EquationCard
+  title="Lagrange's Theorem"
+  equation="|G| = |H| \cdot [G:H]"
+  variables={[
+    { symbol: "|G|", name: "Order of G", description: "Number of elements in the group G" },
+    { symbol: "|H|", name: "Order of H", description: "Number of elements in the subgroup H" },
+    { symbol: "[G:H]", name: "Index", description: "Number of distinct cosets of H in G" }
+  ]}
+/>
+
+<EquationCard
+  title="Tower Law"
+  equation="[G:K] = [G:H] \cdot [H:K]"
+  variables={[
+    { symbol: "[G:K]", name: "Index of K in G", description: "Number of cosets of K in G" },
+    { symbol: "[G:H]", name: "Index of H in G", description: "Number of cosets of H in G" },
+    { symbol: "[H:K]", name: "Index of K in H", description: "Number of cosets of K in H" }
+  ]}
+/>
+
+<EquationCard
+  title="Euler's Theorem"
+  equation="a^{\phi(n)} \equiv 1 \pmod{n}"
+  variables={[
+    { symbol: "a", name: "Base", description: "An integer coprime to n" },
+    { symbol: "\\phi(n)", name: "Euler's totient", description: "Count of integers up to n coprime to n" },
+    { symbol: "n", name: "Modulus", description: "The modulus for the congruence" }
+  ]}
+/>
+
+## Chapter Review
+
+<ChapterQuiz
+  contentPath="mathematics/abstract-algebra/cosets-and-lagrange"
+  quizId="chapter-2-review"
+  questions={[
+    {
+      id: "q1",
+      question: "If H is a subgroup of G and a ∈ G, what is the left coset aH?",
+      answers: [
+        { id: "a", text: "The set {ha : h ∈ H}", isCorrect: false },
+        { id: "b", text: "The set {ah : h ∈ H}", isCorrect: true },
+        { id: "c", text: "The set {a} ∪ H", isCorrect: false },
+        { id: "d", text: "The set {ah⁻¹ : h ∈ H}", isCorrect: false }
+      ],
+      explanation: "The left coset aH is defined as {ah : h ∈ H}, where we multiply a on the left of each element of H."
+    },
+    {
+      id: "q2",
+      question: "According to Lagrange's theorem, if G is a finite group of order 12, which of the following CANNOT be the order of a subgroup?",
+      answers: [
+        { id: "a", text: "2", isCorrect: false },
+        { id: "b", text: "3", isCorrect: false },
+        { id: "c", text: "5", isCorrect: true },
+        { id: "d", text: "6", isCorrect: false }
+      ],
+      explanation: "Lagrange's theorem states that the order of any subgroup must divide the order of the group. Since 5 does not divide 12, there cannot be a subgroup of order 5."
+    },
+    {
+      id: "q3",
+      question: "What is the index [S₃ : A₃]?",
+      answers: [
+        { id: "a", text: "1", isCorrect: false },
+        { id: "b", text: "2", isCorrect: true },
+        { id: "c", text: "3", isCorrect: false },
+        { id: "d", text: "6", isCorrect: false }
+      ],
+      explanation: "Since |S₃| = 6 and |A₃| = 3, the index [S₃ : A₃] = 6/3 = 2. This means there are exactly 2 cosets of A₃ in S₃."
+    },
+    {
+      id: "q4",
+      question: "If G is a group of prime order p, what can we conclude about G?",
+      answers: [
+        { id: "a", text: "G is abelian but not cyclic", isCorrect: false },
+        { id: "b", text: "G is cyclic and every non-identity element is a generator", isCorrect: true },
+        { id: "c", text: "G has exactly p subgroups", isCorrect: false },
+        { id: "d", text: "G must be isomorphic to Sₚ", isCorrect: false }
+      ],
+      explanation: "By Lagrange's theorem, the only subgroups of G have order 1 or p. Any non-identity element generates a subgroup of order > 1, so it must have order p, making it a generator of G."
+    },
+    {
+      id: "q5",
+      question: "Fermat's Little Theorem states that for prime p and a not divisible by p:",
+      answers: [
+        { id: "a", text: "aᵖ ≡ 1 (mod p)", isCorrect: false },
+        { id: "b", text: "aᵖ⁻¹ ≡ 1 (mod p)", isCorrect: true },
+        { id: "c", text: "aᵖ ≡ a (mod p)", isCorrect: false },
+        { id: "d", text: "aᵖ⁺¹ ≡ 1 (mod p)", isCorrect: false }
+      ],
+      explanation: "Fermat's Little Theorem follows from Lagrange's theorem applied to (ℤ/pℤ)*, which has order p-1. Thus aᵖ⁻¹ ≡ 1 (mod p)."
+    }
+  ]}
+>
+
+This chapter established the theory of cosets and Lagrange's theorem:
+
+1. **Cosets** are translates of a subgroup: $aH = \{ah : h \in H\}$
+
+2. **Cosets partition** the group into disjoint subsets of equal size
+
+3. **Lagrange's theorem** states that $|H|$ divides $|G|$ for any subgroup $H$ of a finite group $G$
+
+4. **Consequences** include: element orders divide group order, groups of prime order are cyclic, and the theorems of Fermat and Euler
+
+5. **The tower law** relates indices in a chain of subgroups: $[G:K] = [G:H][H:K]$
+
+6. **The alternating group** $A_n$ has index $2$ in $S_n$, hence order $n!/2$
+
+The theory of cosets leads naturally to the study of *normal subgroups* and *quotient groups*, which we develop in the next chapter. Normal subgroups are precisely those subgroups whose left and right cosets coincide, and they allow us to construct new groups from old ones.
+
+</ChapterQuiz>

@@ -1,0 +1,93 @@
+---
+title: "陪集与拉格朗日定理"
+description: "对陪集、拉格朗日定理及其对有限群结构的基本推论的严格处理"
+
+subject: "数学"
+field: "抽象代数"
+topic: "群论"
+chapter: 2
+section: 1
+
+tags: ["陪集", "拉格朗日定理", "指数", "有限群", "群论"]
+---
+
+# 陪集与拉格朗日定理
+
+陪集理论提供了理解子群如何存在于群中的关键。当我们用子群划分一个群时，我们得到一组称为陪集的"平移"，每个陪集的大小与子群相同。
+
+## 2.1 陪集
+
+设 $H$ 是群 $G$ 的子群。我们想要理解 $H$ 如何将 $G$ 划分为不相交的部分。
+
+<Definition number="2.1.1" name="左陪集">
+设 $H$ 是群 $G$ 的子群，$a \in G$。包含 $a$ 的 $H$ 的**左陪集**是集合
+$$aH = \{ah : h \in H\}$$
+</Definition>
+
+<Definition number="2.1.2" name="右陪集">
+类似地，包含 $a$ 的 $H$ 的**右陪集**是集合
+$$Ha = \{ha : h \in H\}$$
+</Definition>
+
+<Theorem number="2.1.5" name="陪集的性质">
+设 $H$ 是群 $G$ 的子群，$a, b \in G$。则：
+1. $a \in aH$
+2. $aH = H$ 当且仅当 $a \in H$
+3. $aH = bH$ 当且仅当 $a^{-1}b \in H$
+4. $aH = bH$ 或 $aH \cap bH = \emptyset$
+5. $|aH| = |H|$
+6. $H$ 的不同左陪集划分 $G$
+</Theorem>
+
+<Definition number="2.1.7" name="指数">
+$H$ 在 $G$ 中的**指数**，记作 $[G:H]$，是 $H$ 在 $G$ 中不同左陪集的个数。
+</Definition>
+
+## 2.2 拉格朗日定理
+
+<Theorem number="2.2.1" name="拉格朗日定理">
+设 $G$ 是有限群，$H$ 是 $G$ 的子群。则 $|H|$ 整除 $|G|$。更精确地：
+$$|G| = |H| \cdot [G:H]$$
+</Theorem>
+
+<Proof>
+由定理 2.1.5，$H$ 的不同左陪集划分 $G$。设这些陪集为 $a_1H, a_2H, \ldots, a_kH$，其中 $k = [G:H]$。由于陪集两两不相交且它们的并是 $G$：
+$$|G| = |a_1H| + |a_2H| + \cdots + |a_kH| = k \cdot |H| = [G:H] \cdot |H|$$
+</Proof>
+
+## 2.3 拉格朗日定理的推论
+
+<Corollary number="2.3.1" name="元素的阶整除群的阶">
+设 $G$ 是有限群，$a \in G$。则 $a$ 的阶整除 $|G|$。
+</Corollary>
+
+<Corollary number="2.3.3" name="素数阶群">
+设 $G$ 是素数阶 $p$ 的群。则 $G$ 是循环群，且每个非单位元都是生成元。
+</Corollary>
+
+<Corollary number="2.3.4" name="费马小定理">
+设 $p$ 是素数，$a$ 是不被 $p$ 整除的整数。则：
+$$a^{p-1} \equiv 1 \pmod{p}$$
+</Corollary>
+
+## 关键方程
+
+<EquationCard
+  title="拉格朗日定理"
+  equation="|G| = |H| \cdot [G:H]"
+  variables={[
+    { symbol: "|G|", name: "G 的阶", description: "群 G 中元素的个数" },
+    { symbol: "|H|", name: "H 的阶", description: "子群 H 中元素的个数" },
+    { symbol: "[G:H]", name: "指数", description: "H 在 G 中不同陪集的个数" }
+  ]}
+/>
+
+<EquationCard
+  title="塔定律"
+  equation="[G:K] = [G:H] \cdot [H:K]"
+  variables={[
+    { symbol: "[G:K]", name: "K 在 G 中的指数", description: "K 在 G 中的陪集数" },
+    { symbol: "[G:H]", name: "H 在 G 中的指数", description: "H 在 G 中的陪集数" },
+    { symbol: "[H:K]", name: "K 在 H 中的指数", description: "K 在 H 中的陪集数" }
+  ]}
+/>
