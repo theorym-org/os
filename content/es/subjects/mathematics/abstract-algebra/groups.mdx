@@ -23,7 +23,11 @@ Antes de poder definir un grupo, primero debemos precisar qué entendemos por un
 
 <Definition number="1.1.1" name="Operación Binaria">
 Sea $S$ un conjunto no vacío. Una **operación binaria** en $S$ es una función
-$$\star : S \times S \to S$$
+
+```math
+\star : S \times S \to S
+```
+
 que asigna a cada par ordenado $(a, b)$ de elementos de $S$ un único elemento $a \star b$ de $S$.
 </Definition>
 
@@ -61,13 +65,25 @@ Llegamos ahora a la definición central de este capítulo. Un grupo es un conjun
 Un **grupo** es un par ordenado $(G, \star)$ donde $G$ es un conjunto no vacío y $\star$ es una operación binaria en $G$ que satisface los siguientes axiomas:
 
 **(G1) Asociatividad.** Para todo $a, b, c \in G$:
-$$(a \star b) \star c = a \star (b \star c)$$
+
+```math
+(a \star b) \star c = a \star (b \star c)
+```
+
 
 **(G2) Identidad.** Existe un elemento $e \in G$ tal que para todo $a \in G$:
-$$e \star a = a \star e = a$$
+
+```math
+e \star a = a \star e = a
+```
+
 
 **(G3) Inversos.** Para cada $a \in G$, existe un elemento $a^{-1} \in G$ tal que:
-$$a \star a^{-1} = a^{-1} \star a = e$$
+
+```math
+a \star a^{-1} = a^{-1} \star a = e
+```
+
 </Definition>
 
 <Remark>
@@ -82,7 +98,11 @@ Varias observaciones están en orden:
 
 <Definition number="1.2.2" name="Grupo Abeliano">
 Un grupo $(G, \star)$ se llama **abeliano** (o **conmutativo**) si para todo $a, b \in G$:
-$$a \star b = b \star a$$
+
+```math
+a \star b = b \star a
+```
+
 El término honra a Niels Henrik Abel (1802–1829), quien hizo contribuciones fundamentales a la teoría de ecuaciones.
 </Definition>
 
@@ -114,7 +134,11 @@ En cualquier grupo $(G, \star)$, cada elemento tiene un único inverso.
 
 <Proof>
 Sea $a \in G$ y supongamos que tanto $b$ como $c$ son inversos de $a$. Entonces:
-$$b = b \star e = b \star (a \star c) = (b \star a) \star c = e \star c = c$$
+
+```math
+b = b \star e = b \star (a \star c) = (b \star a) \star c = e \star c = c
+```
+
 donde hemos usado la asociatividad y la propiedad definitoria de los inversos.
 </Proof>
 
@@ -130,22 +154,42 @@ Sea $(G, \star)$ un grupo y sean $a, b, c \in G$. Entonces:
 Demostramos la cancelación izquierda; la cancelación derecha es similar.
 
 Supongamos $a \star b = a \star c$. Multiplicando ambos lados por la izquierda por $a^{-1}$:
-$$a^{-1} \star (a \star b) = a^{-1} \star (a \star c)$$
+
+```math
+a^{-1} \star (a \star b) = a^{-1} \star (a \star c)
+```
+
 Por asociatividad:
-$$(a^{-1} \star a) \star b = (a^{-1} \star a) \star c$$
+
+```math
+(a^{-1} \star a) \star b = (a^{-1} \star a) \star c
+```
+
 Como $a^{-1} \star a = e$:
-$$e \star b = e \star c$$
+
+```math
+e \star b = e \star c
+```
+
 Por lo tanto $b = c$.
 </Proof>
 
 <Theorem number="1.3.4" name="Inverso de un Producto">
 Sea $(G, \star)$ un grupo y sean $a, b \in G$. Entonces:
-$$(a \star b)^{-1} = b^{-1} \star a^{-1}$$
+
+```math
+(a \star b)^{-1} = b^{-1} \star a^{-1}
+```
+
 </Theorem>
 
 <Proof>
 Verificamos que $b^{-1} \star a^{-1}$ satisface la propiedad definitoria del inverso de $a \star b$:
-$$(a \star b) \star (b^{-1} \star a^{-1}) = a \star (b \star b^{-1}) \star a^{-1} = a \star e \star a^{-1} = a \star a^{-1} = e$$
+
+```math
+(a \star b) \star (b^{-1} \star a^{-1}) = a \star (b \star b^{-1}) \star a^{-1} = a \star e \star a^{-1} = a \star a^{-1} = e
+```
+
 Similarmente, $(b^{-1} \star a^{-1}) \star (a \star b) = e$. Por unicidad de los inversos, $(a \star b)^{-1} = b^{-1} \star a^{-1}$.
 </Proof>
 
@@ -213,7 +257,11 @@ El conjunto $(\mathbb{Z}/n\mathbb{Z})^* = \{a \in \mathbb{Z}/n\mathbb{Z} : \gcd(
 
 <Example number="1.4.7" name="Grupo Lineal General">
 El **grupo lineal general** $\text{GL}_n(\mathbb{R})$ consiste en todas las matrices $n \times n$ invertibles con entradas reales, bajo la multiplicación de matrices:
-$$\text{GL}_n(\mathbb{R}) = \{A \in M_n(\mathbb{R}) : \det(A) \neq 0\}$$
+
+```math
+\text{GL}_n(\mathbb{R}) = \{A \in M_n(\mathbb{R}) : \det(A) \neq 0\}
+```
+
 Este es un grupo no abeliano para $n \geq 2$.
 </Example>
 
@@ -271,7 +319,11 @@ Un subgrupo $H$ con $\{e\} \subsetneq H \subsetneq G$ se llama un **subgrupo pro
 
 <Example number="1.5.5" name="Subgrupos de los Enteros">
 Los subgrupos de $(\mathbb{Z}, +)$ son precisamente los conjuntos $n\mathbb{Z} = \{nk : k \in \mathbb{Z}\}$ para $n \geq 0$. Así:
-$$\{0\} \subsetneq \cdots \subsetneq 6\mathbb{Z} \subsetneq 3\mathbb{Z} \subsetneq \mathbb{Z}$$
+
+```math
+\{0\} \subsetneq \cdots \subsetneq 6\mathbb{Z} \subsetneq 3\mathbb{Z} \subsetneq \mathbb{Z}
+```
+
 </Example>
 
 ## 1.6 Homomorfismos de Grupos
@@ -280,7 +332,11 @@ Un *homomorfismo* es una función entre grupos que respeta la estructura de grup
 
 <Definition number="1.6.1" name="Homomorfismo de Grupos">
 Sean $(G, \star)$ y $(H, \cdot)$ grupos. Una función $\phi : G \to H$ es un **homomorfismo** si para todo $a, b \in G$:
-$$\phi(a \star b) = \phi(a) \cdot \phi(b)$$
+
+```math
+\phi(a \star b) = \phi(a) \cdot \phi(b)
+```
+
 </Definition>
 
 La condición dice que $\phi$ "respeta" o "preserva" la operación de grupo: combinar elementos en $G$ y luego aplicar $\phi$ da el mismo resultado que aplicar $\phi$ primero y luego combinar en $H$.
@@ -304,10 +360,18 @@ Sea $\phi : G \to H$ un homomorfismo de grupos. Entonces:
 Sea $\phi : G \to H$ un homomorfismo.
 
 El **núcleo** de $\phi$ es:
-$$\ker(\phi) = \{a \in G : \phi(a) = e_H\}$$
+
+```math
+\ker(\phi) = \{a \in G : \phi(a) = e_H\}
+```
+
 
 La **imagen** de $\phi$ es:
-$$\text{im}(\phi) = \{\phi(a) : a \in G\} = \phi(G)$$
+
+```math
+\text{im}(\phi) = \{\phi(a) : a \in G\} = \phi(G)
+```
+
 </Definition>
 
 <Theorem number="1.6.4">
@@ -346,7 +410,11 @@ Entre todos los grupos, los grupos cíclicos son los más simples y completament
 
 <Definition number="1.7.1" name="Grupo Cíclico">
 Un grupo $G$ es **cíclico** si existe un elemento $g \in G$ tal que todo elemento de $G$ puede escribirse como una potencia de $g$:
-$$G = \{g^n : n \in \mathbb{Z}\} = \langle g \rangle$$
+
+```math
+G = \{g^n : n \in \mathbb{Z}\} = \langle g \rangle
+```
+
 El elemento $g$ se llama un **generador** de $G$.
 </Definition>
 
@@ -372,6 +440,26 @@ Sea $G = \langle g \rangle$ un grupo cíclico de orden $n$. Entonces:
 2. Este subgrupo es $\langle g^{n/d} \rangle$
 </Theorem>
 
+## Resumen
+
+<Note>
+Este capítulo estableció los fundamentos de la teoría de grupos:
+
+1. **Grupos** son conjuntos con una operación binaria asociativa, un elemento identidad e inversos para todos los elementos
+
+2. **Propiedades fundamentales** incluyen unicidad de la identidad y los inversos, leyes de cancelación, y la fórmula $(ab)^{-1} = b^{-1}a^{-1}$
+
+3. **Ejemplos** van desde sistemas numéricos bajo adición o multiplicación, hasta grupos de matrices, hasta grupos de simetría de objetos geométricos
+
+4. **Subgrupos** son subconjuntos que son ellos mismos grupos bajo la operación heredada
+
+5. **Homomorfismos** son aplicaciones que preservan estructura entre grupos; los isomorfismos son homomorfismos biyectivos
+
+6. **Grupos cíclicos** son generados por un solo elemento y están completamente clasificados
+</Note>
+
+La teoría desarrollada aquí proporciona la base para todos los capítulos siguientes. En el Capítulo 2, estudiaremos *clases laterales* y el *teorema de Lagrange*, que revelan conexiones profundas entre un grupo y sus subgrupos.
+
 ## Ejercicios
 
 <Exercise number="1.1">
@@ -393,23 +481,3 @@ Sea $\phi : G \to H$ un homomorfismo de grupos. Demuestra que si $G$ es abeliano
 <Exercise number="1.5">
 Determina todos los subgrupos de $\mathbb{Z}/12\mathbb{Z}$ y dibuja el retículo de subgrupos.
 </Exercise>
-
-## Resumen
-
-<Note>
-Este capítulo estableció los fundamentos de la teoría de grupos:
-
-1. **Grupos** son conjuntos con una operación binaria asociativa, un elemento identidad e inversos para todos los elementos
-
-2. **Propiedades fundamentales** incluyen unicidad de la identidad y los inversos, leyes de cancelación, y la fórmula $(ab)^{-1} = b^{-1}a^{-1}$
-
-3. **Ejemplos** van desde sistemas numéricos bajo adición o multiplicación, hasta grupos de matrices, hasta grupos de simetría de objetos geométricos
-
-4. **Subgrupos** son subconjuntos que son ellos mismos grupos bajo la operación heredada
-
-5. **Homomorfismos** son aplicaciones que preservan estructura entre grupos; los isomorfismos son homomorfismos biyectivos
-
-6. **Grupos cíclicos** son generados por un solo elemento y están completamente clasificados
-</Note>
-
-La teoría desarrollada aquí proporciona la base para todos los capítulos siguientes. En el Capítulo 2, estudiaremos *clases laterales* y el *teorema de Lagrange*, que revelan conexiones profundas entre un grupo y sus subgrupos.

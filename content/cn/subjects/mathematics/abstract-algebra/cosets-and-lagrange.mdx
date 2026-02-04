@@ -21,12 +21,20 @@ tags: ["陪集", "拉格朗日定理", "指数", "有限群", "群论"]
 
 <Definition number="2.1.1" name="左陪集">
 设 $H$ 是群 $G$ 的子群，$a \in G$。包含 $a$ 的 $H$ 的**左陪集**是集合
-$$aH = \{ah : h \in H\}$$
+
+```math
+aH = \{ah : h \in H\}
+```
+
 </Definition>
 
 <Definition number="2.1.2" name="右陪集">
 类似地，包含 $a$ 的 $H$ 的**右陪集**是集合
-$$Ha = \{ha : h \in H\}$$
+
+```math
+Ha = \{ha : h \in H\}
+```
+
 </Definition>
 
 <Theorem number="2.1.5" name="陪集的性质">
@@ -47,12 +55,20 @@ $H$ 在 $G$ 中的**指数**，记作 $[G:H]$，是 $H$ 在 $G$ 中不同左陪�
 
 <Theorem number="2.2.1" name="拉格朗日定理">
 设 $G$ 是有限群，$H$ 是 $G$ 的子群。则 $|H|$ 整除 $|G|$。更精确地：
-$$|G| = |H| \cdot [G:H]$$
+
+```math
+|G| = |H| \cdot [G:H]
+```
+
 </Theorem>
 
 <Proof>
 由定理 2.1.5，$H$ 的不同左陪集划分 $G$。设这些陪集为 $a_1H, a_2H, \ldots, a_kH$，其中 $k = [G:H]$。由于陪集两两不相交且它们的并是 $G$：
-$$|G| = |a_1H| + |a_2H| + \cdots + |a_kH| = k \cdot |H| = [G:H] \cdot |H|$$
+
+```math
+|G| = |a_1H| + |a_2H| + \cdots + |a_kH| = k \cdot |H| = [G:H] \cdot |H|
+```
+
 </Proof>
 
 ## 2.3 拉格朗日定理的推论
@@ -67,7 +83,11 @@ $$|G| = |a_1H| + |a_2H| + \cdots + |a_kH| = k \cdot |H| = [G:H] \cdot |H|$$
 
 <Corollary number="2.3.4" name="费马小定理">
 设 $p$ 是素数，$a$ 是不被 $p$ 整除的整数。则：
-$$a^{p-1} \equiv 1 \pmod{p}$$
+
+```math
+a^{p-1} \equiv 1 \pmod{p}
+```
+
 </Corollary>
 
 ## 关键方程

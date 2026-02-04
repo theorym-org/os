@@ -21,12 +21,20 @@ Sea $H$ un subgrupo de un grupo $G$. Queremos entender cómo $H$ particiona $G$ 
 
 <Definition number="2.1.1" name="Clase Lateral Izquierda">
 Sea $H$ un subgrupo de un grupo $G$ y sea $a \in G$. La **clase lateral izquierda** de $H$ que contiene a $a$ es el conjunto
-$$aH = \{ah : h \in H\}$$
+
+```math
+aH = \{ah : h \in H\}
+```
+
 </Definition>
 
 <Definition number="2.1.2" name="Clase Lateral Derecha">
 Similarmente, la **clase lateral derecha** de $H$ que contiene a $a$ es el conjunto
-$$Ha = \{ha : h \in H\}$$
+
+```math
+Ha = \{ha : h \in H\}
+```
+
 </Definition>
 
 <Theorem number="2.1.5" name="Propiedades de las Clases Laterales">
@@ -47,12 +55,20 @@ El **índice** de $H$ en $G$, denotado $[G:H]$, es el número de clases laterale
 
 <Theorem number="2.2.1" name="Teorema de Lagrange">
 Sea $G$ un grupo finito y sea $H$ un subgrupo de $G$. Entonces $|H|$ divide a $|G|$. Más precisamente:
-$$|G| = |H| \cdot [G:H]$$
+
+```math
+|G| = |H| \cdot [G:H]
+```
+
 </Theorem>
 
 <Proof>
 Por el Teorema 2.1.5, las clases laterales izquierdas distintas de $H$ particionan $G$. Sean estas clases $a_1H, a_2H, \ldots, a_kH$ donde $k = [G:H]$. Como las clases son disjuntas dos a dos y su unión es $G$:
-$$|G| = |a_1H| + |a_2H| + \cdots + |a_kH| = k \cdot |H| = [G:H] \cdot |H|$$
+
+```math
+|G| = |a_1H| + |a_2H| + \cdots + |a_kH| = k \cdot |H| = [G:H] \cdot |H|
+```
+
 </Proof>
 
 ## 2.3 Consecuencias del Teorema de Lagrange
@@ -67,7 +83,11 @@ Sea $G$ un grupo de orden primo $p$. Entonces $G$ es cíclico, y todo elemento n
 
 <Corollary number="2.3.4" name="Pequeño Teorema de Fermat">
 Sea $p$ un primo y sea $a$ un entero no divisible por $p$. Entonces:
-$$a^{p-1} \equiv 1 \pmod{p}$$
+
+```math
+a^{p-1} \equiv 1 \pmod{p}
+```
+
 </Corollary>
 
 ## Ecuaciones Clave

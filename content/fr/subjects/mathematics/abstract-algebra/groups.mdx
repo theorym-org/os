@@ -23,7 +23,11 @@ Avant de pouvoir définir un groupe, nous devons d'abord préciser ce que nous e
 
 <Definition number="1.1.1" name="Opération Binaire">
 Soit $S$ un ensemble non vide. Une **opération binaire** sur $S$ est une fonction
-$$\star : S \times S \to S$$
+
+```math
+\star : S \times S \to S
+```
+
 qui associe à chaque couple ordonné $(a, b)$ d'éléments de $S$ un unique élément $a \star b$ de $S$.
 </Definition>
 
@@ -61,13 +65,25 @@ Nous arrivons maintenant à la définition centrale de ce chapitre. Un groupe es
 Un **groupe** est un couple ordonné $(G, \star)$ où $G$ est un ensemble non vide et $\star$ est une opération binaire sur $G$ satisfaisant les axiomes suivants :
 
 **(G1) Associativité.** Pour tous $a, b, c \in G$ :
-$$(a \star b) \star c = a \star (b \star c)$$
+
+```math
+(a \star b) \star c = a \star (b \star c)
+```
+
 
 **(G2) Élément neutre.** Il existe un élément $e \in G$ tel que pour tout $a \in G$ :
-$$e \star a = a \star e = a$$
+
+```math
+e \star a = a \star e = a
+```
+
 
 **(G3) Inverses.** Pour chaque $a \in G$, il existe un élément $a^{-1} \in G$ tel que :
-$$a \star a^{-1} = a^{-1} \star a = e$$
+
+```math
+a \star a^{-1} = a^{-1} \star a = e
+```
+
 </Definition>
 
 <Remark>
@@ -82,7 +98,11 @@ Plusieurs observations s'imposent :
 
 <Definition number="1.2.2" name="Groupe Abélien">
 Un groupe $(G, \star)$ est dit **abélien** (ou **commutatif**) si pour tous $a, b \in G$ :
-$$a \star b = b \star a$$
+
+```math
+a \star b = b \star a
+```
+
 Le terme honore Niels Henrik Abel (1802–1829), qui a apporté des contributions fondamentales à la théorie des équations.
 </Definition>
 
@@ -114,7 +134,11 @@ Dans tout groupe $(G, \star)$, chaque élément a un unique inverse.
 
 <Proof>
 Soit $a \in G$ et supposons que $b$ et $c$ soient tous deux des inverses de $a$. Alors :
-$$b = b \star e = b \star (a \star c) = (b \star a) \star c = e \star c = c$$
+
+```math
+b = b \star e = b \star (a \star c) = (b \star a) \star c = e \star c = c
+```
+
 où nous avons utilisé l'associativité et la propriété définissant les inverses.
 </Proof>
 
@@ -130,22 +154,42 @@ Soit $(G, \star)$ un groupe et soient $a, b, c \in G$. Alors :
 Nous prouvons la simplification à gauche ; la simplification à droite est similaire.
 
 Supposons $a \star b = a \star c$. En multipliant les deux côtés à gauche par $a^{-1}$ :
-$$a^{-1} \star (a \star b) = a^{-1} \star (a \star c)$$
+
+```math
+a^{-1} \star (a \star b) = a^{-1} \star (a \star c)
+```
+
 Par associativité :
-$$(a^{-1} \star a) \star b = (a^{-1} \star a) \star c$$
+
+```math
+(a^{-1} \star a) \star b = (a^{-1} \star a) \star c
+```
+
 Puisque $a^{-1} \star a = e$ :
-$$e \star b = e \star c$$
+
+```math
+e \star b = e \star c
+```
+
 Par conséquent $b = c$.
 </Proof>
 
 <Theorem number="1.3.4" name="Inverse d'un Produit">
 Soit $(G, \star)$ un groupe et soient $a, b \in G$. Alors :
-$$(a \star b)^{-1} = b^{-1} \star a^{-1}$$
+
+```math
+(a \star b)^{-1} = b^{-1} \star a^{-1}
+```
+
 </Theorem>
 
 <Proof>
 Nous vérifions que $b^{-1} \star a^{-1}$ satisfait la propriété définissant l'inverse de $a \star b$ :
-$$(a \star b) \star (b^{-1} \star a^{-1}) = a \star (b \star b^{-1}) \star a^{-1} = a \star e \star a^{-1} = a \star a^{-1} = e$$
+
+```math
+(a \star b) \star (b^{-1} \star a^{-1}) = a \star (b \star b^{-1}) \star a^{-1} = a \star e \star a^{-1} = a \star a^{-1} = e
+```
+
 De même, $(b^{-1} \star a^{-1}) \star (a \star b) = e$. Par unicité des inverses, $(a \star b)^{-1} = b^{-1} \star a^{-1}$.
 </Proof>
 
@@ -213,7 +257,11 @@ L'ensemble $(\mathbb{Z}/n\mathbb{Z})^* = \{a \in \mathbb{Z}/n\mathbb{Z} : \gcd(a
 
 <Example number="1.4.7" name="Groupe Linéaire Général">
 Le **groupe linéaire général** $\text{GL}_n(\mathbb{R})$ est constitué de toutes les matrices $n \times n$ inversibles à coefficients réels, sous la multiplication matricielle :
-$$\text{GL}_n(\mathbb{R}) = \{A \in M_n(\mathbb{R}) : \det(A) \neq 0\}$$
+
+```math
+\text{GL}_n(\mathbb{R}) = \{A \in M_n(\mathbb{R}) : \det(A) \neq 0\}
+```
+
 C'est un groupe non abélien pour $n \geq 2$.
 </Example>
 
@@ -271,7 +319,11 @@ Un sous-groupe $H$ avec $\{e\} \subsetneq H \subsetneq G$ est appelé un **sous-
 
 <Example number="1.5.5" name="Sous-groupes des Entiers">
 Les sous-groupes de $(\mathbb{Z}, +)$ sont précisément les ensembles $n\mathbb{Z} = \{nk : k \in \mathbb{Z}\}$ pour $n \geq 0$. Ainsi :
-$$\{0\} \subsetneq \cdots \subsetneq 6\mathbb{Z} \subsetneq 3\mathbb{Z} \subsetneq \mathbb{Z}$$
+
+```math
+\{0\} \subsetneq \cdots \subsetneq 6\mathbb{Z} \subsetneq 3\mathbb{Z} \subsetneq \mathbb{Z}
+```
+
 </Example>
 
 ## 1.6 Homomorphismes de Groupes
@@ -280,7 +332,11 @@ Un *homomorphisme* est une fonction entre groupes qui respecte la structure de g
 
 <Definition number="1.6.1" name="Homomorphisme de Groupes">
 Soient $(G, \star)$ et $(H, \cdot)$ des groupes. Une fonction $\phi : G \to H$ est un **homomorphisme** si pour tous $a, b \in G$ :
-$$\phi(a \star b) = \phi(a) \cdot \phi(b)$$
+
+```math
+\phi(a \star b) = \phi(a) \cdot \phi(b)
+```
+
 </Definition>
 
 La condition dit que $\phi$ « respecte » ou « préserve » l'opération de groupe : combiner des éléments dans $G$ puis appliquer $\phi$ donne le même résultat qu'appliquer $\phi$ d'abord puis combiner dans $H$.
@@ -304,10 +360,18 @@ Soit $\phi : G \to H$ un homomorphisme de groupes. Alors :
 Soit $\phi : G \to H$ un homomorphisme.
 
 Le **noyau** de $\phi$ est :
-$$\ker(\phi) = \{a \in G : \phi(a) = e_H\}$$
+
+```math
+\ker(\phi) = \{a \in G : \phi(a) = e_H\}
+```
+
 
 L'**image** de $\phi$ est :
-$$\text{im}(\phi) = \{\phi(a) : a \in G\} = \phi(G)$$
+
+```math
+\text{im}(\phi) = \{\phi(a) : a \in G\} = \phi(G)
+```
+
 </Definition>
 
 <Theorem number="1.6.4">
@@ -346,7 +410,11 @@ Parmi tous les groupes, les groupes cycliques sont les plus simples et les mieux
 
 <Definition number="1.7.1" name="Groupe Cyclique">
 Un groupe $G$ est **cyclique** s'il existe un élément $g \in G$ tel que tout élément de $G$ peut s'écrire comme une puissance de $g$ :
-$$G = \{g^n : n \in \mathbb{Z}\} = \langle g \rangle$$
+
+```math
+G = \{g^n : n \in \mathbb{Z}\} = \langle g \rangle
+```
+
 L'élément $g$ est appelé un **générateur** de $G$.
 </Definition>
 
@@ -372,6 +440,26 @@ Soit $G = \langle g \rangle$ un groupe cyclique d'ordre $n$. Alors :
 2. Ce sous-groupe est $\langle g^{n/d} \rangle$
 </Theorem>
 
+## Résumé
+
+<Note>
+Ce chapitre a établi les fondements de la théorie des groupes :
+
+1. **Groupes** sont des ensembles munis d'une opération binaire associative, d'un élément neutre et d'inverses pour tous les éléments
+
+2. **Propriétés fondamentales** incluent l'unicité de l'élément neutre et des inverses, les lois de simplification, et la formule $(ab)^{-1} = b^{-1}a^{-1}$
+
+3. **Exemples** vont des systèmes de nombres sous l'addition ou la multiplication, aux groupes de matrices, aux groupes de symétrie d'objets géométriques
+
+4. **Sous-groupes** sont des sous-ensembles qui sont eux-mêmes des groupes sous l'opération héritée
+
+5. **Homomorphismes** sont des applications préservant la structure entre groupes ; les isomorphismes sont des homomorphismes bijectifs
+
+6. **Groupes cycliques** sont engendrés par un seul élément et sont complètement classifiés
+</Note>
+
+La théorie développée ici fournit la base pour tous les chapitres suivants. Au Chapitre 2, nous étudierons les *classes latérales* et le *théorème de Lagrange*, qui révèlent des connexions profondes entre un groupe et ses sous-groupes.
+
 ## Exercices
 
 <Exercise number="1.1">
@@ -393,23 +481,3 @@ Soit $\phi : G \to H$ un homomorphisme de groupes. Démontrez que si $G$ est ab�
 <Exercise number="1.5">
 Déterminez tous les sous-groupes de $\mathbb{Z}/12\mathbb{Z}$ et dessinez le treillis des sous-groupes.
 </Exercise>
-
-## Résumé
-
-<Note>
-Ce chapitre a établi les fondements de la théorie des groupes :
-
-1. **Groupes** sont des ensembles munis d'une opération binaire associative, d'un élément neutre et d'inverses pour tous les éléments
-
-2. **Propriétés fondamentales** incluent l'unicité de l'élément neutre et des inverses, les lois de simplification, et la formule $(ab)^{-1} = b^{-1}a^{-1}$
-
-3. **Exemples** vont des systèmes de nombres sous l'addition ou la multiplication, aux groupes de matrices, aux groupes de symétrie d'objets géométriques
-
-4. **Sous-groupes** sont des sous-ensembles qui sont eux-mêmes des groupes sous l'opération héritée
-
-5. **Homomorphismes** sont des applications préservant la structure entre groupes ; les isomorphismes sont des homomorphismes bijectifs
-
-6. **Groupes cycliques** sont engendrés par un seul élément et sont complètement classifiés
-</Note>
-
-La théorie développée ici fournit la base pour tous les chapitres suivants. Au Chapitre 2, nous étudierons les *classes latérales* et le *théorème de Lagrange*, qui révèlent des connexions profondes entre un groupe et ses sous-groupes.

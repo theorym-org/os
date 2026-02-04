@@ -21,12 +21,20 @@ Soit $H$ un sous-groupe d'un groupe $G$. Nous voulons comprendre comment $H$ par
 
 <Definition number="2.1.1" name="Classe Latérale Gauche">
 Soit $H$ un sous-groupe d'un groupe $G$ et soit $a \in G$. La **classe latérale gauche** de $H$ contenant $a$ est l'ensemble
-$$aH = \{ah : h \in H\}$$
+
+```math
+aH = \{ah : h \in H\}
+```
+
 </Definition>
 
 <Definition number="2.1.2" name="Classe Latérale Droite">
 De même, la **classe latérale droite** de $H$ contenant $a$ est l'ensemble
-$$Ha = \{ha : h \in H\}$$
+
+```math
+Ha = \{ha : h \in H\}
+```
+
 </Definition>
 
 <Theorem number="2.1.5" name="Propriétés des Classes Latérales">
@@ -47,12 +55,20 @@ L'**indice** de $H$ dans $G$, noté $[G:H]$, est le nombre de classes latérales
 
 <Theorem number="2.2.1" name="Théorème de Lagrange">
 Soit $G$ un groupe fini et soit $H$ un sous-groupe de $G$. Alors $|H|$ divise $|G|$. Plus précisément :
-$$|G| = |H| \cdot [G:H]$$
+
+```math
+|G| = |H| \cdot [G:H]
+```
+
 </Theorem>
 
 <Proof>
 Par le Théorème 2.1.5, les classes latérales gauches distinctes de $H$ partitionnent $G$. Soient ces classes $a_1H, a_2H, \ldots, a_kH$ où $k = [G:H]$. Comme les classes sont deux à deux disjointes et leur union est $G$ :
-$$|G| = |a_1H| + |a_2H| + \cdots + |a_kH| = k \cdot |H| = [G:H] \cdot |H|$$
+
+```math
+|G| = |a_1H| + |a_2H| + \cdots + |a_kH| = k \cdot |H| = [G:H] \cdot |H|
+```
+
 </Proof>
 
 ## 2.3 Conséquences du Théorème de Lagrange
@@ -67,7 +83,11 @@ Soit $G$ un groupe d'ordre premier $p$. Alors $G$ est cyclique, et tout élémen
 
 <Corollary number="2.3.4" name="Petit Théorème de Fermat">
 Soit $p$ un nombre premier et soit $a$ un entier non divisible par $p$. Alors :
-$$a^{p-1} \equiv 1 \pmod{p}$$
+
+```math
+a^{p-1} \equiv 1 \pmod{p}
+```
+
 </Corollary>
 
 ## Équations Clés

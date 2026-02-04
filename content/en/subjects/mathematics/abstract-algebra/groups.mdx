@@ -23,7 +23,11 @@ Before we can define a group, we must first make precise what we mean by an *ope
 
 <Definition number="1.1.1" name="Binary Operation">
 Let $S$ be a non-empty set. A **binary operation** on $S$ is a function
-$$\star : S \times S \to S$$
+
+```math
+\star : S \times S \to S
+```
+
 that assigns to each ordered pair $(a, b)$ of elements of $S$ a unique element $a \star b$ of $S$.
 </Definition>
 
@@ -61,13 +65,22 @@ We now arrive at the central definition of this chapter. A group is a set equipp
 A **group** is an ordered pair $(G, \star)$ where $G$ is a non-empty set and $\star$ is a binary operation on $G$ satisfying the following axioms:
 
 **(G1) Associativity.** For all $a, b, c \in G$:
-$$(a \star b) \star c = a \star (b \star c)$$
+
+```math
+(a \star b) \star c = a \star (b \star c)
+```
 
 **(G2) Identity.** There exists an element $e \in G$ such that for all $a \in G$:
-$$e \star a = a \star e = a$$
+
+```math
+e \star a = a \star e = a
+```
 
 **(G3) Inverses.** For each $a \in G$, there exists an element $a^{-1} \in G$ such that:
-$$a \star a^{-1} = a^{-1} \star a = e$$
+
+```math
+a \star a^{-1} = a^{-1} \star a = e
+```
 </Definition>
 
 <Remark>
@@ -82,7 +95,11 @@ Several observations are in order:
 
 <Definition number="1.2.2" name="Abelian Group">
 A group $(G, \star)$ is called **abelian** (or **commutative**) if for all $a, b \in G$:
-$$a \star b = b \star a$$
+
+```math
+a \star b = b \star a
+```
+
 The term honors Niels Henrik Abel (1802–1829), who made fundamental contributions to the theory of equations.
 </Definition>
 
@@ -114,7 +131,11 @@ In any group $(G, \star)$, each element has a unique inverse.
 
 <Proof>
 Let $a \in G$ and suppose that both $b$ and $c$ are inverses of $a$. Then:
-$$b = b \star e = b \star (a \star c) = (b \star a) \star c = e \star c = c$$
+
+```math
+b = b \star e = b \star (a \star c) = (b \star a) \star c = e \star c = c
+```
+
 where we have used associativity and the defining property of inverses.
 </Proof>
 
@@ -130,22 +151,42 @@ Let $(G, \star)$ be a group and let $a, b, c \in G$. Then:
 We prove left cancellation; right cancellation is similar.
 
 Suppose $a \star b = a \star c$. Multiplying both sides on the left by $a^{-1}$:
-$$a^{-1} \star (a \star b) = a^{-1} \star (a \star c)$$
+
+```math
+a^{-1} \star (a \star b) = a^{-1} \star (a \star c)
+```
+
 By associativity:
-$$(a^{-1} \star a) \star b = (a^{-1} \star a) \star c$$
+
+```math
+(a^{-1} \star a) \star b = (a^{-1} \star a) \star c
+```
+
 Since $a^{-1} \star a = e$:
-$$e \star b = e \star c$$
+
+```math
+e \star b = e \star c
+```
+
 Therefore $b = c$.
 </Proof>
 
 <Theorem number="1.3.4" name="Inverse of a Product">
 Let $(G, \star)$ be a group and let $a, b \in G$. Then:
-$$(a \star b)^{-1} = b^{-1} \star a^{-1}$$
+
+```math
+(a \star b)^{-1} = b^{-1} \star a^{-1}
+```
+
 </Theorem>
 
 <Proof>
 We verify that $b^{-1} \star a^{-1}$ satisfies the defining property of the inverse of $a \star b$:
-$$(a \star b) \star (b^{-1} \star a^{-1}) = a \star (b \star b^{-1}) \star a^{-1} = a \star e \star a^{-1} = a \star a^{-1} = e$$
+
+```math
+(a \star b) \star (b^{-1} \star a^{-1}) = a \star (b \star b^{-1}) \star a^{-1} = a \star e \star a^{-1} = a \star a^{-1} = e
+```
+
 Similarly, $(b^{-1} \star a^{-1}) \star (a \star b) = e$. By uniqueness of inverses, $(a \star b)^{-1} = b^{-1} \star a^{-1}$.
 </Proof>
 
@@ -177,7 +218,7 @@ The set $\mathbb{Z}$ of integers forms a group under addition, denoted $(\mathbb
 This group is abelian and infinite.
 </Example>
 
-<Example number="1.4.2" name="Rational, Real, and Complex Numbers">
+<Example number="1.4.2">
 Similarly, $(\mathbb{Q}, +)$, $(\mathbb{R}, +)$, and $(\mathbb{C}, +)$ are all abelian groups under addition.
 </Example>
 
@@ -198,7 +239,11 @@ The set $\mathbb{R}^+ = \{x \in \mathbb{R} : x > 0\}$ forms an abelian group und
 ### Modular Arithmetic
 
 <Example number="1.4.5" name="Integers Modulo n">
-For any positive integer $n$, the set $\mathbb{Z}/n\mathbb{Z} = \{0, 1, 2, \ldots, n-1\}$ forms a group under addition modulo $n$:
+For any positive integer $n$, the set
+```math
+\mathbb{Z}/n\mathbb{Z} = \{0, 1, 2, \ldots, n-1\}
+```
+forms a group under addition modulo $n$:
 - **Identity:** $0$
 - **Inverse of $a$:** $n - a$ (when $a \neq 0$)
 
@@ -206,19 +251,31 @@ This is a finite abelian group of order $n$.
 </Example>
 
 <Example number="1.4.6" name="Units Modulo n">
-The set $(\mathbb{Z}/n\mathbb{Z})^* = \{a \in \mathbb{Z}/n\mathbb{Z} : \gcd(a, n) = 1\}$ forms a group under multiplication modulo $n$. The order of this group is $\phi(n)$, Euler's totient function.
+The set
+```math
+(\mathbb{Z}/n\mathbb{Z})^* = \{a \in \mathbb{Z}/n\mathbb{Z} : \gcd(a, n) = 1\}
+```
+forms a group under multiplication modulo $n$. The order of this group is $\phi(n)$, Euler's totient function.
 </Example>
 
 ### Matrix Groups
 
 <Example number="1.4.7" name="General Linear Group">
 The **general linear group** $\text{GL}_n(\mathbb{R})$ consists of all invertible $n \times n$ matrices with real entries, under matrix multiplication:
-$$\text{GL}_n(\mathbb{R}) = \{A \in M_n(\mathbb{R}) : \det(A) \neq 0\}$$
+
+```math
+\text{GL}_n(\mathbb{R}) = \{A \in M_n(\mathbb{R}) : \det(A) \neq 0\}
+```
+
 This is a non-abelian group for $n \geq 2$.
 </Example>
 
 <Example number="1.4.8" name="Special Linear Group">
-The **special linear group** $\text{SL}_n(\mathbb{R}) = \{A \in \text{GL}_n(\mathbb{R}) : \det(A) = 1\}$ is a subgroup of $\text{GL}_n(\mathbb{R})$.
+The **special linear group**
+```math
+\text{SL}_n(\mathbb{R}) = \{A \in \text{GL}_n(\mathbb{R}) : \det(A) = 1\}
+```
+is a subgroup of $\text{GL}_n(\mathbb{R})$.
 </Example>
 
 ### Symmetry Groups
@@ -271,7 +328,11 @@ A subgroup $H$ with $\{e\} \subsetneq H \subsetneq G$ is called a **proper non-t
 
 <Example number="1.5.5" name="Subgroups of Integers">
 The subgroups of $(\mathbb{Z}, +)$ are precisely the sets $n\mathbb{Z} = \{nk : k \in \mathbb{Z}\}$ for $n \geq 0$. Thus:
-$$\{0\} \subsetneq \cdots \subsetneq 6\mathbb{Z} \subsetneq 3\mathbb{Z} \subsetneq \mathbb{Z}$$
+
+```math
+\{0\} \subsetneq \cdots \subsetneq 6\mathbb{Z} \subsetneq 3\mathbb{Z} \subsetneq \mathbb{Z}
+```
+
 </Example>
 
 ## 1.6 Group Homomorphisms
@@ -280,7 +341,11 @@ A *homomorphism* is a function between groups that respects the group structure.
 
 <Definition number="1.6.1" name="Group Homomorphism">
 Let $(G, \star)$ and $(H, \cdot)$ be groups. A function $\phi : G \to H$ is a **homomorphism** if for all $a, b \in G$:
-$$\phi(a \star b) = \phi(a) \cdot \phi(b)$$
+
+```math
+\phi(a \star b) = \phi(a) \cdot \phi(b)
+```
+
 </Definition>
 
 The condition says that $\phi$ "respects" or "preserves" the group operation: combining elements in $G$ and then applying $\phi$ gives the same result as applying $\phi$ first and then combining in $H$.
@@ -304,10 +369,17 @@ Let $\phi : G \to H$ be a group homomorphism. Then:
 Let $\phi : G \to H$ be a homomorphism.
 
 The **kernel** of $\phi$ is:
-$$\ker(\phi) = \{a \in G : \phi(a) = e_H\}$$
+
+```math
+\ker(\phi) = \{a \in G : \phi(a) = e_H\}
+```
 
 The **image** of $\phi$ is:
-$$\text{im}(\phi) = \{\phi(a) : a \in G\} = \phi(G)$$
+
+```math
+\text{im}(\phi) = \{\phi(a) : a \in G\} = \phi(G)
+```
+
 </Definition>
 
 <Theorem number="1.6.4">
@@ -331,7 +403,11 @@ A homomorphism $\phi : G \to H$ is injective if and only if $\ker(\phi) = \{e_G\
 <Proof>
 ($\Rightarrow$) If $\phi$ is injective and $\phi(a) = e_H$, then $\phi(a) = \phi(e_G)$, so $a = e_G$.
 
-($\Leftarrow$) If $\ker(\phi) = \{e_G\}$ and $\phi(a) = \phi(b)$, then $\phi(ab^{-1}) = \phi(a)\phi(b)^{-1} = e_H$, so $ab^{-1} \in \ker(\phi) = \{e_G\}$, giving $a = b$.
+($\Leftarrow$) If $\ker(\phi) = \{e_G\}$ and $\phi(a) = \phi(b)$, then
+```math
+\phi(ab^{-1}) = \phi(a)\phi(b)^{-1} = e_H,
+```
+so $ab^{-1} \in \ker(\phi) = \{e_G\}$, giving $a = b$.
 </Proof>
 
 <Definition number="1.6.7" name="Isomorphic Groups">
@@ -346,7 +422,11 @@ Among all groups, the cyclic groups are the simplest and most completely underst
 
 <Definition number="1.7.1" name="Cyclic Group">
 A group $G$ is **cyclic** if there exists an element $g \in G$ such that every element of $G$ can be written as a power of $g$:
-$$G = \{g^n : n \in \mathbb{Z}\} = \langle g \rangle$$
+
+```math
+G = \{g^n : n \in \mathbb{Z}\} = \langle g \rangle
+```
+
 The element $g$ is called a **generator** of $G$.
 </Definition>
 
@@ -371,79 +451,6 @@ Let $G = \langle g \rangle$ be a cyclic group of order $n$. Then:
 1. For each divisor $d$ of $n$, there is exactly one subgroup of order $d$
 2. This subgroup is $\langle g^{n/d} \rangle$
 </Theorem>
-
-## Practice Problems
-
-<PracticeProblems
-  subject="mathematics"
-  field="abstract-algebra"
-  problems={[
-    { id: "group-equation-1", title: "Prove that ax = b has a unique solution", difficulty: "easy" },
-    { id: "square-identity-abelian", title: "Prove groups with a² = e are abelian", difficulty: "easy" },
-    { id: "rationals-not-cyclic", title: "Prove (ℚ*, ·) is not cyclic", difficulty: "medium" },
-    { id: "homomorphism-abelian-image", title: "Prove image of abelian group is abelian", difficulty: "medium" },
-    { id: "subgroups-z12", title: "Determine all subgroups of ℤ/12ℤ", difficulty: "medium" },
-    { id: "group-axioms-1", title: "Verify the group axioms for matrix groups", difficulty: "medium" },
-    { id: "homomorphism-kernel-image", title: "Determine the kernel and image of a homomorphism", difficulty: "medium" },
-    { id: "cyclic-generators", title: "Find all generators of a cyclic group", difficulty: "easy" },
-  ]}
-/>
-
-## Open Problems
-
-<OpenResearch title="The Inverse Galois Problem" status="open">
-Does every finite group appear as the Galois group of some polynomial over $\mathbb{Q}$?
-
-This problem, dating to the nineteenth century, connects group theory to field theory and algebraic geometry. While many families of groups are known to be Galois groups over $\mathbb{Q}$, a complete answer remains elusive.
-</OpenResearch>
-
-## Related Topics
-
-<RelatedTopic
-  subject="mathematics"
-  field="abstract-algebra"
-  topic="Ring Theory"
-  relation="generalization"
-  description="Rings add a second operation (multiplication) to the additive group structure"
-/>
-
-<RelatedTopic
-  subject="mathematics"
-  field="abstract-algebra"
-  topic="Galois Theory"
-  relation="application"
-  description="Groups describe the symmetries of field extensions"
-/>
-
-<RelatedTopic
-  subject="mathematics"
-  field="topology"
-  topic="Fundamental Group"
-  relation="application"
-  description="Groups classify loops in topological spaces"
-/>
-
-## Key Equations
-
-<EquationCard
-  title="Lagrange's Theorem"
-  equation="|G| = |H| \cdot [G:H]"
-  variables={[
-    { symbol: "|G|", name: "Order of G", description: "Number of elements in the group G" },
-    { symbol: "|H|", name: "Order of H", description: "Number of elements in the subgroup H" },
-    { symbol: "[G:H]", name: "Index", description: "Number of distinct cosets of H in G" }
-  ]}
-/>
-
-<EquationCard
-  title="First Isomorphism Theorem"
-  equation="G / \ker(\phi) \cong \text{im}(\phi)"
-  variables={[
-    { symbol: "G", name: "Domain", description: "The domain group of the homomorphism" },
-    { symbol: "\\ker(\\phi)", name: "Kernel", description: "Elements mapping to the identity" },
-    { symbol: "\\text{im}(\\phi)", name: "Image", description: "The range of the homomorphism" }
-  ]}
-/>
 
 ## Chapter Review
 
@@ -527,3 +534,76 @@ This chapter established the foundations of group theory:
 The theory developed here provides the foundation for all subsequent chapters. In Chapter 2, we will study *cosets* and *Lagrange's theorem*, which reveal deep connections between a group and its subgroups.
 
 </ChapterQuiz>
+
+## Practice Problems
+
+<PracticeProblems
+  subject="mathematics"
+  field="abstract-algebra"
+  problems={[
+    { id: "group-equation-1", title: "Prove that ax = b has a unique solution", difficulty: "easy" },
+    { id: "square-identity-abelian", title: "Prove groups with a² = e are abelian", difficulty: "easy" },
+    { id: "rationals-not-cyclic", title: "Prove (ℚ*, ·) is not cyclic", difficulty: "medium" },
+    { id: "homomorphism-abelian-image", title: "Prove image of abelian group is abelian", difficulty: "medium" },
+    { id: "subgroups-z12", title: "Determine all subgroups of ℤ/12ℤ", difficulty: "medium" },
+    { id: "group-axioms-1", title: "Verify the group axioms for matrix groups", difficulty: "medium" },
+    { id: "homomorphism-kernel-image", title: "Determine the kernel and image of a homomorphism", difficulty: "medium" },
+    { id: "cyclic-generators", title: "Find all generators of a cyclic group", difficulty: "easy" },
+  ]}
+/>
+
+## Open Problems
+
+<OpenResearch title="The Inverse Galois Problem" status="open">
+Does every finite group appear as the Galois group of some polynomial over $\mathbb{Q}$?
+
+This problem, dating to the nineteenth century, connects group theory to field theory and algebraic geometry. While many families of groups are known to be Galois groups over $\mathbb{Q}$, a complete answer remains elusive.
+</OpenResearch>
+
+## Key Equations
+
+<EquationCard
+  title="Lagrange's Theorem"
+  equation="|G| = |H| \cdot [G:H]"
+  variables={[
+    { symbol: "|G|", name: "Order of G", description: "Number of elements in the group G" },
+    { symbol: "|H|", name: "Order of H", description: "Number of elements in the subgroup H" },
+    { symbol: "[G:H]", name: "Index", description: "Number of distinct cosets of H in G" }
+  ]}
+/>
+
+<EquationCard
+  title="First Isomorphism Theorem"
+  equation="G / \ker(\phi) \cong \text{im}(\phi)"
+  variables={[
+    { symbol: "G", name: "Domain", description: "The domain group of the homomorphism" },
+    { symbol: "\\ker(\\phi)", name: "Kernel", description: "Elements mapping to the identity" },
+    { symbol: "\\text{im}(\\phi)", name: "Image", description: "The range of the homomorphism" }
+  ]}
+/>
+
+## Related Topics
+
+<RelatedTopic
+  subject="mathematics"
+  field="abstract-algebra"
+  topic="Ring Theory"
+  relation="generalization"
+  description="Rings add a second operation (multiplication) to the additive group structure"
+/>
+
+<RelatedTopic
+  subject="mathematics"
+  field="abstract-algebra"
+  topic="Galois Theory"
+  relation="application"
+  description="Groups describe the symmetries of field extensions"
+/>
+
+<RelatedTopic
+  subject="mathematics"
+  field="topology"
+  topic="Fundamental Group"
+  relation="application"
+  description="Groups classify loops in topological spaces"
+/>

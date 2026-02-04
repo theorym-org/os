@@ -23,13 +23,21 @@ Let $H$ be a subgroup of a group $G$. We wish to understand how $H$ partitions $
 
 <Definition number="2.1.1" name="Left Coset">
 Let $H$ be a subgroup of a group $G$ and let $a \in G$. The **left coset** of $H$ containing $a$ is the set
-$$aH = \{ah : h \in H\}$$
+
+```math
+aH = \{ah : h \in H\}
+```
+
 The element $a$ is called a **representative** of the coset $aH$.
 </Definition>
 
 <Definition number="2.1.2" name="Right Coset">
 Similarly, the **right coset** of $H$ containing $a$ is the set
-$$Ha = \{ha : h \in H\}$$
+
+```math
+Ha = \{ha : h \in H\}
+```
+
 </Definition>
 
 <Remark>
@@ -37,21 +45,54 @@ In general, left cosets and right cosets are different. However, when the group 
 </Remark>
 
 <Example number="2.1.3" name="Cosets in the Integers">
-Consider the subgroup $3\mathbb{Z} = \{\ldots, -6, -3, 0, 3, 6, \ldots\}$ of $(\mathbb{Z}, +)$. The cosets of $3\mathbb{Z}$ are:
-$$0 + 3\mathbb{Z} = 3\mathbb{Z} = \{\ldots, -6, -3, 0, 3, 6, \ldots\}$$
-$$1 + 3\mathbb{Z} = \{\ldots, -5, -2, 1, 4, 7, \ldots\}$$
-$$2 + 3\mathbb{Z} = \{\ldots, -4, -1, 2, 5, 8, \ldots\}$$
+Consider the subgroup
+```math
+3\mathbb{Z} = \{\ldots, -6, -3, 0, 3, 6, \ldots\}
+```
+of $(\mathbb{Z}, +)$. The cosets of $3\mathbb{Z}$ are:
+
+```math
+0 + 3\mathbb{Z} = 3\mathbb{Z} = \{\ldots, -6, -3, 0, 3, 6, \ldots\}
+```
+
+```math
+1 + 3\mathbb{Z} = \{\ldots, -5, -2, 1, 4, 7, \ldots\}
+```
+
+```math
+2 + 3\mathbb{Z} = \{\ldots, -4, -1, 2, 5, 8, \ldots\}
+```
+
 These three cosets partition $\mathbb{Z}$, and each coset corresponds to a residue class modulo $3$.
 </Example>
 
 <Example number="2.1.4" name="Cosets in $S_3$">
 Let $G = S_3$ and let $H = \{e, (12)\}$, a subgroup of order $2$. The left cosets of $H$ are:
-$$eH = \{e, (12)\} = H$$
-$$(12)H = \{(12), e\} = H$$
-$$(13)H = \{(13), (132)\}$$
-$$(23)H = \{(23), (123)\}$$
-$$(123)H = \{(123), (23)\}$$
-$$(132)H = \{(132), (13)\}$$
+
+```math
+eH = \{e, (12)\} = H
+```
+
+```math
+(12)H = \{(12), e\} = H
+```
+
+```math
+(13)H = \{(13), (132)\}
+```
+
+```math
+(23)H = \{(23), (123)\}
+```
+
+```math
+(123)H = \{(123), (23)\}
+```
+
+```math
+(132)H = \{(132), (13)\}
+```
+
 Thus there are exactly three distinct left cosets: $H$, $(13)H$, and $(23)H$.
 </Example>
 
@@ -107,14 +148,26 @@ We now prove the fundamental theorem relating the orders of a group and its subg
 
 <Theorem number="2.2.1" name="Lagrange's Theorem">
 Let $G$ be a finite group and let $H$ be a subgroup of $G$. Then $|H|$ divides $|G|$. More precisely:
-$$|G| = |H| \cdot [G:H]$$
+
+```math
+|G| = |H| \cdot [G:H]
+```
+
 </Theorem>
 
 <Proof>
 By Theorem 2.1.5, the distinct left cosets of $H$ partition $G$. Let these cosets be $a_1H, a_2H, \ldots, a_kH$ where $k = [G:H]$. Since the cosets are pairwise disjoint and their union is $G$:
-$$|G| = |a_1H| + |a_2H| + \cdots + |a_kH|$$
+
+```math
+|G| = |a_1H| + |a_2H| + \cdots + |a_kH|
+```
+
 By Theorem 2.1.5(5), each coset has the same cardinality as $H$:
-$$|G| = |H| + |H| + \cdots + |H| = k \cdot |H| = [G:H] \cdot |H|$$
+
+```math
+|G| = |H| + |H| + \cdots + |H| = k \cdot |H| = [G:H] \cdot |H|
+```
+
 </Proof>
 
 <Remark>
@@ -151,7 +204,11 @@ Let $G$ be a finite group and let $a \in G$. Then $a^{|G|} = e$.
 
 <Proof>
 Let $n = |a|$ be the order of $a$. By Corollary 2.3.1, $n$ divides $|G|$, so $|G| = nk$ for some positive integer $k$. Then:
-$$a^{|G|} = a^{nk} = (a^n)^k = e^k = e$$
+
+```math
+a^{|G|} = a^{nk} = (a^n)^k = e^k = e
+```
+
 </Proof>
 
 <Corollary number="2.3.3" name="Groups of Prime Order">
@@ -164,18 +221,30 @@ Let $a \in G$ with $a \neq e$. The subgroup $\langle a \rangle$ has order dividi
 
 <Corollary number="2.3.4" name="Fermat's Little Theorem">
 Let $p$ be a prime and let $a$ be an integer not divisible by $p$. Then:
-$$a^{p-1} \equiv 1 \pmod{p}$$
+
+```math
+a^{p-1} \equiv 1 \pmod{p}
+```
+
 </Corollary>
 
 <Proof>
 The group $(\mathbb{Z}/p\mathbb{Z})^* = \{1, 2, \ldots, p-1\}$ under multiplication modulo $p$ has order $p - 1$. Since $\gcd(a, p) = 1$, the residue class $\bar{a}$ belongs to this group. By Corollary 2.3.2:
-$$\bar{a}^{p-1} = \bar{1}$$
+
+```math
+\bar{a}^{p-1} = \bar{1}
+```
+
 which means $a^{p-1} \equiv 1 \pmod{p}$.
 </Proof>
 
 <Corollary number="2.3.5" name="Euler's Theorem">
 Let $n$ be a positive integer and let $a$ be an integer with $\gcd(a, n) = 1$. Then:
-$$a^{\phi(n)} \equiv 1 \pmod{n}$$
+
+```math
+a^{\phi(n)} \equiv 1 \pmod{n}
+```
+
 where $\phi(n)$ is Euler's totient function.
 </Corollary>
 
@@ -189,7 +258,11 @@ The index satisfies a multiplicative property for chains of subgroups.
 
 <Theorem number="2.4.1" name="Tower Law">
 Let $K \leq H \leq G$ be groups. Then:
-$$[G:K] = [G:H] \cdot [H:K]$$
+
+```math
+[G:K] = [G:H] \cdot [H:K]
+```
+
 In particular, if any two of the three indices are finite, so is the third.
 </Theorem>
 
@@ -217,7 +290,11 @@ A permutation $\sigma \in S_n$ is called **even** if it can be written as a prod
 
 <Theorem number="2.5.2">
 The alternating group $A_n$ is a subgroup of $S_n$ of index $2$. Consequently:
-$$|A_n| = \frac{n!}{2}$$
+
+```math
+|A_n| = \frac{n!}{2}
+```
+
 </Theorem>
 
 <Proof>
@@ -240,82 +317,6 @@ The group $A_4$ has order $12$. Its elements are:
 - The eight $3$-cycles: $(123), (132), (124), (142), (134), (143), (234), (243)$
 - The three products of disjoint transpositions: $(12)(34), (13)(24), (14)(23)$
 </Example>
-
-## Practice Problems
-
-<PracticeProblems
-  subject="mathematics"
-  field="abstract-algebra"
-  problems={[
-    { id: "cosets-s4-klein", title: "Find all cosets of Klein four-group in S₄", difficulty: "easy" },
-    { id: "order-2p-unique-subgroup", title: "Prove groups of order 2p have unique subgroup of order p", difficulty: "medium" },
-    { id: "hk-order-formula", title: "Prove |HK| = |H||K|/|H∩K|", difficulty: "medium" },
-    { id: "coprime-index-product", title: "Prove G = HK when indices are coprime", difficulty: "hard" },
-    { id: "smallest-prime-index-normal", title: "Prove subgroups of smallest prime index are normal", difficulty: "hard" },
-    { id: "coset-computation-dihedral", title: "Compute cosets in the dihedral group", difficulty: "easy" },
-    { id: "lagrange-subgroup-orders", title: "Apply Lagrange's theorem to determine possible subgroup orders", difficulty: "medium" },
-    { id: "index-tower-computation", title: "Use the tower law to compute indices", difficulty: "medium" },
-    { id: "fermat-group-theory-proof", title: "Prove Fermat's little theorem using group theory", difficulty: "hard" },
-  ]}
-/>
-
-## Related Topics
-
-<RelatedTopic
-  subject="mathematics"
-  field="abstract-algebra"
-  topic="Normal Subgroups"
-  relation="continuation"
-  description="Normal subgroups are those whose left and right cosets coincide"
-/>
-
-<RelatedTopic
-  subject="mathematics"
-  field="abstract-algebra"
-  topic="Quotient Groups"
-  relation="application"
-  description="Cosets of normal subgroups form a group under coset multiplication"
-/>
-
-<RelatedTopic
-  subject="mathematics"
-  field="elementary-number-theory"
-  topic="Modular Arithmetic"
-  relation="application"
-  description="Cosets of $n\mathbb{Z}$ in $\mathbb{Z}$ are precisely the residue classes modulo $n$"
-/>
-
-## Key Equations
-
-<EquationCard
-  title="Lagrange's Theorem"
-  equation="|G| = |H| \cdot [G:H]"
-  variables={[
-    { symbol: "|G|", name: "Order of G", description: "Number of elements in the group G" },
-    { symbol: "|H|", name: "Order of H", description: "Number of elements in the subgroup H" },
-    { symbol: "[G:H]", name: "Index", description: "Number of distinct cosets of H in G" }
-  ]}
-/>
-
-<EquationCard
-  title="Tower Law"
-  equation="[G:K] = [G:H] \cdot [H:K]"
-  variables={[
-    { symbol: "[G:K]", name: "Index of K in G", description: "Number of cosets of K in G" },
-    { symbol: "[G:H]", name: "Index of H in G", description: "Number of cosets of H in G" },
-    { symbol: "[H:K]", name: "Index of K in H", description: "Number of cosets of K in H" }
-  ]}
-/>
-
-<EquationCard
-  title="Euler's Theorem"
-  equation="a^{\phi(n)} \equiv 1 \pmod{n}"
-  variables={[
-    { symbol: "a", name: "Base", description: "An integer coprime to n" },
-    { symbol: "\\phi(n)", name: "Euler's totient", description: "Count of integers up to n coprime to n" },
-    { symbol: "n", name: "Modulus", description: "The modulus for the congruence" }
-  ]}
-/>
 
 ## Chapter Review
 
@@ -398,3 +399,79 @@ This chapter established the theory of cosets and Lagrange's theorem:
 The theory of cosets leads naturally to the study of *normal subgroups* and *quotient groups*, which we develop in the next chapter. Normal subgroups are precisely those subgroups whose left and right cosets coincide, and they allow us to construct new groups from old ones.
 
 </ChapterQuiz>
+
+## Practice Problems
+
+<PracticeProblems
+  subject="mathematics"
+  field="abstract-algebra"
+  problems={[
+    { id: "cosets-s4-klein", title: "Find all cosets of Klein four-group in S₄", difficulty: "easy" },
+    { id: "order-2p-unique-subgroup", title: "Prove groups of order 2p have unique subgroup of order p", difficulty: "medium" },
+    { id: "hk-order-formula", title: "Prove |HK| = |H||K|/|H∩K|", difficulty: "medium" },
+    { id: "coprime-index-product", title: "Prove G = HK when indices are coprime", difficulty: "hard" },
+    { id: "smallest-prime-index-normal", title: "Prove subgroups of smallest prime index are normal", difficulty: "hard" },
+    { id: "coset-computation-dihedral", title: "Compute cosets in the dihedral group", difficulty: "easy" },
+    { id: "lagrange-subgroup-orders", title: "Apply Lagrange's theorem to determine possible subgroup orders", difficulty: "medium" },
+    { id: "index-tower-computation", title: "Use the tower law to compute indices", difficulty: "medium" },
+    { id: "fermat-group-theory-proof", title: "Prove Fermat's little theorem using group theory", difficulty: "hard" },
+  ]}
+/>
+
+## Key Equations
+
+<EquationCard
+  title="Lagrange's Theorem"
+  equation="|G| = |H| \cdot [G:H]"
+  variables={[
+    { symbol: "|G|", name: "Order of G", description: "Number of elements in the group G" },
+    { symbol: "|H|", name: "Order of H", description: "Number of elements in the subgroup H" },
+    { symbol: "[G:H]", name: "Index", description: "Number of distinct cosets of H in G" }
+  ]}
+/>
+
+<EquationCard
+  title="Tower Law"
+  equation="[G:K] = [G:H] \cdot [H:K]"
+  variables={[
+    { symbol: "[G:K]", name: "Index of K in G", description: "Number of cosets of K in G" },
+    { symbol: "[G:H]", name: "Index of H in G", description: "Number of cosets of H in G" },
+    { symbol: "[H:K]", name: "Index of K in H", description: "Number of cosets of K in H" }
+  ]}
+/>
+
+<EquationCard
+  title="Euler's Theorem"
+  equation="a^{\phi(n)} \equiv 1 \pmod{n}"
+  variables={[
+    { symbol: "a", name: "Base", description: "An integer coprime to n" },
+    { symbol: "\\phi(n)", name: "Euler's totient", description: "Count of integers up to n coprime to n" },
+    { symbol: "n", name: "Modulus", description: "The modulus for the congruence" }
+  ]}
+/>
+
+## Related Topics
+
+<RelatedTopic
+  subject="mathematics"
+  field="abstract-algebra"
+  topic="Normal Subgroups"
+  relation="continuation"
+  description="Normal subgroups are those whose left and right cosets coincide"
+/>
+
+<RelatedTopic
+  subject="mathematics"
+  field="abstract-algebra"
+  topic="Quotient Groups"
+  relation="application"
+  description="Cosets of normal subgroups form a group under coset multiplication"
+/>
+
+<RelatedTopic
+  subject="mathematics"
+  field="elementary-number-theory"
+  topic="Modular Arithmetic"
+  relation="application"
+  description="Cosets of $n\mathbb{Z}$ in $\mathbb{Z}$ are precisely the residue classes modulo $n$"
+/>
