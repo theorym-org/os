@@ -1,0 +1,48 @@
+<Definition>
+    An **abelian category** is a category that is preadditive, has all finite products and coproducts, kernels and cokernels, and in which every monomorphism and epimorphism is normal.
+</Definition>
+
+<Example>
+    - The category of abelian groups is an abelian category.
+    - The category of modules over a ring is an abelian category.
+    - The category of sheaves of abelian groups on a topological space is an abelian category.
+</Example>
+
+<Remark>
+    - An abelian category is a category that is preadditive, has all finite products and coproducts, kernels and cokernels, and in which every monomorphism and epimorphism is normal.
+</Remark>
+
+
+Lecture 3:
+<Definition>
+    \begin{enumerate}[(1)]
+        \item
+        A sequence
+        \begin{equation*}
+            \cdots \to X_{n+1} \xrightarrow{f_{n+1}} X_n \xrightarrow{f_n} X_{n-1} \xrightarrow{f_{n-1}} \cdots
+            \end{equation*}
+            \begin{itemize}
+                \item is exact at degree $n$ if $f_n$ is a monomorphism and $f_{n+1}$ is an epimorphism, \textit{i.e.} if $\operatorname{ker} f_n = \operatorname{im} f_{n+1}$.
+                \item is exact if it's degrees are exact at each degree.
+            \end{itemize}
+        
+        \item
+        A short exact sequence (SES) is an exact sequence of the form
+        \begin{equation*}
+            0 \to A \xrightarrow{f} B \xrightarrow{g} C \to 0
+        \end{equation*}
+        where $f$ is a monomorphism and $g$ is an epimorphism.
+
+        \item
+        A functor $F: \mathcal{C} \to \mathcal{D}$ is \textbf{exact} if $F$ maps a SES in $\mathcal{C}$ to a SES in $\mathcal{D}$.
+    \end{enumerate}
+</Definition>
+
+<Lemma>
+    Given a SES $0 \to A \xrightarrow{f} B \xrightarrow{g} C \to 0$, then
+    \begin{equation*}
+        0 \to \operatorname{Hom}(A, X) \xrightarrow{\operatorname{Hom}(A, f)} \operatorname{Hom}(A, Y) \xrightarrow{\operatorname{Hom}(A, g)} \operatorname{Hom}(A, Z)
+    \end{equation*}
+    is exact.
+</Lemma>
+

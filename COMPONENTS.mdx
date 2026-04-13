@@ -1,0 +1,243 @@
+# Available MDX Components
+
+All components listed below are **automatically available** in any MDX file. 
+**No imports needed!** Just use them directly.
+
+---
+
+## Theorem-Like Environments
+
+These create styled boxes for mathematical content, matching LaTeX theorem environments.
+
+### Definition
+```mdx
+<Definition number="1.1" name="Group">
+A **group** is a set $G$ together with a binary operation $\cdot$ such that...
+</Definition>
+```
+
+### Theorem
+```mdx
+<Theorem number="2.1" name="Lagrange's Theorem">
+Let $G$ be a finite group and $H$ a subgroup of $G$. Then $|H|$ divides $|G|$.
+</Theorem>
+```
+
+### All Theorem Types
+- `<Definition>` - Red border, for definitions
+- `<Theorem>` - Blue border, for theorems
+- `<Lemma>` - Orange border, for lemmas
+- `<Corollary>` - Purple border, for corollaries
+- `<Proposition>` - Navy border, for propositions
+- `<Claim>` - Green border, for claims
+- `<Problem>` - Gray border, for problems
+- `<Exercise>` - Teal border, for exercises
+- `<Example>` - Teal border, for examples
+- `<Question>` - Dark border, for questions
+- `<Solution>` - Green border, for solutions
+- `<Proof>` - Gray border, for proofs
+- `<Remark>` - Light gray border, for remarks
+- `<Note>` - Light gray border, for notes
+
+**Props:**
+- `number` (optional): Display number like "1.1", "2.3", etc.
+- `name` (optional): Name like "Lagrange's Theorem", "Fundamental Theorem", etc.
+
+---
+
+## Interactive Components
+
+### EquationCard
+Display an equation with explanation.
+```mdx
+<EquationCard
+  equation="E = mc^2"
+  title="Mass-Energy Equivalence"
+  description="Einstein's famous equation relating mass and energy."
+/>
+```
+
+### GraphCard
+Interactive graph visualization.
+```mdx
+<GraphCard
+  functions={["x^2", "sin(x)"]}
+  xRange={[-5, 5]}
+  yRange={[-2, 10]}
+/>
+```
+
+### QuizCard
+Multiple choice quiz.
+```mdx
+<QuizCard
+  question="What is the derivative of $x^2$?"
+  options={["$x$", "$2x$", "$x^2$", "$2$"]}
+  correctIndex={1}
+  explanation="Using the power rule: $\frac{d}{dx}x^n = nx^{n-1}$"
+/>
+```
+
+---
+
+## TikZ / Diagrams
+
+### TikZ
+Render TikZ diagrams.
+```mdx
+<TikZ>
+{\`
+\\begin{tikzpicture}
+  \\draw (0,0) circle (1);
+  \\draw (0,0) -- (1,0);
+\\end{tikzpicture}
+\`}
+</TikZ>
+```
+
+### CommutativeDiagram
+For category theory diagrams.
+```mdx
+<CommutativeDiagram>
+{\`
+A \\arrow[r, "f"] \\arrow[d, "g"] & B \\arrow[d, "h"] \\\\
+C \\arrow[r, "k"] & D
+\`}
+</CommutativeDiagram>
+```
+
+### QuantumCircuit
+For quantum computing circuits.
+```mdx
+<QuantumCircuit>
+{\`
+\\begin{quantikz}
+  \\lstick{$|0\\rangle$} & \\gate{H} & \\ctrl{1} & \\meter{} \\\\
+  \\lstick{$|0\\rangle$} & \\qw & \\targ{} & \\meter{}
+\\end{quantikz}
+\`}
+</QuantumCircuit>
+```
+
+---
+
+## Physics Simulators
+
+### PendulumSimulator
+```mdx
+<PendulumSimulator />
+```
+
+### Brachistochrone
+```mdx
+<Brachistochrone />
+```
+
+### GasProperties
+```mdx
+<GasProperties />
+```
+
+### ParticlesInABox
+```mdx
+<ParticlesInABox />
+```
+
+### WaveInterference
+```mdx
+<WaveInterference />
+```
+
+---
+
+## Computer Science Simulators
+
+### SortingVisualizer
+```mdx
+<SortingVisualizer />
+```
+
+### PerceptronVisualizer
+```mdx
+<PerceptronVisualizer />
+```
+
+---
+
+## UI Components
+
+### Tabs
+```mdx
+<Tabs defaultValue="tab1">
+  <TabsList>
+    <TabsTrigger value="tab1">Tab 1</TabsTrigger>
+    <TabsTrigger value="tab2">Tab 2</TabsTrigger>
+  </TabsList>
+  <TabsContent value="tab1">Content for tab 1</TabsContent>
+  <TabsContent value="tab2">Content for tab 2</TabsContent>
+</Tabs>
+```
+
+### Accordion
+```mdx
+<Accordion type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger>Section 1</AccordionTrigger>
+    <AccordionContent>Content for section 1</AccordionContent>
+  </AccordionItem>
+</Accordion>
+```
+
+### Card
+```mdx
+<Card>
+  <CardHeader>
+    <CardTitle>Title</CardTitle>
+    <CardDescription>Description</CardDescription>
+  </CardHeader>
+  <CardContent>Content goes here</CardContent>
+</Card>
+```
+
+### Alert
+```mdx
+<Alert>
+  <AlertTitle>Note</AlertTitle>
+  <AlertDescription>This is an important note.</AlertDescription>
+</Alert>
+```
+
+### Other UI
+- `<Button>` - Clickable button
+- `<Badge>` - Small label/tag
+- `<Separator>` - Horizontal line
+
+---
+
+## Math
+
+Use standard LaTeX math syntax:
+
+**Inline math:** `$E = mc^2$` renders as $E = mc^2$
+
+**Block math:**
+```
+$$
+\int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}
+$$
+```
+
+---
+
+## Code Blocks
+
+Use triple backticks with language:
+
+````mdx
+```python
+def hello():
+    print("Hello, world!")
+```
+````
+
+Supported languages: `python`, `javascript`, `typescript`, `rust`, `go`, `java`, `c`, `cpp`, `latex`, and many more.

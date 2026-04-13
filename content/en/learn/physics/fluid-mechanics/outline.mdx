@@ -1,0 +1,143 @@
+---
+title: "Outline"
+description: "The outline of the fluid mechanics course"
+---
+
+# A Theoretical Outline of Fluid Mechanics
+
+A comprehensive outline of fluid mechanics from a theoretical perspective involves a logical progression from fundamental principles to the analysis of complex flow phenomena. The subject is built upon the foundational laws of classical mechanics and thermodynamics, applied to a continuous medium.
+
+## I. Foundational Concepts and Mathematical Preliminaries
+
+This initial section lays the groundwork for the entire field, defining what a fluid is and establishing the mathematical tools necessary for its description.
+
+* **The Continuum Hypothesis:** This is the assumption that fluids can be treated as continuous media, ignoring their discrete molecular nature. This allows for the use of differential calculus to describe fluid properties.
+* **Properties of Fluids:**
+  * **Density ($\rho$):** Mass per unit volume.
+  * **Pressure (p):** The normal force exerted by a fluid per unit area.
+  * **Temperature (T):** A measure of the internal energy of the fluid.
+  * **Viscosity ($\mu$):** A measure of a fluid's resistance to shear or angular deformation.
+    * **Newtonian Fluids:** Fluids for which the viscous stresses arising from its flow, at every point, are linearly proportional to the local strain rate.
+    * **Non-Newtonian Fluids:** Fluids where the viscosity changes with the applied shear force.
+* **Vector Calculus and Tensor Analysis:** Essential mathematical tools for describing fields (scalar, vector, and tensor) and their transformations. This includes gradient, divergence, curl, and the Levi-Civitá symbol.
+
+---
+
+## II. Fluid Kinematics
+
+This area focuses on the motion of fluids without considering the forces that cause the motion. It's a geometric description of fluid flow.
+
+* **Lagrangian and Eulerian Descriptions:**
+  * **Lagrangian:** Tracking individual fluid particles over time.
+  * **Eulerian:** Observing the fluid properties at fixed points in space as the fluid flows past. The Eulerian framework is more commonly used.
+* **The Material Derivative:** Describes the rate of change of a fluid property for a given fluid particle, combining both local and convective rates of change.
+
+    $$\frac{D}{Dt} = \frac{\partial}{\partial t} + (\mathbf{u} \cdot \nabla)$$
+* **Flow Visualization:**
+  * **Streamlines:** Curves that are everywhere tangent to the velocity vector at a given instant.
+  * **Pathlines:** The actual trajectories of individual fluid particles.
+  * **Streaklines:** The locus of all fluid particles that have passed through a particular point in space.
+* **Decomposition of Motion:**
+  * **Translation:** The bulk movement of a fluid element.
+  * **Rotation:** The average angular velocity of a fluid element, described by the vorticity vector ($\omega = \nabla \times \mathbf{u}$).
+  * **Deformation:** The change in shape of a fluid element, described by the strain rate tensor.
+
+---
+
+## III. The Governing Equations of Fluid Motion
+
+These are the fundamental conservation laws that govern all fluid flow, derived in both integral (for a control volume) and differential (at a point) forms.
+
+* **Conservation of Mass (Continuity Equation):**
+
+    $$\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \mathbf{u}) = 0$$
+* **Conservation of Momentum (Cauchy's Equation of Motion):** This is essentially Newton's second law applied to a fluid element.
+
+    $$\rho \frac{D\mathbf{u}}{Dt} = \nabla \cdot \boldsymbol{\sigma} + \rho \mathbf{g}$$
+
+    where $\boldsymbol{\sigma}$ is the stress tensor and $\mathbf{g}$ represents body forces.
+* **Conservation of Energy:** The first law of thermodynamics applied to a fluid, accounting for kinetic energy, internal energy, heat transfer, and work done.
+
+---
+
+## IV. Incompressible and Inviscid Flows (Ideal Fluids)
+
+This section deals with a simplified model of fluid flow where the fluid is assumed to be incompressible ($\rho$ = constant) and have zero viscosity ($\mu$ = 0).
+
+* **Euler's Equation:** The momentum equation for an inviscid fluid.
+
+    $$\rho \frac{D\mathbf{u}}{Dt} = -\nabla p + \rho \mathbf{g}$$
+* **Bernoulli's Equation:** An integrated form of Euler's equation along a streamline, relating pressure, velocity, and elevation.
+
+    $$p + \frac{1}{2}\rho u^2 + \rho g h = \text{constant}$$
+* **Potential Flow:** A further simplification for irrotational flows ($\nabla \times \mathbf{u} = 0$), where the velocity can be expressed as the gradient of a scalar potential ($\mathbf{u} = \nabla \phi$).
+* **Vorticity Dynamics:**
+  * **Vortex Lines and Tubes:** Visualizing the rotational motion in a flow.
+  * **Kelvin's Circulation Theorem:** In an ideal fluid, the circulation around a closed material loop remains constant.
+  * **Helmholtz's Vortex Theorems:** Describe the behavior and conservation of vorticity in an ideal fluid.
+
+---
+
+## V. Viscous Flows of Incompressible Fluids
+
+Here, the effects of viscosity are reintroduced, leading to the study of real fluid flows.
+
+* **The Stress Tensor for a Newtonian Fluid:** Relates the stress in a fluid to the strain rates and viscosity.
+* **The Navier-Stokes Equations:** The fundamental equations of motion for a viscous, incompressible Newtonian fluid.
+
+    $$\rho \left( \frac{\partial \mathbf{u}}{\partial t} + (\mathbf{u} \cdot \nabla) \mathbf{u} \right) = -\nabla p + \mu \nabla^2 \mathbf{u} + \rho \mathbf{g}$$
+* **Exact Solutions of the Navier-Stokes Equations:** For certain simplified geometries, the full equations can be solved analytically.
+  * **Plane Poiseuille Flow:** Flow between two stationary parallel plates.
+  * **Couette Flow:** Flow between a stationary plate and a moving plate.
+  * **Hagen-Poiseuille Flow:** Flow in a circular pipe.
+* **Low Reynolds Number (Stokes) Flow:** Flows where viscous forces are dominant over inertial forces, often seen in microfluidics and geophysics.
+* **Boundary Layer Theory:** For high Reynolds number flows, the effects of viscosity are confined to a thin layer near a solid surface. This theory, pioneered by Ludwig Prandtl, is crucial for understanding lift and drag.
+
+---
+
+## VI. Dimensional Analysis and Similitude
+
+This section focuses on the use of dimensional reasoning to reduce the number of variables in a problem and to scale experimental results.
+
+* **The Buckingham Pi Theorem:** A formal method for identifying dimensionless groups from a set of physical variables.
+* **Important Dimensionless Numbers:**
+  * **Reynolds Number (Re):** Ratio of inertial forces to viscous forces.
+  * **Mach Number (Ma):** Ratio of flow velocity to the speed of sound.
+  * **Froude Number (Fr):** Ratio of inertial forces to gravitational forces.
+  * **Prandtl Number (Pr):** Ratio of momentum diffusivity to thermal diffusivity.
+
+---
+
+## VII. Compressible Flow
+
+This area deals with flows in which the fluid density varies significantly, typically at high speeds (large Mach numbers).
+
+* **Thermodynamics of Compressible Flow:** The interplay between fluid dynamics and thermodynamic principles.
+* **Speed of Sound and the Mach Number:** Defining subsonic, sonic, supersonic, and hypersonic flow regimes.
+* **Isentropic Flow:** Idealized compressible flow with no entropy change, often used for nozzle and diffuser analysis.
+* **Shock Waves:** Discontinuities in flow properties that occur in supersonic flows.
+  * **Normal Shocks:** Perpendicular to the flow direction.
+  * **Oblique Shocks:** Occur at an angle to the flow.
+* **Rayleigh and Fanno Flow:** Models for compressible flow in ducts with heat addition and friction, respectively.
+
+---
+
+## VIII. Turbulence
+
+This is the study of chaotic, unsteady fluid motion that occurs at high Reynolds numbers.
+
+* **The Nature of Turbulent Flow:** Characterized by irregular fluctuations, enhanced mixing, and high rates of energy dissipation.
+* **Reynolds-Averaged Navier-Stokes (RANS) Equations:** A time-averaged form of the Navier-Stokes equations used to model turbulent flows.
+* **Turbulence Modeling:** The use of semi-empirical models to approximate the effects of turbulent fluctuations.
+* **The Energy Cascade and Kolmogorov's Theory:** A statistical theory describing the transfer of energy from large-scale eddies to smaller scales where it is dissipated by viscosity.
+
+---
+
+## IX. Advanced Topics
+
+Depending on the depth of the course, a theoretical outline may include specialized areas such as:
+
+* **Hydrodynamic Stability:** The study of how and why flows become unstable and transition to turbulence.
+* **Multiphase Flow:** The simultaneous flow of materials in different phases (e.g., gas-liquid, liquid-solid).
+* **Geophysical and Astrophysical Fluid Dynamics:** The study of fluid flows on planetary and cosmic scales, often including rotational and stratification effects.
+* **Computational Fluid Dynamics (CFD):** The use of numerical methods and computers to solve and analyze problems involving fluid flows.
