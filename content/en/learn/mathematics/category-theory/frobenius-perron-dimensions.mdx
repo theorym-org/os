@@ -1,0 +1,31 @@
+---
+title: Frobenius-Perron Dimensions
+description: An introduction to Frobenius-Perron dimensions
+---
+
+# Introduction
+
+For any simple object $X \in \text{Irr}(\mathcal{C})$, its tensor product with another simple object $Y$,
+decomposes as $X \otimes Y \cong \bigoplus_{Z \in \text{Irr}(\mathcal{C})} N_{X, Y}^{Z} Z$,
+where $N_{X, Y}^{Z} \in \mathbb{Z}^{+}$ are non-negative integers called the **fusion coefficients**.
+For a fixed $X$, the matrix $(N_X)_{Y, Z} = N_{X, Y}^{Z}$ is called the **fusion matrix** of $X$.
+
+The **Frobenius-Perron dimension** of a simple object $X$, denoted by $\text{FPdim}(X)$, is the largest positive real eigenvalue, called the Perron-Frobenius eigenvalue,
+of the fusion matrix $N_X$. $\text{FPdim}(X)$ is always an algebraic integer.
+
+The Frobenius-Perron dimension of a fusion category $\mathcal{C}$ is defined as the sum of the Frobenius-Perron dimensions of all simple objects in $\mathcal{C}$.
+Formally, it is given by
+$$
+\text{FPdim}(\mathcal{C}) = \sum_{X \in \text{Irr}(\mathcal{C})} (\text{FPdim}(X))^2.
+$$
+This also is an algebraic integer.
+
+The Frobenius-Perron dimension serves as a generalization of dimension and is a crucial invariant,
+particularly when working over non-algebraically closed fields where traditional notions of dimension might be more subtle.
+
+
+
+
+
+
+

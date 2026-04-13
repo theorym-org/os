@@ -1,0 +1,64 @@
+---
+title: Fusion Categories
+description: Fusion Categories
+---
+
+# Introduction
+
+Fusion categories, a captivating field at the crossroads of mathematics and physics, emerged in the late 1980s from the fertile ground of two-dimensional conformal field theory.
+Physicists, in their quest to understand the fundamental symmetries of these theories,
+encountered algebraic structures that went beyond the familiar framework of group representations. 
+It was the seminal work of Gregory Moore and Nathan Seiberg that laid the mathematical foundations for these structures, which they called "fusion rule algebras."
+
+These algebras captured the essential properties of how elementary particles, or more precisely, their corresponding quantum states, "fuse" together.
+This fusion process is described by a tensor product, a generalization of the familiar tensor product of vector spaces. Just as in group representation theory,
+where irreducible representations form the building blocks, fusion categories have **simple objects** that are the fundamental, indecomposable constituents.
+A key feature that sets fusion categories apart is **rigidity**, which, in essence, means that for every object, there exists a "dual" object,
+reminiscent of the dual of a vector space.
+
+The development of fusion categories was also deeply intertwined with the theory of **quantum groups**, which are non-commutative generalizations of Lie algebras,
+and with Vaughan Jones's work on **subfactor theory** in von Neumann algebras.
+This confluence of ideas revealed that fusion categories provide a unifying language for describing the representation theory of quantum groups
+and the structure of certain subfactors.
+
+In the early 1990s, the connection to **topological quantum field theory (TQFT)** became apparent.
+It was realized that fusion categories provide the algebraic data needed to construct three-dimensional TQFTs,
+which can be used to compute topological invariants of knots and 3-manifolds. This discovery solidified the importance of
+fusion categories as a bridge between algebra and topology.
+
+Today, the study of fusion categories is a vibrant and active area of research. Mathematicians and physicists continue to explore their rich structure,
+with applications ranging from the classification of exotic phases of matter in condensed matter physics to the development of new quantum computing architectures.
+The ongoing quest to classify fusion categories of a given rank—the number of their simple objects—is a challenging problem that continues to drive innovation in the field.
+
+## Definition
+
+<Definition>
+    A **fusion category** $\mathcal{C}$ over a field $k$ is a $k$-linear semisimple rigid monoidal category with a finite number of isomorphism classes of simple objects,
+    finite-dimensional Hom-spaces, and a simple monoidal unit $\mathbf{1}$.
+</Definition>
+
+- $k$-linear means that for any two objects $X$ and $Y$ in $\mathcal{C}$, the set of morphisms $\text{Hom}_{\mathcal{C}}(X, Y)$ is a $k$-vector space,
+and a composition of morphisms is $k$-bilinear.
+
+- Semisimple implies that every object in $\mathcal{C}$ can be expressed as a finite direct sum of simple objects.
+
+- Rigid means that every object $X$ has a left dual ${ }^{\ast}X$ and a right dual $X^{\ast}$.
+along with the evaluation and coevaluation maps satisfying certain axioms (the snake or zig-zag identities).
+
+- Monoidal refers to the existence of a tensor product functor $\otimes: \mathcal{C} \times \mathcal{C} \to \mathcal{C}$, a unit object $\mathbf{1}$    ,
+and a natural isomorphisms, called associators given by $\alpha_{X, Y, Z}: (X \otimes Y) \otimes Z \to X \otimes (Y \otimes Z)$,
+and left and right unitors $\lambda_X: \mathbf{1} \otimes X \to X$ and $\rho_X: X \otimes \mathbf{1} \to X$, for all objects $X, Y, Z$ in $\mathcal{C}$,
+satisfying coherence conditions, called the pentagon and triangle identities.
+
+- The monoidal unit $\mathbf{1}$ is a simple object, meaning $\text{Hom}_{\mathcal{C}}(\mathbf{1}, \mathbf{1}) \cong E$, where $E$ is the ground field.
+If $k$ is algebraically closed, it is typically assumed that $E \cong k$.
+However, for a general field $k$, $E = \text{End}_{\mathcal{C}}(\mathbf{1})$ can be a finite field extension of $k$.
+This field $E$ is the true field of scalars for the category.
+
+
+
+## Fusion Rule Algebras
+
+## Quantum Groups
+
+## Subfactor Theory

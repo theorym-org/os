@@ -1,0 +1,124 @@
+---
+title: "Outline"
+description: "The outline of the linear algebra course"
+---
+
+# Linear Algebra: From Calculation to Concept
+
+This outline is structured in four major parts, designed to take a student from the foundational mechanics of solving equations to the abstract beauty of vector spaces and their application in solving complex problems across science and technology.
+
+## Part I: The Concrete Foundations – Systems of Linear Equations and Matrix Algebra
+
+This section focuses on the historical motivation for linear algebra: solving systems of linear equations. It builds the essential computational skills that will be used throughout the course.
+
+### Module 1: Systems of Linear Equations
+
+**1.1 Introduction to Linear Systems:** Geometric interpretation of solutions in 2D and 3D (intersecting lines and planes).
+
+**1.2 Matrix Representation:** Representing linear systems with coefficient and augmented matrices.
+
+**1.3 Gaussian Elimination:** The systematic algorithm of row reduction to solve systems.
+
+**1.4 Echelon Forms:** Row Echelon Form (REF) and Reduced Row Echelon Form (RREF).
+
+**1.5 Solution Sets:** Understanding pivots and free variables to describe unique solutions, no solutions, and infinite solutions.
+
+### Module 2: Matrix Operations and Algebra
+
+**2.1 The Matrix as an Object:** Introduction to matrices beyond simple bookkeeping.
+
+**2.2 Matrix Algebra:** Defining and understanding the properties of matrix addition, scalar multiplication, and matrix multiplication.
+
+**2.3 The Inverse of a Matrix:** The concept of an inverse, its properties, and methods for finding it using Gauss-Jordan elimination.
+
+**2.4 Special Matrices:** The Identity Matrix, Zero Matrix, and the Transpose.
+
+**2.5 LU Decomposition:** Factoring a matrix into lower and upper triangular forms as an efficient method for solving multiple systems with the same coefficient matrix.
+
+## Part II: The Abstract Structure - Vector Spaces
+
+This section makes the crucial leap from matrices as arrays of numbers to the underlying, unifying structure of the vector space. This abstraction is the key to linear algebra's broad applicability.
+
+### Module 3: Vector Spaces and Subspaces
+
+**3.1 Vectors in $\mathbb{R}^n$:** Reviewing vectors as arrows and lists of numbers; defining vector addition and scalar multiplication geometrically and algebraically.
+
+**3.2 The Axioms of a Vector Space:** The formal, abstract definition of a vector space.
+
+**3.3 Examples of Vector Spaces:** Exploring vector spaces beyond $\mathbb{R}^n$, such as spaces of polynomials, functions, and matrices, to demonstrate the power of abstraction.
+
+**3.4 Subspaces:** Defining a subspace and using the subspace test to identify them.
+
+**3.5 Key Subspaces of a Matrix:** The Null Space (Kernel) and the Column Space (Image/Range) and their significance.
+
+### Module 4: Basis, Dimension, and Rank
+
+**4.1 Linear Independence and Dependence:** The concept of redundancy in a set of vectors.
+
+**4.2 Basis:** Defining a basis as a minimal spanning set that is also linearly independent.
+
+**4.3 Dimension:** The idea that every basis for a given vector space has the same number of vectors.
+
+**4.4 Coordinate Systems:** Representing any vector uniquely as a linear combination of basis vectors.
+
+**4.5 The Rank-Nullity Theorem:** The fundamental relationship between the dimensions of the four fundamental subspaces of a matrix.
+
+## Part III: The Dynamics - Linear Transformations and Eigen-Theory
+
+This section explores the "action" of linear algebra: how vectors and spaces are transformed. This is where the geometric intuition of the subject truly comes alive and leads to one of its most powerful ideas: the eigenvector.
+
+### Module 5: Linear Transformations
+
+**5.1 Introduction to Linear Transformations:** Defining a transformation (or mapping) that preserves vector addition and scalar multiplication.
+
+**5.2 The Matrix of a Linear Transformation:** Showing that every linear transformation from $\mathbb{R}^n$ to $\mathbb{R}^m$ can be represented by a matrix multiplication.
+
+**5.3 Geometric Transformations:** Analyzing rotations, reflections, scaling, shears, and projections in 2D and 3D using transformation matrices.
+
+**5.4 Kernel and Range Revisited:** The geometric interpretation of the null space and column space of the transformation matrix.
+
+**5.5 Composition and Invertibility:** Relating matrix multiplication to the composition of transformations and matrix inversion to invertible transformations.
+
+### Module 6: Eigenvalues and Eigenvectors
+
+**6.1 The Eigen-Problem:** Introducing eigenvectors as special vectors that are only scaled by a transformation, and eigenvalues as the scaling factor.
+
+**6.2 The Characteristic Equation:** Using determinants to find eigenvalues: $\det(A - \lambda I) = 0$.
+
+**6.3 Finding Eigenvectors:** Solving for the null space of $(A - \lambda I)$ to find the eigenspace corresponding to each eigenvalue.
+
+**6.4 Diagonalization:** The process of finding an "eigenbasis" that simplifies the transformation matrix into a diagonal matrix of its eigenvalues.
+
+## Part IV: The Geometry and Applications
+
+This final section grounds the abstract theory in the familiar geometry of dot products and angles, and then showcases how the entire framework is applied in diverse and critical fields.
+
+### Module 7: Orthogonality and Inner Product Spaces
+
+**7.1 Dot Product, Norm, and Orthogonality:** Defining length, distance, and perpendicularity for vectors.
+
+**7.2 Orthogonal Projections:** Decomposing a vector into components parallel and perpendicular to another vector or subspace.
+
+**7.3 The Gram-Schmidt Process:** An algorithm for constructing an orthonormal basis from any given basis.
+
+**7.4 Least-Squares Problems:** Finding the "best possible" solution to an inconsistent system of equations, with direct applications to linear regression and data fitting.
+
+**7.5 Inner Product Spaces:** Generalizing the dot product to abstract vector spaces, such as those for functions.
+
+### Module 8: Advanced Topics and Applications
+
+**8.1 Symmetric Matrices and Orthogonal Diagonalization:** The special properties of symmetric matrices (real eigenvalues, orthogonal eigenvectors) and their importance.
+
+**8.2 Singular Value Decomposition (SVD):** Decomposing any matrix into a product of orthogonal and diagonal matrices, a powerful tool in data analysis.
+
+**8.3 Application Spotlight: Computer Graphics:** Using homogeneous coordinates to perform 3D rotation, scaling, and translation with $4 \times 4$ matrices.
+
+**8.4 Application Spotlight: Data Science & AI:**
+- Principal Component Analysis (PCA) using eigenvalues to reduce the dimensionality of data.
+- The role of matrix multiplication in the architecture of neural networks.
+
+**8.5 Application Spotlight: Physics and Engineering:**
+- Quantum Mechanics: State vectors, operators, and eigenvalues.
+- General Relativity: The role of tensors and linear operators.
+
+**8.6 Application Spotlight: Network Analysis:** The PageRank algorithm's use of a dominant eigenvector to rank web pages.   

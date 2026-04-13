@@ -1,0 +1,257 @@
+---
+title: Worked Examples of the Drinfeld Center
+description: Detailed calculations and examples of Drinfeld centers for specific categories
+---
+
+# Worked Examples of the Drinfeld Center
+
+## Introduction
+
+In the previous chapter, we introduced the general concept of the Drinfeld center of a monoidal category. In this chapter, we'll work through explicit examples to demonstrate how to compute Drinfeld centers for specific categories. These concrete calculations will help develop intuition for this important categorical construction.
+
+## The Drinfeld Center of Vec(G)
+
+### Definition of Vec(G)
+
+<div>
+    <Definition number="2.1" name="G-Graded Vector Spaces">
+        For a group $G$, the category $\text{Vec}(G)$ consists of:
+        - Objects: Vector spaces $V$ with a direct sum decomposition $V = \bigoplus_{g \in G} V_g$
+        - Morphisms: Linear maps preserving the grading
+        - Tensor product: $(V \otimes W)_h = \bigoplus_{g_1g_2=h} V_{g_1} \otimes W_{g_2}$
+        - Unit object: The base field $k$, considered as concentrated in degree $e$ (the identity element of $G$)
+    </Definition>
+</div>
+
+<div>
+    <Remark>
+        $\text{Vec}(G)$ can be viewed as the category of representations of the group algebra $kG$, where the $G$-grading corresponds to the weight decomposition under the action of $G$.
+    </Remark>
+</div>
+
+### Simple Objects in Vec(G)
+
+<div>
+    <Proposition number="2.1">
+        The simple objects in $\text{Vec}(G)$ are one-dimensional vector spaces concentrated in a single degree $g \in G$.
+    </Proposition>
+</div>
+
+<div>
+    <Proof>
+        Let $V$ be a simple object in $\text{Vec}(G)$. Since $V = \bigoplus_{g \in G} V_g$, and each $V_g$ is a subobject of $V$ (preserved by all grading-preserving morphisms), the simplicity of $V$ implies that $V = V_g$ for some $g \in G$. Moreover, since any invariant subspace of $V_g$ would give an invariant subspace of $V$, we must have $\dim(V_g) = 1$.
+    </Proof>
+</div>
+
+### Computing the Drinfeld Center Z(Vec(G))
+
+Now let's determine the structure of the Drinfeld center of Vec(G).
+
+<div>
+    <Theorem number="2.1">
+        For a finite group $G$, the Drinfeld center $\mathcal{Z}(\text{Vec}(G))$ is equivalent to the category $\text{Rep}(\mathcal{D}(G))$ of representations of the Drinfeld double $\mathcal{D}(G)$ of the group algebra $kG$.
+    </Theorem>
+</div>
+
+To understand this, let's work directly with the definition of the Drinfeld center.
+
+<div>
+    <Example number="2.1" name="Computing Z(Vec(G))">
+        An object in $\mathcal{Z}(\text{Vec}(G))$ is a pair $(X, \phi)$ where:
+        - $X$ is a $G$-graded vector space, $X = \bigoplus_{g \in G} X_g$
+        - $\phi$ is a family of isomorphisms $\phi_Y: X \otimes Y \to Y \otimes X$ for each $Y$ in $\text{Vec}(G)$, satisfying the hexagon identity
+    </Example>
+</div>
+
+<div>
+    <Proposition number="2.2">
+        For a simple object $(X, \phi)$ in $\mathcal{Z}(\text{Vec}(G))$ where $X$ is concentrated in a single degree $g \in G$, the element $g$ must be in the center $Z(G)$ of $G$.
+    </Proposition>
+</div>
+
+<div>
+    <Proof>
+        Let $X$ be concentrated in degree $g$. For any $h \in G$, let $k_h$ be the one-dimensional vector space concentrated in degree $h$. The half-braiding $\phi_{k_h}$ must map $X \otimes k_h$ to $k_h \otimes X$.
+
+        The object $X \otimes k_h$ is concentrated in degree $gh$, while $k_h \otimes X$ is concentrated in degree $hg$. For $\phi_{k_h}$ to be well-defined, we must have $gh = hg$, which means $g$ commutes with $h$. Since this must hold for all $h \in G$, we have $g \in Z(G)$.
+    </Proof>
+</div>
+
+<div>
+    <Theorem number="2.2">
+        The simple objects in $\mathcal{Z}(\text{Vec}(G))$ are in one-to-one correspondence with pairs $(g, \rho)$ where:
+        - $g$ is an element of the center $Z(G)$ of the group
+        - $\rho$ is an irreducible representation of the centralizer $C_G(g)$
+    </Theorem>
+</div>
+
+<div>
+    <Example number="2.2" name="Z(Vec(Z₂))">
+        For $G = \mathbb{Z}_2 = \{0, 1\}$, the center $Z(G) = G$ since $\mathbb{Z}_2$ is abelian.
+        The centralizer $C_G(g) = G$ for all $g \in G$.
+        $\mathbb{Z}_2$ has two irreducible representations: the trivial representation $(+)$ and the sign representation $(-)$.
+        
+        Therefore, the simple objects in $\mathcal{Z}(\text{Vec}(\mathbb{Z}_2))$ are:
+        1. $(0, +)$: The trivial representation on degree 0
+        2. $(0, -)$: The sign representation on degree 0
+        3. $(1, +)$: The trivial representation on degree 1
+        4. $(1, -)$: The sign representation on degree 1
+    </Example>
+</div>
+
+<div>
+    <Example number="2.3" name="Z(Vec(S₃))">
+        For the symmetric group $S_3$, the center $Z(S_3) = \{e\}$ (only the identity element).
+        The centralizer $C_{S_3}(e) = S_3$.
+        $S_3$ has three irreducible representations: the trivial, sign, and 2-dimensional representations.
+        
+        Therefore, the simple objects in $\mathcal{Z}(\text{Vec}(S_3))$ corresponding to the identity element are:
+        1. $(e, \text{trivial})$
+        2. $(e, \text{sign})$
+        3. $(e, \text{2-dim})$
+    </Example>
+</div>
+
+### Braiding in Z(Vec(G))
+
+<div>
+    <Proposition number="2.3">
+        For two simple objects $(g, \rho)$ and $(h, \sigma)$ in $\mathcal{Z}(\text{Vec}(G))$ with $g, h \in Z(G)$, the braiding isomorphism:
+        
+        $c_{(g, \rho), (h, \sigma)}: (g, \rho) \otimes (h, \sigma) \to (h, \sigma) \otimes (g, \rho)$
+        
+        is given by the composition of the natural swap of tensor factors with the half-braiding $\phi$.
+    </Proposition>
+</div>
+
+<div>
+    <Example number="2.4" name="Braiding in Z(Vec(Z₂))">
+        For the simple objects in $\mathcal{Z}(\text{Vec}(\mathbb{Z}_2))$, the braiding is determined by the group elements and the representations.
+        
+        For instance, the braiding between $(1, +)$ and $(1, -)$ introduces a sign, reflecting the representation structure.
+    </Example>
+</div>
+
+## The Drinfeld Center of Rep(G)
+
+Another important example is the Drinfeld center of $\text{Rep}(G)$, the category of finite-dimensional representations of a finite group $G$.
+
+### Definition of Rep(G)
+
+<div>
+    <Definition number="2.2" name="Representation Category">
+        For a finite group $G$, the category $\text{Rep}(G)$ consists of:
+        - Objects: Finite-dimensional vector spaces $V$ equipped with a group homomorphism $\rho: G \to \text{GL}(V)$
+        - Morphisms: $G$-equivariant linear maps
+        - Tensor product: $(V \otimes W, \rho_{V \otimes W})$ where $\rho_{V \otimes W}(g)(v \otimes w) = \rho_V(g)(v) \otimes \rho_W(g)(w)$
+        - Unit object: The base field $k$ with the trivial $G$-action
+    </Definition>
+</div>
+
+### Structure of Z(Rep(G))
+
+<div>
+    <Theorem number="2.3">
+        The Drinfeld center $\mathcal{Z}(\text{Rep}(G))$ is equivalent to the category of modules over the Drinfeld double $\mathcal{D}(G)$, which can be described as:
+        
+        $\mathcal{Z}(\text{Rep}(G)) \cong \bigoplus_{(c)} \text{Rep}(\mathcal{C}_G(g_c))$
+        
+        where:
+        - The sum is over conjugacy classes $c$ of $G$
+        - $g_c$ is a representative of the conjugacy class $c$
+        - $\mathcal{C}_G(g_c)$ is the centralizer of $g_c$ in $G$
+    </Theorem>
+</div>
+
+<div>
+    <Example number="2.5" name="Z(Rep(S₃))">
+        For the symmetric group S₃, there are 3 conjugacy classes:
+        1. Identity: $\{e\}$ with centralizer $S_3$
+        2. Transpositions: $\{(12), (13), (23)\}$ with centralizer $\mathbb{Z}_2$
+        3. 3-cycles: $\{(123), (132)\}$ with centralizer $\mathbb{Z}_3$
+        
+        Therefore, $\mathcal{Z}(\text{Rep}(S_3))$ has:
+        - 3 simple objects from $\text{Rep}(S_3)$ (conjugacy class of identity)
+        - 2 simple objects from $\text{Rep}(\mathbb{Z}_2)$ (conjugacy class of transpositions)
+        - 3 simple objects from $\text{Rep}(\mathbb{Z}_3)$ (conjugacy class of 3-cycles)
+        
+        For a total of 8 simple objects.
+    </Example>
+</div>
+
+<div>
+    <Exercise number="2.1">
+        Verify that the number of simple objects in $\mathcal{Z}(\text{Rep}(G))$ equals the number of pairs $(c, \rho)$ where $c$ is a conjugacy class of $G$ and $\rho$ is an irreducible representation of the centralizer $\mathcal{C}_G(g_c)$.
+    </Exercise>
+</div>
+
+## Beyond Group Examples
+
+### The Drinfeld Center of TY(sl₂)
+
+A more advanced example comes from the representation theory of quantum groups.
+
+<div>
+    <Definition number="2.3" name="Temperley-Lieb Category">
+        The Temperley-Lieb category $\text{TL}(q)$ for $q \in \mathbb{C}^*$ is a monoidal category where:
+        - Objects are natural numbers
+        - Morphisms are $\mathbb{C}$-linear combinations of planar diagrams
+        - Tensor product is addition of natural numbers
+        - Each loop in a diagram contributes a factor of $q + q^{-1}$
+    </Definition>
+</div>
+
+<div>
+    <Remark>
+        For $q$ a root of unity, the semisimplification of the representation category of $U_q(\text{sl}_2)$ is related to the Temperley-Lieb category $\text{TL}(q)$.
+    </Remark>
+</div>
+
+<div>
+    <Example number="2.6" name="Z(TY(sl₂))">
+        The Drinfeld center of the Temperley-Lieb category at a root of unity has a rich structure related to conformal field theory, specifically the SU(2) Wess-Zumino-Witten model.
+        
+        The simple objects correspond to "anyons" in physics, particles with exotic exchange statistics.
+    </Example>
+</div>
+
+## Computational Methods
+
+### Categorical Reconstruction
+
+<div>
+    <Proposition number="2.4">
+        For a factorizable finite tensor category $C$, the Drinfeld center $\mathcal{Z}(C)$ can be reconstructed from the Grothendieck ring of $C$ and its S-matrix.
+    </Proposition>
+</div>
+
+<div>
+    <Example number="2.7" name="Reconstruction Formula">
+        For a modular tensor category with simple objects $\{X_i\}$ and S-matrix entries $s_{ij}$, the characters of simple objects in the Drinfeld center can be expressed using the Verlinde formula.
+    </Example>
+</div>
+
+<div>
+    <Exercise number="2.2">
+        Apply the reconstruction method to compute the fusion rules in $\mathcal{Z}(\text{Vec}(\mathbb{Z}_3))$.
+    </Exercise>
+</div>
+
+## Applications of These Examples
+
+<div>
+    <Remark>
+        These concrete examples of Drinfeld centers have applications in:
+        - Topological quantum computation ($\mathcal{Z}(\text{Vec}(G))$ for abelian $G$)
+        - Quantum invariants of 3-manifolds ($\mathcal{Z}(\text{Rep}(G))$)
+        - Conformal field theory ($\mathcal{Z}(\text{TY}(\text{sl}_2))$)
+    </Remark>
+</div>
+
+<div>
+    <Example number="2.8" name="Kitaev's Toric Code">
+        Kitaev's toric code for quantum error correction can be understood in terms of the Drinfeld center $\mathcal{Z}(\text{Vec}(\mathbb{Z}_2))$. The anyonic excitations in this model correspond to the four simple objects we identified earlier.
+    </Example>
+</div>
+
+In the next chapter, we'll explore the connection between Drinfeld centers and topological quantum field theories, revealing how these categorical constructions encode physical phenomena.

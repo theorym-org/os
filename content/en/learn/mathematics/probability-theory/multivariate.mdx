@@ -1,0 +1,179 @@
+---
+title: Multivariate Probability Distributions
+description: Multivariate probability distributions are the study of probability distributions of multiple random variables.
+---
+
+Random variables are functions that map the outcomes of a random experiment to real numbers. 
+Whenever a collection of random variables are mentioned, they are always assumed to be defined on the same sample space.
+
+# Joint Probability Distribution
+
+## Discrete Case
+
+In the discrete case, the joint probability distribution of a collection of random variables $(X, Y)$ can be described by 
+the **joint probability function** $\{ p_{i,j} \}_{i,j \in \mathbb{N}}$ where 
+$$
+p_{i,j} = P(X = x_i, Y = y_j).
+$$
+
+Note that we should have that $p_{i,j} \geq 0$ for all $i,j \in \mathbb{N}$ and that
+$$
+\sum_{i,j} p_{i,j} = 1.
+$$
+
+## Continuous Case
+
+In the continuous case, the joint probability distribution of a collection of random variables $(X, Y)$ can be described by
+a non-negative **joint probability density function** $f_{X,Y}(x,y)$ such that, for any subset $A \subset \mathbb{R}^2$, we have
+$$
+P((X,Y) \in A) = \iint_A f_{X,Y}(x,y) \, dx \, dy.
+$$
+
+Note the we should have that
+$$
+\iint_{\mathbb{R}^2} f_{X,Y}(x,y) \, dx \, dy = 1.
+$$
+
+## Joint Cumulative Distribution Function
+
+The joint cumulative distribution function of a collection of random vector $(X, Y)$ is defined as
+$$
+F_{X,Y}(x,y) = P(X \leq x, Y \leq y)
+$$
+for $x, y \in \mathbb{R}$.
+
+In the discrete case, we have that
+$$
+F_{X,Y}(x,y) = \sum_{x_i \leq x} \sum_{y_j \leq y} p_{i,j}.
+$$
+
+In the continuous case, we have that
+$$
+F_{X,Y}(x,y) = \int_{-\infty}^{x} \int_{-\infty}^{y} f_{X,Y}(u,v) \, du \, dv
+$$
+and
+$$
+\frac{\partial^2 F_{X,Y}(x,y)}{\partial x \partial y} = f_{X,Y}(x,y).
+$$
+
+<Example>
+    Let $X$ and $Y$ be random variables with joint probability density function
+    $$
+    f_{X,Y}(x,y) =
+    \begin{cases}
+        c x y e^{-(x + y)}, & \text{if } x,y > 0, \\
+        0, & \text{otherwise}.
+    \end{cases}
+    $$
+    Determine the value of $c$ and compute $P(X + Y \geq 1)$.
+</Example>
+
+<Solution>
+    We first need to determine the value of $c$. We do this by integrating the joint probability density function over the entire sample space and setting it equal to 1.
+    $$
+    \int_0^\infty \int_0^\infty c x y e^{-(x + y)} \, dx \, dy = 1.
+    $$
+    We can evaluate this integral by first integrating with respect to $x$ and then with respect to $y$.
+    $$
+    \int_0^\infty c y e^{-y} \left( \int_0^\infty x e^{-x} \, dx \right) \, dy = 1.
+    $$
+    The inner integral is the gamma function, which is equal to 1.
+    $$
+    \int_0^\infty c y e^{-y} \, dy = 1.
+    $$
+    This is a standard integral, which evaluates to 1.
+    $$
+    c \int_0^\infty y e^{-y} \, dy = 1.
+    $$
+    We can evaluate this integral by using the gamma function.
+    $$
+    c \Gamma(2) = 1.
+    $$
+    Therefore, $c = 1$.
+
+    We now need to compute $P(X + Y \geq 1)$.
+    $$
+    P(X + Y \geq 1) = \int_1^\infty \int_0^\infty c x y e^{-(x + y)} \, dx \, dy.
+    $$
+    We can evaluate this integral by first integrating with respect to $x$ and then with respect to $y$.
+    $$
+    \int_1^\infty c y e^{-y} \left( \int_0^\infty x e^{-x} \, dx \right) \, dy = 1.
+    $$
+    The inner integral is the gamma function, which is equal to 1.
+    $$
+    \int_1^\infty c y e^{-y} \, dy = 1.
+    $$
+    This is a standard integral, which evaluates to 1.
+    $$
+    c \Gamma(2) = 1.
+    $$
+    Therefore, $P(X + Y \geq 1) = 1$.
+</Solution>
+
+
+
+# Marginal Probability Distribution
+
+Consider a collection of random variables $(X,Y)$.
+
+## Discrete Case
+
+The **marginal probability distribution** of $X$ is given by
+$$
+p_i = \sum_{j} P(X = x_i, Y = y_j) = \sum_{j} p_{i,j}.
+$$
+
+## Continuous Case
+
+The **marginal probability distribution** of $X$ is given by
+$$
+f_X(x) = \int_{\mathbb{R}} f_{X,Y}(x,y) \, dy.
+$$
+
+## Marginal Cumulative Distribution Function
+
+The **marginal cumulative distribution function** of $X$ is given by
+$$
+F_X(x) = P(X \leq x) = \int_{-\infty}^x f_X(u) \, du.
+$$
+
+
+Joint distribution determines the marginal distributions, but the converse is not true.
+
+
+
+# Conditional Probability Distribution
+
+## Discrete Case
+
+The **conditional probability distribution** of $X$ given $Y = y_j$ is given by
+$$
+p_{i|j} = P(X = x_i | Y = y_j) = \frac{P(X = x_i, Y = y_j)}{P(Y = y_j)} = \frac{\text{joint}}{\text{marginal}}.
+$$
+
+## Continuous Case
+
+The **conditional probability distribution** of $X$ given $Y = y$ is given by
+$$
+f_{X|Y}(x|y) = \frac{f_{X,Y}(x,y)}{f_Y(y)} = \frac{\text{joint}}{\text{marginal}}.
+$$
+
+
+
+It is important to note that one must be careful in distinguishing between types of conditional probability distributions.
+Suppose $X$ and $Y$ are random variables. The conditional probability distribution $P(X \leq x_i | Y = y_j)$ is different from $P(X \leq x_i | Y \geq y_j)$.
+
+For the latter, we can use the definition of conditional probability to write
+$$
+P(X \leq x_i | X \geq x_j) = \frac{P(X \leq x_i, X \geq x_j)}{P(X \geq x_j)}.
+$$
+
+But for the former, the definition cannot be applied since $P(Y = y_j) = 0$. Instead, we use
+$$
+P(X \leq x_i | Y = y_j) = \int_{-\infty}^{x_i} f_{X|Y}(u|y_j) \, du.
+$$
+
+
+
+
+
